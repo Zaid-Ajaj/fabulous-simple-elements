@@ -1,0 +1,12 @@
+source https://api.nuget.org/v3/index.json
+
+storage:none
+
+nuget Fabulous.Core
+nuget FSharp.Core ~> 4.5.0
+
+group Build
+  framework >= net45
+  source https://api.nuget.org/v3/index.json
+
+  nuget FAKE ~> 4.64.6

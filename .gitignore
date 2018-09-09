@@ -1,0 +1,8 @@
+bin
+obj
+packages
+paket-files
+.fake
+dist
+.vs
+*.xml
