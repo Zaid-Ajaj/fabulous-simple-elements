@@ -1,4 +1,4 @@
-# Fabulous.SimpleElements [![Nuget](https://img.shields.io/nuget/v/Fabulous.SimpleElements.svg?colorB=green)](https://www.nuget.org/packages/Fabulous.SimpleElements)   [![Build Status](https://travis-ci.org/Zaid-Ajaj/Fabulous.SimpleElements.svg?branch=master)](https://travis-ci.org/Zaid-Ajaj/Fabulous.SimpleElements)
+# Fabulous.SimpleElements [![Nuget](https://img.shields.io/nuget/v/Fabulous.SimpleElements.svg?colorB=green)](https://www.nuget.org/packages/Fabulous.SimpleElements)   [![Build Status](https://travis-ci.org/Zaid-Ajaj/fabulous-simple-elements.svg?branch=master)](https://travis-ci.org/Zaid-Ajaj/fabulous-simple-elements)
 
 
 An alternative view rendering API for [Fabulous](https://github.com/fsprojects/Fabulous) that is easy to use and simple to read, inspired by Elmish on the web. 
@@ -30,3 +30,5 @@ StackLayout.stackLayout [
 ```
 ### Running the samples
 To run a sample, you have to build the `Fabulous.SimpleElements` project first using `./build.sh` or `build.cmd` then open the solution of the sample and start the selected project. This is needed because (for some reason), Visual Studio can't make a project reference from the sample, but a dll reference will work fine, that's why we have to build the main project in release mode first. 
+### Fifteen Puzzle Sample
+![fifteen-puzzle](assets/fifteen-puzzle.gif)

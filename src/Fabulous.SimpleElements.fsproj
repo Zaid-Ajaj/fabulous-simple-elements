@@ -2,13 +2,13 @@
 
   <PropertyGroup>
     <Description>An alternative view rendering API for Fabulous that is easy to use and simple to read, inspired by Elmish on the web. </Description>
-    <PackageProjectUrl>https://github.com/Zaid-Ajaj/Fabulous.SimpleElements</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/Zaid-Ajaj/Fabulous.SimpleElements.git</RepositoryUrl>
-    <PackageLicenseUrl>https://github.com/Zaid-Ajaj/Fabulous.SimpleElements/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/Zaid-Ajaj/fabulous-simple-elements</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Zaid-Ajaj/fabulous-simple-elements.git</RepositoryUrl>
+    <PackageLicenseUrl>https://github.com/Zaid-Ajaj/fabulous-simple-elements/blob/master/LICENSE</PackageLicenseUrl>
     <PackageIconUrl></PackageIconUrl>
     <PackageTags>fsharp;xamarin;forms;view-dsl</PackageTags>
     <Authors>Zaid Ajaj</Authors>
-    <Version>0.1.0</Version>
+    <Version>0.1.1</Version>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
