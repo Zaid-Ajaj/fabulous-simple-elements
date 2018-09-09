@@ -8,7 +8,7 @@
     <PackageIconUrl></PackageIconUrl>
     <PackageTags>fsharp;xamarin;forms;view-dsl</PackageTags>
     <Authors>Zaid Ajaj</Authors>
-    <Version>0.1.1</Version>
+    <Version>0.2.0</Version>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
@@ -16,7 +16,10 @@
   <ItemGroup>
     <Compile Include="Util.fs" />
     <Compile Include="FontSizes.fs" />
+    <Compile Include="TextEntry.fs" />
     <Compile Include="Grid.fs" />
+    <Compile Include="ActivityIndicator.fs" />
+    <Compile Include="DatePicker.fs" />
     <Compile Include="Switch.fs" />
     <Compile Include="StackLayout.fs" />
     <Compile Include="Button.fs" />

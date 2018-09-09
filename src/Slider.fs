@@ -21,7 +21,6 @@ let Maximum (value: double) = createProp "maximum" value
 let Value (value: double) = createProp "value" value 
 let OnValueChanged (f: ValueChangedEventArgs -> unit) = createProp "valueChanged" f 
 // === Slider Specific === 
-
 let GestureRecognizers (elements: ViewElement list) = createProp "gestureRecognizers" elements 
 let HorizontalLayout (options: LayoutOptions) = createProp "horizontalOptions" (box options)
 let IsEnabled (condition: bool) = createProp "isEnabled" condition
