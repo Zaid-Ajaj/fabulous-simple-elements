@@ -7,6 +7,7 @@ open Fabulous.DynamicViews
 open Xamarin.Forms
 
 module App = 
+    open System
     
     type Position = { X: int; Y: int }
 
@@ -153,7 +154,9 @@ module App =
                     ]
                 ]
 
-        View.ContentPage(appLayout)
+        ContentPage.contentPage [ 
+            ContentPage.Content appLayout 
+        ]
             
     // Note, this declaration is needed if you enable LiveUpdate
     let program = Program.mkSimple initialState update render
