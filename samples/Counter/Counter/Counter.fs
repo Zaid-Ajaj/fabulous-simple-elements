@@ -49,6 +49,7 @@ module App =
                     Label.HorizontalLayout LayoutOptions.Center
                 ]
                 createButton "Increment" Increment 
+                createButton "Decrement" Decrement 
                 createButton "Increment Delayed" IncrementDelayed
                 createButton "Reset" Reset 
             ]

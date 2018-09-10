@@ -28,8 +28,11 @@ StackLayout.stackLayout [
     ]
 ]
 ```
-### Running the samples
+# Running the samples
 Each sample has it's own solution, open any of the samples in Visual Studio or Visual Studio for Mac, select your preferred project to start the app, either `<AppName>.Android` or `<AppName>.iOS` and run the project. 
 
 ### Fifteen Puzzle Sample
 ![fifteen-puzzle](assets/fifteen-puzzle.gif)
+
+### Counter Sample 
+![Counter](assets/counter.gif)
