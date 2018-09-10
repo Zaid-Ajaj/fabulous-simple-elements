@@ -7,7 +7,7 @@
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{73B31A76-2DD3-44D8-994F-BFB1875C9E27}</ProjectGuid>
+    <ProjectGuid>{89728D83-BBD1-4D7C-A29B-21C0B3D6D1F9}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{F2A71F9B-5D33-465A-A702-920D77279786}</ProjectTypeGuids>
     <TemplateGuid>{6143fdea-f3c2-4a09-aafa-6e230626515e}</TemplateGuid>
     <OutputType>Exe</OutputType>
@@ -19,7 +19,6 @@
     </NuGetPackageImportStamp>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <RestorePackages>true</RestorePackages>
-    <SelectedDevice>Simulator</SelectedDevice>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -182,7 +181,7 @@
       <HintPath>..\packages\Xamarin.Essentials.0.6.0-preview\lib\monoandroid71\Xamarin.Essentials.dll</HintPath>
     </Reference>
     <ProjectReference Include="..\FifteenPuzzle\FifteenPuzzle.fsproj">
-      <Project>{FD447CD2-F693-4735-BB07-B2936A927AB2}</Project>
+      <Project>{17358CB8-0D5B-4B48-A873-640617AA1EF1}</Project>
       <Name>FifteenPuzzle</Name>
     </ProjectReference>
   </ItemGroup>

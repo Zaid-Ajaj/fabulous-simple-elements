@@ -209,3 +209,5 @@ type App () as app =
         Console.WriteLine "OnStart: using same logic as OnResume()"
         this.OnResume()
 #endif
+
+

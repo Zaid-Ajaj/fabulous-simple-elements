@@ -6,7 +6,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{F2A71F9B-5D33-465A-A702-920D77279786}</ProjectTypeGuids>
-    <ProjectGuid>{BD1668AE-4CC2-48EA-8247-09D0978E9C08}</ProjectGuid>
+    <ProjectGuid>{F2068A6B-CC41-4F9C-A358-E3A3EE1B1ED0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>FifteenPuzzle.Android</RootNamespace>
     <AssemblyName>FifteenPuzzle.Android</AssemblyName>
@@ -117,6 +117,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Fabulous.SimpleElements">
+      <HintPath>..\packages\Fabulous.SimpleElements.0.3.0\lib\netstandard2.0\Fabulous.SimpleElements.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Mono.Android" />
     <Reference Include="System" />
@@ -222,7 +225,7 @@
       <HintPath>..\packages/Xamarin.Essentials.0.6.0-preview/lib/monoandroid71/Xamarin.Essentials.dll</HintPath>
     </Reference>
     <ProjectReference Include="..\FifteenPuzzle\FifteenPuzzle.fsproj">
-      <Project>{FD447CD2-F693-4735-BB07-B2936A927AB2}</Project>
+      <Project>{17358CB8-0D5B-4B48-A873-640617AA1EF1}</Project>
       <Name>FifteenPuzzle</Name>
     </ProjectReference>
   </ItemGroup>
