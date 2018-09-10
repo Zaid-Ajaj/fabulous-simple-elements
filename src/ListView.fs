@@ -59,6 +59,12 @@ let ClassId (id: string) = createProp "classId" id
 let AutomationId (id: string) = createProp "automationId" id
 let Resources (values: (string * obj) list) = createProp "resources" values 
 let InputTransparent (condition: bool) = createProp "inputTransparent" condition 
+// === Grid definitions ===
+let GridRow (n: int) = createProp "gridRow" n 
+let GridColumn (n: int) = createProp "gridColumn" n 
+let GridRowSpan (n: int) = createProp "gridRowSpan" n
+let GridColumnSpan (n: int) = createProp "gridColumnSpan" n
+// === Grid definitions ===
 
 let listView (props: IListViewProp list) = 
     let attributes = 
