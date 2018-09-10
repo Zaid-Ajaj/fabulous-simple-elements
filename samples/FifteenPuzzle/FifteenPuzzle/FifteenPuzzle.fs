@@ -19,7 +19,7 @@ module App =
     | StartNewGame
     | SelectSlot of Slot
 
-    let random = System.Random()
+    let random = Random()
 
     let initialState() : AppState = 
         let randomTags = List.sortBy (fun _ -> random.Next()) [1 .. 16]
@@ -209,5 +209,3 @@ type App () as app =
         Console.WriteLine "OnStart: using same logic as OnResume()"
         this.OnResume()
 #endif
-
-
