@@ -1,7 +1,6 @@
 ﻿[<RequireQualifiedAccess>]
 module Switch
 
-open Fabulous.Core
 open Fabulous.DynamicViews
 open Xamarin.Forms
 open Xamarin.Forms.StyleSheets

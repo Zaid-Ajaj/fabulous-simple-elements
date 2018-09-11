@@ -61,6 +61,8 @@ let ClassId (id: string) = createProp "classId" id
 let AutomationId (id: string) = createProp "automationId" id
 let Resources (values: (string * obj) list) = createProp "resources" values 
 let InputTransparent (condition: bool) = createProp "inputTransparent" condition 
+let HasBackButton (condition: bool) = createProp "hasBackButton" condition 
+let HasNavigationBar (condition: bool) = createProp "hasNavigationBar" condition 
 
 let contentPage (props: IContentPageProp list) =
     let attributes = 
@@ -106,4 +108,14 @@ let contentPage (props: IContentPageProp list) =
         ?backgroundColor = find "backgroundColor",
         ?inputTransparent = find "inputTransparent"
     )
-    Util.applyGridSettings elem attributes
+    
+    let elemWithGridSettings = Util.applyGridSettings elem attributes
+
+    [ "hasBackButton", Util.tryFind<bool> "hasBackButton" attributes
+      "hasNavigationBar", Util.tryFind<bool> "hasNavigationBar" attributes ]
+    |> List.choose (function | name, Some value -> Some (name, value) | _ -> None)
+    |> List.fold (fun (elem: ViewElement) (propName, propValue) -> 
+                  match propName with 
+                  | "hasBackButton" -> elem.HasBackButton(propValue)
+                  | "hasNavigationBar" -> elem.HasNavigationBar(propValue)
+                  | _ -> elem) elemWithGridSettings
