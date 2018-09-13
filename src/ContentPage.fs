@@ -64,7 +64,7 @@ let InputTransparent (condition: bool) = createProp "inputTransparent" condition
 let HasBackButton (condition: bool) = createProp "hasBackButton" condition 
 let HasNavigationBar (condition: bool) = createProp "hasNavigationBar" condition 
 
-let contentPage (props: IContentPageProp list) =
+let contentPage (props: IContentPageProp list) : ViewElement =
     let attributes = 
         props 
         |> List.map (fun prop -> prop.name, prop.value)  

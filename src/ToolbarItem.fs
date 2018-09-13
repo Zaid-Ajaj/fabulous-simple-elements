@@ -22,7 +22,7 @@ let Icon (icon: string) = createProp "icon" icon
 let StyleId (id: string) = createProp "styleId" id
 let ClassId (id: string) = createProp "classId" id 
 let AutomationId (id: string) = createProp "automationId" id
-let toolbarItem (props: IToolbarItemProp list) = 
+let toolbarItem (props: IToolbarItemProp list) : ViewElement = 
     let attributes = 
         props 
         |> List.map (fun prop -> prop.name, prop.value)  

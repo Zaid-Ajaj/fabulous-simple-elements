@@ -59,7 +59,7 @@ let ClassId (id: string) = createProp "classId" id
 let AutomationId (id: string) = createProp "automationId" id
 let Resources (values: (string * obj) list) = createProp "resources" values 
 let InputTransparent (condition: bool) = createProp "inputTransparent" condition 
-let navigationPage (props: INavigationPageProp list) = 
+let navigationPage (props: INavigationPageProp list) : ViewElement = 
     let attributes = 
         props 
         |> List.map (fun prop -> prop.name, prop.value)

@@ -21,7 +21,7 @@ let IsEnabled (condition: bool) = createProp "isEnabled" condition
 let StyleId (id: string) = createProp "styleId" id
 let ClassId (id: string) = createProp "classId" id 
 let AutomationId (id: string) = createProp "automationId" id
-let switchCell (props: ISwitchCellProp list) = 
+let switchCell (props: ISwitchCellProp list) : ViewElement = 
     let attributes = 
         props 
         |> List.map (fun prop -> prop.name, prop.value)  

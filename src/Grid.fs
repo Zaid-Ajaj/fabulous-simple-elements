@@ -86,7 +86,7 @@ let GridRowSpan (n: int) = createProp "gridRowSpan" n
 let GridColumnSpan (n: int) = createProp "gridColumnSpan" n
 // === Grid definitions ===
 
-let grid (props: IGridProp list) = 
+let grid (props: IGridProp list) : ViewElement = 
     let attributes = 
         props 
         |> List.map (fun prop -> prop.name, prop.value)  
