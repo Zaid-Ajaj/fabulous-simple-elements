@@ -1,7 +1,6 @@
 ﻿[<RequireQualifiedAccess>]
 module StackLayout
 
-open Fabulous.Core
 open Fabulous.DynamicViews
 open Xamarin.Forms
 open Xamarin.Forms.StyleSheets
@@ -80,8 +79,7 @@ let stackLayout (props: IStackLayoutProp list) =
     
     let find name = Util.tryFind name attributes
     
-    let element = View.StackLayout(
-        ?children = find "children", 
+    View.StackLayout(?children = find "children", 
         ?padding = Some (box (Util.applyPaddingSettings attributes)), 
         ?margin = Some (box (Util.applyMarginSettings attributes)),
         ?spacing = find "spacing",
@@ -113,5 +111,4 @@ let stackLayout (props: IStackLayoutProp list) =
         ?backgroundColor = find "backgroundColor",
         ?inputTransparent = find "inputTransparent",
         ?horizontalOptions = find "horizontalOptions")
-        
-    Util.applyGridSettings element attributes
+    |> fun element -> Util.applyGridSettings element attributes

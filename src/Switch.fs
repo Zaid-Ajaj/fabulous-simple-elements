@@ -65,8 +65,7 @@ let switch (props: ISwitchProp list) =
     
     let find name = Util.tryFind name attributes
 
-    let element = View.Switch(
-        ?isToggled = find "isToggled",
+    View.Switch(?isToggled = find "isToggled",
         ?toggled = find "toggled",
         ?isEnabled = find "isEnabled",
         ?isVisible = find "isVisible",
@@ -95,5 +94,4 @@ let switch (props: ISwitchProp list) =
         ?backgroundColor = find "backgroundColor",
         ?inputTransparent = find "inputTransparent",
         ?horizontalOptions = find "horizontalOptions")
-    
-    Util.applyGridSettings element attributes
+    |> fun element -> Util.applyGridSettings element attributes

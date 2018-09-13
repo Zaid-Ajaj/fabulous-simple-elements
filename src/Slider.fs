@@ -70,8 +70,7 @@ let slider (props: ISliderProp list) =
     
     let find name = Util.tryFind name attributes
     
-    let element = View.Slider(
-        ?minimum = find "minimum", 
+    View.Slider(?minimum = find "minimum", 
         ?maximum = find "maximum",
         ?value = find "value",
         ?margin = Some (box (Util.applyMarginSettings attributes)),
@@ -102,5 +101,4 @@ let slider (props: ISliderProp list) =
         ?backgroundColor = find "backgroundColor",
         ?inputTransparent = find "inputTransparent",
         ?horizontalOptions = find "horizontalOptions")
-
-    Util.applyGridSettings element attributes
+    |> fun element -> Util.applyGridSettings element attributes

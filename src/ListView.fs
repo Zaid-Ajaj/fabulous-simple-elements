@@ -74,8 +74,7 @@ let listView (props: IListViewProp list) =
     
     let find name = Util.tryFind name attributes
         
-    let element = View.ListView(
-        ?items = find "items",
+    View.ListView(?items = find "items",
         ?hasUnevenRows = find "hasUnevenRows",
         ?isGroupingEnabled = find "isGroupingEnabled",
         ?isPullToRefreshEnabled = find "isPullToRefreshEnabled",
@@ -118,5 +117,4 @@ let listView (props: IListViewProp list) =
         ?horizontalOptions = find "horizontalOptions"
     )
 
-    Util.applyGridSettings element attributes
-
+    |> fun element -> Util.applyGridSettings element attributes

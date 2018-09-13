@@ -77,8 +77,7 @@ let textEntry (props: ITextEntryProp list) : ViewElement =
     
     let find name = Util.tryFind name attributes
 
-    let element = View.Entry(
-        ?text = find "text", 
+    View.Entry(?text = find "text", 
         ?placeholder = find "placeholder",
         ?horizontalTextAlignment = find "horizontalTextAlignment",
         ?fontSize = find "fontSize", 
@@ -115,5 +114,4 @@ let textEntry (props: ITextEntryProp list) : ViewElement =
         ?inputTransparent = find "inputTransparent",
         ?horizontalOptions = find "horizontalOptions"
     )
-
-    Util.applyGridSettings element attributes
+    |> fun element -> Util.applyGridSettings element attributes

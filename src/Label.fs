@@ -75,8 +75,7 @@ let label (props: ILabelProp list) =
     
     let find name = Util.tryFind name attributes
 
-    let element = View.Label(
-        ?text = find "text",
+    View.Label(?text = find "text",
         ?margin = Some (box (Util.applyMarginSettings attributes)),
         ?verticalTextAlignment = find "verticalTextAlignment",
         ?horizontalTextAlignment = find "horizontalTextAlignment",
@@ -113,4 +112,4 @@ let label (props: ILabelProp list) =
         ?inputTransparent = find "inputTransparent",
         ?horizontalOptions = find "horizontalOptions")
 
-    Util.applyGridSettings element attributes
+    |> fun element -> Util.applyGridSettings element attributes

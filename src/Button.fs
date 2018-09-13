@@ -79,8 +79,7 @@ let button (props: IButtonProp list) =
     
     let find name = Util.tryFind name attributes
 
-    let element = View.Button(
-        ?text = find "text",
+    View.Button(?text = find "text",
         ?margin = Some (box (Util.applyMarginSettings attributes)),
         ?command = find "command", 
         ?canExecute = find "canExecute",
@@ -118,8 +117,4 @@ let button (props: IButtonProp list) =
         ?backgroundColor = find "backgroundColor",
         ?inputTransparent = find "inputTransparent",
         ?horizontalOptions = find "horizontalOptions")
-
-    Util.applyGridSettings element attributes  
-    
-
-    
+    |> fun element -> Util.applyGridSettings element attributes  

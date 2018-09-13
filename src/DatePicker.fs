@@ -70,7 +70,7 @@ let datePicker (props: IDatePickerProp list) =
     
     let find name = Util.tryFind name attributes
     
-    let element = View.DatePicker(
+    View.DatePicker(
         ?date = find "date",
         ?format = find "format", 
         ?minimumDate = find "minimumDate", 
@@ -104,5 +104,4 @@ let datePicker (props: IDatePickerProp list) =
         ?inputTransparent = find "inputTransparent",
         ?horizontalOptions = find "horizontalOptions"
     )
-
-    Util.applyGridSettings element 
+    |> fun element -> Util.applyGridSettings element attributes

@@ -71,12 +71,11 @@ let contentPage (props: IContentPageProp list) =
         |> Map.ofList 
     
     let find name = Util.tryFind name attributes
-    let elem = View.ContentPage(
-        ?content = find "content",
+    let elem = View.ContentPage(?content = find "content", 
         ?onSizeAllocated = find "onSizeAllocated",
         ?title = find "title",
         ?icon = find "icon", 
-        ?isBusy = find "isBusy",
+        ?isBusy = find "isBusy", 
         ?appearing = find "appearing",
         ?disappearing = find "disappearing", 
         ?useSafeArea = find "useSafeArea",

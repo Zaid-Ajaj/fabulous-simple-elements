@@ -94,7 +94,7 @@ let grid (props: IGridProp list) =
     
     let find name = Util.tryFind name attributes
 
-    let element = View.Grid(
+    View.Grid(
         ?rowdefs = find "rowdefs",
         ?coldefs = find "coldefs",
         ?children = find "children",
@@ -130,5 +130,4 @@ let grid (props: IGridProp list) =
         ?inputTransparent = find "inputTransparent",
         ?horizontalOptions = find "horizontalOptions"
     )
-
-    Util.applyGridSettings element attributes
+    |> fun element -> Util.applyGridSettings element attributes

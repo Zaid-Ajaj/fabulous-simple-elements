@@ -1,23 +1,40 @@
-﻿[<RequireQualifiedAccess>]
-module ActivityIndicator
+[<RequireQualifiedAccess>]
+module NavigationPage 
 
 open Fabulous.DynamicViews
 open Xamarin.Forms
 open Xamarin.Forms.StyleSheets
 
-type IActivityIndicatorProp = 
+type INavigationPageProp = 
     abstract name : string 
     abstract value : obj 
-
+    
 let internal createProp name value = 
-    { new IActivityIndicatorProp with 
+    { new INavigationPageProp with 
         member x.name = name 
-        member x.value = value }
+        member x.value = value }    
 
-let IsRunning (condition: bool) = createProp "isRunning" condition
-let Color (color: Color) = createProp "color" color 
-let HorizontalLayout (options: LayoutOptions) = createProp "horizontalOptions" (box options)
-let VerticalLayout (options: LayoutOptions) = createProp "verticalOptions" (box options)
+let Pages (elems: ViewElement list) = createProp "pages" elems 
+let BarBackgroundColor (color: Color) = createProp "barBackgroundColor" color 
+let BarTextColor (color: Color) = createProp "barTextColor" color 
+let OnPopped (handler: NavigationEventArgs -> unit) = createProp "popped" handler 
+let OnPoppedToRoot (handler: NavigationEventArgs -> unit) = createProp "poppedToRoot" handler 
+let OnPushed (handler: NavigationEventArgs -> unit) = createProp "pushed" handler 
+let Title (value: string) = createProp "title" value 
+let BackgroundImage (value: string) = createProp "backgroundImage" value 
+let Icon (value: string) = createProp "icon" value 
+let ToolbarItems (elems: ViewElement list) = createProp "toolbarItems" elems 
+let IsBusy (condition: bool) = createProp "isBusy" condition
+let UseSafeArea (condition: bool) = createProp "useSafeArea" condition 
+let OnAppearing (handler: unit -> unit) = createProp "appearing" handler 
+let OnDisappearing (handler: unit -> unit) = createProp "disappearing" handler 
+let OnLayoutChanged (handler: unit -> unit) = createProp "layoutChanged" handler 
+let Padding (value: double) = createProp "padding" value 
+let PaddingLeft (value: double) = createProp "paddingLeft" value 
+let PaddingRight (value: double) = createProp "paddingRight" value 
+let PaddingTop (value: double) = createProp "paddingTop" value 
+let PaddingBottom (value: double) = createProp "paddingBottom" value 
+let PaddingThickness (thickness: Thickness) = createProp "padding" thickness 
 let IsEnabled (condition: bool) = createProp "isEnabled" condition
 let IsVisible (condition: bool) = createProp "isVisible" condition
 let AnchorY (value: double) = createProp "anchorY" value 
@@ -42,35 +59,30 @@ let ClassId (id: string) = createProp "classId" id
 let AutomationId (id: string) = createProp "automationId" id
 let Resources (values: (string * obj) list) = createProp "resources" values 
 let InputTransparent (condition: bool) = createProp "inputTransparent" condition 
-let Margin (value: double) = createProp "margin" (Thickness(value)) 
-let MarginLeft (value: double) = createProp "marginLeft" value 
-let MarginRight (value: double) = createProp "marginRight" value 
-let MarginTop (value: double) = createProp "marginTop" value 
-let MarginBottom (value: double) = createProp "marginBottom" value 
-let MarginThickness (thickness: Thickness) = createProp "margin" thickness 
-
-// === Grid definitions ===
-let GridRow (n: int) = createProp "gridRow" n 
-let GridColumn (n: int) = createProp "gridColumn" n 
-let GridRowSpan (n: int) = createProp "gridRowSpan" n
-let GridColumnSpan (n: int) = createProp "gridColumnSpan" n
-// === Grid definitions ===
-
-let activityIndicator (props: IActivityIndicatorProp list) = 
+let navigationPage (props: INavigationPageProp list) = 
     let attributes = 
         props 
-        |> List.map (fun prop -> prop.name, prop.value)  
+        |> List.map (fun prop -> prop.name, prop.value)
         |> Map.ofList 
     
     let find name = Util.tryFind name attributes
-    
-    View.ActivityIndicator(
-        ?color = find "color", 
-        ?isRunning = find "isRunning", 
-        ?margin = Some (box (Util.applyMarginSettings attributes)),
+
+    View.NavigationPage(?pages = find "pages",
+        ?barBackgroundColor = find "barBackgroundColor",
+        ?barTextColor = find "barTextColor", 
+        ?popped = find "popped", 
+        ?poppedToRoot = find "poppedToRoot",
+        ?pushed = find "pushed",
+        ?toolbarItems = find "toolbarItems",
+        ?backgroundImage = find "backgroundImage",
+        ?isBusy = find "isBusy", 
+        ?useSafeArea = find "useSafeArea",
+        ?layoutChanged = find "layoutChanged", 
+        ?appearing = find "appearing",
+        ?disappearing = find "disappearing",
+        ?padding = Some (box (Util.applyPaddingSettings attributes)),
         ?isEnabled = find "isEnabled",
         ?isVisible = find "isVisible",
-        ?verticalOptions = find "verticalOptions",
         ?opacity = find "opacity",
         ?heightRequest = find "heightRequest",
         ?widthRequest = find "widthRequest",
@@ -85,14 +97,11 @@ let activityIndicator (props: IActivityIndicatorProp list) =
         ?style = find "style", 
         ?styleSheets = find "styleSheets",
         ?styleId = find "styleId",
-        ?gestureRecognizers = find "gestureRecognizers",
         ?classId = find "classId",
         ?automationId = find "automationId",
         ?resources = find "resources",
         ?minimumHeightRequest = find "minimumHeightRequest",
         ?minimumWidthRequest = find "minimumHeightRequest",
         ?backgroundColor = find "backgroundColor",
-        ?inputTransparent = find "inputTransparent",
-        ?horizontalOptions = find "horizontalOptions"
+        ?inputTransparent = find "inputTransparent"
     )
-    |> fun element -> Util.applyGridSettings element attributes
