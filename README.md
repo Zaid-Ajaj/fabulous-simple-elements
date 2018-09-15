@@ -35,5 +35,8 @@ Each sample has it's own solution, open any of the samples in Visual Studio or V
 ### Fifteen Puzzle Sample
 ![fifteen-puzzle](assets/fifteen-puzzle.gif)
 
+### LoginFlow sample 
+![login-flow](assets/login.gif)
+
 ### Counter Sample 
 ![Counter](assets/counter.gif)

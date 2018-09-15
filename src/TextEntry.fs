@@ -89,6 +89,7 @@ let textEntry (props: ITextEntryProp list) : ViewElement =
         ?isEnabled = find "isEnabled",
         ?isVisible = find "isVisible",
         ?textColor = find "textColor",
+        ?textChanged = find "textChanged",
         ?verticalOptions = find "verticalOptions",
         ?opacity = find "opacity",
         ?heightRequest = find "heightRequest",
