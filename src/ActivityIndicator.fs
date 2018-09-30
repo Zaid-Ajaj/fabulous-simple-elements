@@ -24,6 +24,7 @@ let AnchorY (value: double) = createProp "anchorY" value
 let BackgroundColor (color: Color) = createProp "backgroundColor" color
 let AnchorX (value: double) = createProp "anchorX" value 
 let Scale (value: double) = createProp "scale" value 
+let Ref (viewRef: ViewRef<ActivityIndicator>) = createProp "ref" viewRef
 let Rotation (value: double) = createProp "rotation" value 
 let RotationX (value: double) = createProp "rotationX" value 
 let RotationY (value: double) = createProp "rotationY" value 
@@ -42,6 +43,7 @@ let ClassId (id: string) = createProp "classId" id
 let AutomationId (id: string) = createProp "automationId" id
 let Resources (values: (string * obj) list) = createProp "resources" values 
 let InputTransparent (condition: bool) = createProp "inputTransparent" condition 
+let OnCreated (f: ActivityIndicator -> unit) = createProp "created" f
 let Margin (value: double) = createProp "margin" (Thickness(value)) 
 let MarginLeft (value: double) = createProp "marginLeft" value 
 let MarginRight (value: double) = createProp "marginRight" value 
@@ -66,6 +68,8 @@ let activityIndicator (props: IActivityIndicatorProp list) : ViewElement =
 
     View.ActivityIndicator(
         ?color = find "color", 
+        ?ref = find "ref",
+        ?created = find "created",
         ?isRunning = find "isRunning", 
         ?margin = Some (box (Util.applyMarginSettings attributes)),
         ?isEnabled = find "isEnabled",

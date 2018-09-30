@@ -21,6 +21,7 @@ let OnTextChanged (f: TextChangedEventArgs -> unit) = createProp "textChanged" f
 let PlaceholderColor (color: Color) = createProp "placeholderColor" color 
 let TextColor (color: Color) = createProp "textColor" color
 let OnCompleted (f: string -> unit) = createProp "completed" f
+let Ref (viewRef : ViewRef<Entry>) = createProp "ref" viewRef
 let HorizontalTextAlignment (alignment: TextAlignment) = createProp "horizontalTextAlignment" alignment
 let VerticalTextAlignment (alignment: TextAlignment) = createProp "verticalTextAlignment" alignment
 let FontSize ((FontSize.FontSize size): FontSize.IFontSize) = createProp "fontSize" size 
@@ -67,8 +68,8 @@ let ClassId (id: string) = createProp "classId" id
 let AutomationId (id: string) = createProp "automationId" id
 let Resources (values: (string * obj) list) = createProp "resources" values 
 let InputTransparent (condition: bool) = createProp "inputTransparent" condition 
-
-
+let OnCreated (f: Entry -> unit) = createProp "created" f
+ 
 let textEntry (props: ITextEntryProp list) : ViewElement = 
     let attributes = 
         props 
@@ -81,6 +82,8 @@ let textEntry (props: ITextEntryProp list) : ViewElement =
         ?placeholder = find "placeholder",
         ?horizontalTextAlignment = find "horizontalTextAlignment",
         ?fontSize = find "fontSize", 
+        ?ref = find "ref",
+        ?created = find "created",
         ?fontFamily = find "fontFamily",
         ?fontAttributes = find "fontAttributes",
         ?keyboard = find "keyboard",

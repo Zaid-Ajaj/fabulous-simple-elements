@@ -25,6 +25,7 @@ let SelectedItem (index: int) = createProp "selectedItem" index
 let SeparatorVisibility (visibility: SeparatorVisibility) = createProp "separatorVisibility" visibility
 let SeperatorColor (color: Color) = createProp "seperatorColor" color 
 let ItemAppearing (handler: int -> unit) = createProp "itemAppearing" handler 
+let Ref (viewRef: ViewRef<ListView>) = createProp "ref" viewRef
 let ItemDisappearing (handler: int -> unit) = createProp "itemDisappearing" handler 
 let ItemSelected (handler: int option -> unit) = createProp "itemSelected" handler
 let Refreshing (handler: unit -> unit) = createProp "refreshing" handler
@@ -65,6 +66,7 @@ let GridColumn (n: int) = createProp "gridColumn" n
 let GridRowSpan (n: int) = createProp "gridRowSpan" n
 let GridColumnSpan (n: int) = createProp "gridColumnSpan" n
 // === Grid definitions ===
+let OnCreated (f: ListView -> unit) = createProp "created" f
 
 let listView (props: IListViewProp list) : ViewElement = 
     let attributes = 
@@ -76,12 +78,14 @@ let listView (props: IListViewProp list) : ViewElement =
         
     View.ListView(?items = find "items",
         ?hasUnevenRows = find "hasUnevenRows",
+        ?ref = find "ref",
         ?isGroupingEnabled = find "isGroupingEnabled",
         ?isPullToRefreshEnabled = find "isPullToRefreshEnabled",
         ?isRefreshing = find "isRefreshing",
         ?refreshCommand = find "refreshCommand", 
         ?rowHeight = find "rowHeight", 
         ?selectedItem = find "selectedItem",
+        ?created = find "created",
         ?separatorVisibility = find "separatorVisibility",
         ?separatorColor = find "separatorColor",
         ?itemAppearing = find "itemAppearing",

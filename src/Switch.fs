@@ -25,6 +25,7 @@ let AnchorY (value: double) = createProp "anchorY" value
 let BackgroundColor (color: Color) = createProp "backgroundColor" color
 let AnchorX (value: double) = createProp "anchorX" value 
 let Scale (value: double) = createProp "scale" value 
+let Ref (viewRef: ViewRef<Switch>) = createProp "ref" viewRef 
 let Rotation (value: double) = createProp "rotation" value 
 let RotationX (value: double) = createProp "rotationX" value 
 let RotationY (value: double) = createProp "rotationY" value 
@@ -56,6 +57,7 @@ let GridColumn (n: int) = createProp "gridColumn" n
 let GridRowSpan (n: int) = createProp "gridRowSpan" n
 let GridColumnSpan (n: int) = createProp "gridColumnSpan" n
 // === Grid definitions ===
+let OnCreated (f: Switch -> unit) = createProp "created" f
 
 let switch (props: ISwitchProp list) : ViewElement = 
     let attributes = 
@@ -67,13 +69,15 @@ let switch (props: ISwitchProp list) : ViewElement =
 
     View.Switch(?isToggled = find "isToggled",
         ?toggled = find "toggled",
+        ?ref = find "ref",
         ?isEnabled = find "isEnabled",
         ?isVisible = find "isVisible",
         ?verticalOptions = find "verticalOptions",
         ?opacity = find "opacity",
-        ?heightRequest = find "heightRequest",
+        ?heightRequest = find "heightRequest", 
         ?widthRequest = find "widthRequest",
         ?anchorX = find "anchorX", 
+        ?created = find "created",
         ?anchorY = find "anchorY", 
         ?scale = find "scale", 
         ?margin = Some (box (Util.applyMarginSettings attributes)),

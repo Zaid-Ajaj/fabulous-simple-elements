@@ -8,7 +8,7 @@
     <PackageIconUrl></PackageIconUrl>
     <PackageTags>fsharp;xamarin;forms;view;dsl;elmish</PackageTags>
     <Authors>Zaid Ajaj</Authors>
-    <Version>0.7.0</Version>
+    <Version>0.8.0</Version>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
@@ -30,9 +30,10 @@
     <Compile Include="ToolbarItem.fs" />
     <Compile Include="SwitchCell.fs" />
     <Compile Include="NavigationPage.fs" />
+    <Compile Include="ScrollView.fs" />
   </ItemGroup>
   <ItemGroup>
-     <PackageReference Include="Fabulous.Core" Version="0.20.0" />
+     <PackageReference Include="Fabulous.Core" Version="0.22.0" />
      <PackageReference Include="FSharp.Core" Version="4.5.0" />
   </ItemGroup>
 </Project>

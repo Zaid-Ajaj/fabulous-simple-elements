@@ -60,6 +60,7 @@ let Style (style: Style) = createProp "style" style
 let StyleSheets (sheets: StyleSheet list) = createProp "styleSheets" sheets
 let StyleId (id: string) = createProp "styleId" id
 let ClassId (id: string) = createProp "classId" id 
+let Ref (viewRef: ViewRef<Button>) = createProp "ref" viewRef 
 let AutomationId (id: string) = createProp "automationId" id
 let Resources (values: (string * obj) list) = createProp "resources" values 
 let InputTransparent (condition: bool) = createProp "inputTransparent" condition 
@@ -70,6 +71,7 @@ let GridColumn (n: int) = createProp "gridColumn" n
 let GridRowSpan (n: int) = createProp "gridRowSpan" n
 let GridColumnSpan (n: int) = createProp "gridColumnSpan" n
 // === Grid definitions ===
+let OnCreated (f: Button -> unit) = createProp "created" f
 
 let button (props: IButtonProp list) : ViewElement = 
     let attributes = 
@@ -82,10 +84,12 @@ let button (props: IButtonProp list) : ViewElement =
     View.Button(?text = find "text",
         ?margin = Some (box (Util.applyMarginSettings attributes)),
         ?command = find "command", 
+        ?created = find "created",
         ?canExecute = find "canExecute",
         ?isEnabled = find "isEnabled",
         ?fontSize = find "fontSize",
         ?isVisible = find "isVisible",
+        ?ref = find "ref",
         ?borderColor = find "borderColor", 
         ?borderWidth = find "borderWidth",
         ?cornerRadius = find "cornerRadius",
@@ -117,4 +121,5 @@ let button (props: IButtonProp list) : ViewElement =
         ?backgroundColor = find "backgroundColor",
         ?inputTransparent = find "inputTransparent",
         ?horizontalOptions = find "horizontalOptions")
-    |> fun element -> Util.applyGridSettings element attributes  
+    |> fun element -> 
+        Util.applyGridSettings element attributes  

@@ -25,6 +25,7 @@ let IsVisible (condition: bool) = createProp "isVisible" condition
 let AnchorY (value: double) = createProp "anchorY" value 
 let BackgroundColor (color: Color) = createProp "backgroundColor" color
 let AnchorX (value: double) = createProp "anchorX" value 
+let Ref (viewRef: ViewRef<StackLayout>) = createProp "ref" viewRef 
 let Scale (value: double) = createProp "scale" value 
 let Rotation (value: double) = createProp "rotation" value 
 let RotationX (value: double) = createProp "rotationX" value 
@@ -70,6 +71,7 @@ let GridColumn (n: int) = createProp "gridColumn" n
 let GridRowSpan (n: int) = createProp "gridRowSpan" n
 let GridColumnSpan (n: int) = createProp "gridColumnSpan" n
 // === Grid definitions ===
+let OnCreated (f: StackLayout -> unit) = createProp "created" f
 
 let stackLayout (props: IStackLayoutProp list) : ViewElement = 
     let attributes = 
@@ -83,6 +85,8 @@ let stackLayout (props: IStackLayoutProp list) : ViewElement =
         ?padding = Some (box (Util.applyPaddingSettings attributes)), 
         ?margin = Some (box (Util.applyMarginSettings attributes)),
         ?spacing = find "spacing",
+        ?ref = find "ref",
+        ?created = find "created",
         ?orientation = find "stackOrientation",
         ?verticalOptions = find "verticalOptions",
         ?isClippedToBounds = find "isClippedToBounds",

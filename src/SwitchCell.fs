@@ -19,8 +19,10 @@ let OnChanged (handler: ToggledEventArgs -> unit) = createProp "onChanged" handl
 let Height (value: double) = createProp "height" value 
 let IsEnabled (condition: bool) = createProp "isEnabled" condition 
 let StyleId (id: string) = createProp "styleId" id
+let Ref (viewRef: ViewRef<SwitchCell>) = createProp "ref" viewRef 
 let ClassId (id: string) = createProp "classId" id 
 let AutomationId (id: string) = createProp "automationId" id
+let OnCreated (f: SwitchCell -> unit) = createProp "created" f
 let switchCell (props: ISwitchCellProp list) : ViewElement = 
     let attributes = 
         props 
@@ -28,4 +30,4 @@ let switchCell (props: ISwitchCellProp list) : ViewElement =
         |> Map.ofList 
     
     let find name = Util.tryFind name attributes    
-    View.SwitchCell(?on = find "on", ?text = find "text", ?onChanged = find "onChanged", ?height = find "height", ?isEnabled = find "isEnabled", ?styleId = find "styleId", ?classId = find "classId", ?automationId = find "automationId")
+    View.SwitchCell(?on = find "on",?ref = find "ref", ?created = find "created", ?text = find "text", ?onChanged = find "onChanged", ?height = find "height", ?isEnabled = find "isEnabled", ?styleId = find "styleId", ?classId = find "classId", ?automationId = find "automationId")

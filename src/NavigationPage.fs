@@ -20,6 +20,7 @@ let BarTextColor (color: Color) = createProp "barTextColor" color
 let OnPopped (handler: NavigationEventArgs -> unit) = createProp "popped" handler 
 let OnPoppedToRoot (handler: NavigationEventArgs -> unit) = createProp "poppedToRoot" handler 
 let OnPushed (handler: NavigationEventArgs -> unit) = createProp "pushed" handler 
+let Ref (viewRef: ViewRef<NavigationPage>) = createProp "ref" viewRef 
 let Title (value: string) = createProp "title" value 
 let BackgroundImage (value: string) = createProp "backgroundImage" value 
 let Icon (value: string) = createProp "icon" value 
@@ -59,6 +60,8 @@ let ClassId (id: string) = createProp "classId" id
 let AutomationId (id: string) = createProp "automationId" id
 let Resources (values: (string * obj) list) = createProp "resources" values 
 let InputTransparent (condition: bool) = createProp "inputTransparent" condition 
+let OnCreated (f: NavigationPage -> unit) = createProp "created" f
+
 let navigationPage (props: INavigationPageProp list) : ViewElement = 
     let attributes = 
         props 
@@ -69,8 +72,10 @@ let navigationPage (props: INavigationPageProp list) : ViewElement =
 
     View.NavigationPage(?pages = find "pages",
         ?barBackgroundColor = find "barBackgroundColor",
+        ?created = find "created",
         ?barTextColor = find "barTextColor", 
         ?popped = find "popped", 
+        ?ref = find "ref",
         ?poppedToRoot = find "poppedToRoot",
         ?pushed = find "pushed",
         ?toolbarItems = find "toolbarItems",

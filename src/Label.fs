@@ -1,6 +1,7 @@
 ﻿[<RequireQualifiedAccess>]
 module Label  
     
+open Fabulous.Core
 open Fabulous.DynamicViews
 open Xamarin.Forms
 open Xamarin.Forms.StyleSheets
@@ -50,6 +51,7 @@ let Style (style: Style) = createProp "style" style
 let StyleSheets (sheets: StyleSheet list) = createProp "styleSheets" sheets
 let StyleId (id: string) = createProp "styleId" id
 let ClassId (id: string) = createProp "classId" id 
+let Ref (viewRef: ViewRef<Label>) = createProp "ref" viewRef  
 let AutomationId (id: string) = createProp "automationId" id
 let Resources (values: (string * obj) list) = createProp "resources" values 
 let InputTransparent (condition: bool) = createProp "inputTransparent" condition 
@@ -66,6 +68,7 @@ let GridColumn (n: int) = createProp "gridColumn" n
 let GridRowSpan (n: int) = createProp "gridRowSpan" n
 let GridColumnSpan (n: int) = createProp "gridColumnSpan" n
 // === Grid definitions ===
+let OnCreated (f: Label -> unit) = createProp "created" f
 
 let label (props: ILabelProp list) : ViewElement = 
     let attributes = 
@@ -84,6 +87,8 @@ let label (props: ILabelProp list) : ViewElement =
         ?isEnabled = find "isEnabled",
         ?isVisible = find "isVisible",
         ?textColor = find "textColor",
+        ?ref = find "ref",
+        ?created = find "created",
         ?verticalOptions = find "verticalOptions",
         ?opacity = find "opacity",
         ?heightRequest = find "heightRequest",

@@ -29,7 +29,7 @@ let MarginRight (value: double) = createProp "marginRight" value
 let MarginTop (value: double) = createProp "marginTop" value 
 let MarginBottom (value: double) = createProp "marginBottom" value 
 let MarginThickness (thickness: Thickness) = createProp "margin" thickness 
-
+let Ref (viewRef: ViewRef<DatePicker>) = createProp "ref" viewRef 
 let GestureRecognizers (elements: ViewElement list) = createProp "gestureRecognizers" elements 
 let HorizontalLayout (options: LayoutOptions) = createProp "horizontalOptions" (box options)
 let IsEnabled (condition: bool) = createProp "isEnabled" condition
@@ -62,6 +62,9 @@ let GridRowSpan (n: int) = createProp "gridRowSpan" n
 let GridColumnSpan (n: int) = createProp "gridColumnSpan" n
 // === Grid definitions ===
 
+let OnCreated (f: DatePicker -> unit) = createProp "created" f
+
+
 let datePicker (props: IDatePickerProp list) : ViewElement = 
     let attributes = 
         props 
@@ -73,6 +76,8 @@ let datePicker (props: IDatePickerProp list) : ViewElement =
     View.DatePicker(
         ?date = find "date",
         ?format = find "format", 
+        ?ref = find "ref",
+        ?created = find "created",
         ?minimumDate = find "minimumDate", 
         ?maximumDate = find "maximumDate", 
         ?dateSelected = find "dateSelected",
