@@ -16,9 +16,9 @@ let internal createProp name value =
         member x.value = value }    
 
 // === Slider Specific === 
-let Minimum (value: double) = createProp "minimum" value 
-let Maximum (value: double) = createProp "maximum" value 
-let Value (value: double) = createProp "value" value 
+let Minimum (value: float) = createProp "minimum" value 
+let Maximum (value: float) = createProp "maximum" value 
+let Value (value: float) = createProp "value" value 
 let OnValueChanged (f: ValueChangedEventArgs -> unit) = createProp "valueChanged" f 
 // === Slider Specific === 
 let GestureRecognizers (elements: ViewElement list) = createProp "gestureRecognizers" elements 
@@ -72,8 +72,12 @@ let slider (props: ISliderProp list) : ViewElement =
     
     let find name = Util.tryFind name attributes
     
-    View.Slider(?minimum = find "minimum", 
-        ?maximum = find "maximum",
+    let minMax =   
+        match find "minimum", find "maximum" with 
+        | Some min, Some max -> Some (unbox<float> min, unbox<float> max)
+        | _ -> None
+
+    View.Slider(?minimumMaximum = minMax, 
         ?value = find "value",
         ?ref = find "ref",
         ?margin = Some (box (Util.applyMarginSettings attributes)),
