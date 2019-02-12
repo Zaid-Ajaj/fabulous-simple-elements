@@ -45,6 +45,7 @@ let AutomationId (id: string) = createProp "automationId" id
 let Resources (values: (string * obj) list) = createProp "resources" values 
 let InputTransparent (condition: bool) = createProp "inputTransparent" condition 
 let FormattedText (element: ViewElement) = createProp "formattedText" element
+let GestureRecognizers (elements: ViewElement list) = createProp "gestureRecognizers" elements
 
 // === Padding definitions ===
 let Padding (value: double) = createProp "padding" (Thickness(value)) 

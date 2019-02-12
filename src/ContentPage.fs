@@ -73,46 +73,46 @@ let contentPage (props: IContentPageProp list) : ViewElement =
         |> Map.ofList 
     
     let find name = Util.tryFind name attributes
-    let elem = View.ContentPage(?content = find "content", 
-        ?onSizeAllocated = find "onSizeAllocated",
-        ?title = find "title",
-        ?icon = find "icon", 
-        ?isBusy = find "isBusy", 
-        ?ref = find "ref",
-        ?appearing = find "appearing",
-        ?disappearing = find "disappearing", 
-        ?useSafeArea = find "useSafeArea",
-        ?toolbarItems = find "toolbarItems",
-        ?layoutChanged = find "layoutChanged",
-        ?created = find "created", 
-        ?backgroundImage = find "backgroundImage",
-        ?padding = Some (box (Util.applyPaddingSettings attributes)),
-        ?isEnabled = find "isEnabled",
-        ?isVisible = find "isVisible",
-        ?opacity = find "opacity",
-        ?heightRequest = find "heightRequest",
-        ?widthRequest = find "widthRequest",
-        ?anchorX = find "anchorX", 
-        ?anchorY = find "anchorY", 
-        ?scale = find "scale", 
-        ?rotation = find "rotation",
-        ?rotationX = find "rotationX",
-        ?rotationY = find "rotationY",
-        ?translationX = find "translationX",
-        ?translationY = find "translationY",
-        ?style = find "style", 
-        ?styleSheets = find "styleSheets",
-        ?styleId = find "styleId",
-        ?classId = find "classId",
-        ?automationId = find "automationId",
-        ?resources = find "resources",
-        ?minimumHeightRequest = find "minimumHeightRequest",
-        ?minimumWidthRequest = find "minimumHeightRequest",
-        ?backgroundColor = find "backgroundColor",
-        ?inputTransparent = find "inputTransparent"
-    )
+    let contentPage = 
+        View.ContentPage(?content = find "content", 
+            ?onSizeAllocated = find "onSizeAllocated",
+            ?title = find "title",
+            ?icon = find "icon", 
+            ?isBusy = find "isBusy", 
+            ?ref = find "ref",
+            ?appearing = find "appearing",
+            ?disappearing = find "disappearing", 
+            ?useSafeArea = find "useSafeArea",
+            ?toolbarItems = find "toolbarItems",
+            ?layoutChanged = find "layoutChanged",
+            ?created = find "created", 
+            ?backgroundImage = find "backgroundImage",
+            ?padding = Some (box (Util.applyPaddingSettings attributes)),
+            ?isEnabled = find "isEnabled",
+            ?isVisible = find "isVisible",
+            ?opacity = find "opacity",
+            ?heightRequest = find "heightRequest",
+            ?widthRequest = find "widthRequest",
+            ?anchorX = find "anchorX", 
+            ?anchorY = find "anchorY", 
+            ?scale = find "scale", 
+            ?rotation = find "rotation",
+            ?rotationX = find "rotationX",
+            ?rotationY = find "rotationY",
+            ?translationX = find "translationX",
+            ?translationY = find "translationY",
+            ?style = find "style", 
+            ?styleSheets = find "styleSheets",
+            ?styleId = find "styleId",
+            ?classId = find "classId",
+            ?automationId = find "automationId",
+            ?resources = find "resources",
+            ?minimumHeightRequest = find "minimumHeightRequest",
+            ?minimumWidthRequest = find "minimumHeightRequest",
+            ?backgroundColor = find "backgroundColor",
+            ?inputTransparent = find "inputTransparent")
     
-    let elemWithGridSettings = Util.applyGridSettings elem attributes
+        |> fun elem -> Util.applyGridSettings elem attributes
 
     [ "hasBackButton", Util.tryFind<bool> "hasBackButton" attributes
       "hasNavigationBar", Util.tryFind<bool> "hasNavigationBar" attributes ]
@@ -121,4 +121,4 @@ let contentPage (props: IContentPageProp list) : ViewElement =
                   match propName with 
                   | "hasBackButton" -> elem.HasBackButton(propValue)
                   | "hasNavigationBar" -> elem.HasNavigationBar(propValue)
-                  | _ -> elem) elemWithGridSettings
+                  | _ -> elem) contentPage

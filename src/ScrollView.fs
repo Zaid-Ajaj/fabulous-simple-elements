@@ -69,7 +69,7 @@ let scrollView (props: IScrollViewProp list) : ViewElement =
         |> Map.ofList 
     
     let find name = Util.tryFind name attributes
-    let elem = View.ScrollView(?content = find "content", 
+    View.ScrollView(?content = find "content", 
         ?orientation = find "orientation",
         ?horizontalScrollBarVisibility = find "horizontalScrollBarVisibility",
         ?verticalScrollBarVisibility = find "verticalScrollBarVisibility",
@@ -101,4 +101,4 @@ let scrollView (props: IScrollViewProp list) : ViewElement =
         ?inputTransparent = find "inputTransparent"
     )
     
-    Util.applyGridSettings elem attributes
+    |> fun elem -> Util.applyGridSettings elem attributes
