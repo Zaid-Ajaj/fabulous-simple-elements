@@ -5,6 +5,7 @@ open Fabulous.Core
 open Fabulous.DynamicViews
 open Xamarin.Forms
 open Xamarin.Forms.StyleSheets
+open Xamarin.Forms
 
 type ILabelProp = 
     abstract name : string 
@@ -78,6 +79,7 @@ let FlexLayoutDirection (value: FlexDirection) = createProp "flexLayoutDirection
 let FlexBasis (value: FlexBasis) = createProp "flexBasis" value
 // === FlexLayout definitions ===
 
+let TextDecorations (decorations: TextDecorations) = createProp "textDecorations" decorations 
 
 let OnCreated (f: Label -> unit) = createProp "created" f
 
@@ -98,6 +100,7 @@ let label (props: ILabelProp list) : ViewElement =
         ?isEnabled = find "isEnabled",
         ?isVisible = find "isVisible",
         ?textColor = find "textColor",
+        ?textDecorations=find"textDecorations",
         ?ref = find "ref",
         ?created = find "created",
         ?verticalOptions = find "verticalOptions",
