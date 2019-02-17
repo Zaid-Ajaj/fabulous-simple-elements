@@ -20,6 +20,13 @@ let Orientation (orientation: ScrollOrientation) = createProp "orientation" orie
 let HorizontalScrollBarVisibility (visibility: ScrollBarVisibility) = createProp "horizontalScrollBarVisibility" visibility 
 let VerticalScrollBarVisibility (visibility: ScrollBarVisibility) = createProp "verticalScrollBarVisibility" visibility 
 
+let Margin (value: double) = createProp "margin" (Thickness(value)) 
+let MarginLeft (value: double) = createProp "marginLeft" value 
+let MarginRight (value: double) = createProp "marginRight" value 
+let MarginTop (value: double) = createProp "marginTop" value 
+let MarginBottom (value: double) = createProp "marginBottom" value
+let MarginThickness (thickness: Thickness) = createProp "margin" thickness 
+
 let Content (elem: ViewElement) = createProp "content" elem 
 let BackgroundImage (value: string) = createProp "backgroundImage" value
 let Padding (value: double) = createProp "padding" value 
@@ -71,6 +78,7 @@ let scrollView (props: IScrollViewProp list) : ViewElement =
     let find name = Util.tryFind name attributes
     View.ScrollView(?content = find "content", 
         ?orientation = find "orientation",
+        ?margin = Some (box (Util.applyMarginSettings attributes)),
         ?horizontalScrollBarVisibility = find "horizontalScrollBarVisibility",
         ?verticalScrollBarVisibility = find "verticalScrollBarVisibility",
         ?ref = find "ref",  

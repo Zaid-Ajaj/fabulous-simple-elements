@@ -31,7 +31,12 @@ let RotationX (value: double) = createProp "rotationX" value
 let RotationY (value: double) = createProp "rotationY" value 
 let TranslationX (value: double) = createProp "translationX" value 
 let TranslationY (value: double) = createProp "translationY" value
-
+let Margin (value: double) = createProp "margin" (Thickness(value)) 
+let MarginLeft (value: double) = createProp "marginLeft" value 
+let MarginRight (value: double) = createProp "marginRight" value 
+let MarginTop (value: double) = createProp "marginTop" value 
+let MarginBottom (value: double) = createProp "marginBottom" value
+let MarginThickness (thickness: Thickness) = createProp "margin" thickness 
 let Height (value: double) = createProp "heightRequest" value
 let Width (value: double) = createProp "widthRequest" value
 let Style (style: Style) = createProp "style" style 

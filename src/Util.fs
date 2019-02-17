@@ -48,7 +48,7 @@ let applyFlexLayoutSettings (element: ViewElement) (props: Map<string, obj>) : V
 let applyMarginSettings (map: Map<string, obj>) : Thickness = 
     let initialMargin = 
         Map.tryFind "margin" map  
-        |> Option.map (fun marginValue -> Thickness(unbox<double> marginValue))
+        |> Option.map (unbox<Thickness>)
         |> Option.defaultValue (Thickness(0.0))
     
     [ "marginLeft", tryFind "marginLeft"  map

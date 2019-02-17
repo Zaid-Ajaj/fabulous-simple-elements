@@ -28,7 +28,7 @@ let ContentLayout (layout: Xamarin.Forms.Button.ButtonContentLayout) = createPro
 
 // Common attributes 
 let GestureRecognizers (elements: ViewElement list) = createProp "gestureRecognizers" elements 
-let Margin (value: double) = createProp "margin" value 
+let Margin (value: double) = createProp "margin" (Thickness(value)) 
 let MarginLeft (value: double) = createProp "marginLeft" value 
 let MarginRight (value: double) = createProp "marginRight" value 
 let MarginTop (value: double) = createProp "marginTop" value 
