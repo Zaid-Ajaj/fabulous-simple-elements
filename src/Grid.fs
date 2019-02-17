@@ -5,6 +5,7 @@ open Fabulous.Core
 open Fabulous.DynamicViews
 open Xamarin.Forms
 open Xamarin.Forms.StyleSheets
+open Util
 
 type IGridProp = 
     abstract name : string 
@@ -85,6 +86,17 @@ let GridColumn (n: int) = createProp "gridColumn" n
 let GridRowSpan (n: int) = createProp "gridRowSpan" n
 let GridColumnSpan (n: int) = createProp "gridColumnSpan" n
 // === Grid definitions ===
+
+// === FlexLayout definitions ===
+let FlexOrder (n: int) = createProp "flexOrder" n
+let FlexGrow (value: double) = createProp "flexGrow" value
+let FlexShrink (value: double) = createProp "flexShrink" value
+let FlexAignSelf (value: FlexAlignSelf) = createProp "flexAlignSelf" value
+let FlexLayoutDirection (value: FlexDirection) = createProp "flexLayoutDirection" value
+let FlexBasis (value: FlexBasis) = createProp "flexBasis" value
+// === FlexLayout definitions ===
+
+
 let OnCreated (f: Grid -> unit) = createProp "created" f
 
 let grid (props: IGridProp list) : ViewElement = 
@@ -134,3 +146,4 @@ let grid (props: IGridProp list) : ViewElement =
         ?horizontalOptions = find "horizontalOptions"
     )
     |> fun element -> Util.applyGridSettings element attributes
+    |> fun element -> Util.applyFlexLayoutSettings element attributes

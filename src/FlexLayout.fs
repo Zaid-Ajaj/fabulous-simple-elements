@@ -48,6 +48,16 @@ let GridRowSpan (n: int) = createProp "gridRowSpan" n
 let GridColumnSpan (n: int) = createProp "gridColumnSpan" n
 // === Grid definitions ===
 
+// === FlexLayout definitions ===
+let FlexOrder (n: int) = createProp "flexOrder" n
+let FlexGrow (value: double) = createProp "flexGrow" value
+let FlexShrink (value: double) = createProp "flexShrink" value
+let FlexAignSelf (value: FlexAlignSelf) = createProp "flexAlignSelf" value
+let FlexLayoutDirection (value: FlexDirection) = createProp "flexLayoutDirection" value
+let FlexBasis (value: FlexBasis) = createProp "flexBasis" value
+// === FlexLayout definitions ===
+
+
 let VerticalOptions (options: LayoutOptions) = createProp "verticalOptions" options
 let HorizontalOptions (options: LayoutOptions) = createProp "horizontalOptions" options
 
@@ -128,3 +138,6 @@ let flexLayout (props: IFlexLayoutProp list) =
         ?tabIndex = find "tabIndex",
         ?ref = find "ref",
         ?created = find "created")
+
+    |> fun element -> Util.applyGridSettings element attributes 
+    |> fun element -> Util.applyFlexLayoutSettings element attributes 

@@ -8,7 +8,7 @@ An alternative view rendering API for [Fabulous](https://github.com/fsprojects/F
 dotnet add package Fabulous.SimpleElements	
 ```
 # Example Code
-The library aims to unify both optional arguments and fluent extension methods for View elements into a list of attributes  
+The library aims to unify both optional arguments and fluent extension methods for View elements into a list of attributes. This allows for easy API discoverability, just "dotting" through the element module to see what attributes you can set on the element. 
 ```fs
 StackLayout.stackLayout [
     StackLayout.Padding 20.0 

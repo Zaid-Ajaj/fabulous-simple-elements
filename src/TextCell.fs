@@ -47,4 +47,5 @@ let textCell (props: ITextCellProp list) =
         ?automationId=find"automationId",
         ?created=find"created") 
 
-    |> Util.applyGridSettings
+    |> fun element -> Util.applyGridSettings element attributes
+    |> fun element -> Util.applyFlexLayoutSettings element attributes 

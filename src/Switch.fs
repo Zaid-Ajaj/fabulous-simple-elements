@@ -57,6 +57,16 @@ let GridColumn (n: int) = createProp "gridColumn" n
 let GridRowSpan (n: int) = createProp "gridRowSpan" n
 let GridColumnSpan (n: int) = createProp "gridColumnSpan" n
 // === Grid definitions ===
+
+// === FlexLayout definitions ===
+let FlexOrder (n: int) = createProp "flexOrder" n
+let FlexGrow (value: double) = createProp "flexGrow" value
+let FlexShrink (value: double) = createProp "flexShrink" value
+let FlexAignSelf (value: FlexAlignSelf) = createProp "flexAlignSelf" value
+let FlexLayoutDirection (value: FlexDirection) = createProp "flexLayoutDirection" value
+let FlexBasis (value: FlexBasis) = createProp "flexBasis" value
+// === FlexLayout definitions ===
+
 let OnCreated (f: Switch -> unit) = createProp "created" f
 
 let switch (props: ISwitchProp list) : ViewElement = 
@@ -99,3 +109,4 @@ let switch (props: ISwitchProp list) : ViewElement =
         ?inputTransparent = find "inputTransparent",
         ?horizontalOptions = find "horizontalOptions")
     |> fun element -> Util.applyGridSettings element attributes
+    |> fun element -> Util.applyFlexLayoutSettings element attributes

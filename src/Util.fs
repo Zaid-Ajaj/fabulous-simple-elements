@@ -25,6 +25,26 @@ let applyGridSettings (element: ViewElement) (map: Map<string, obj>) : ViewEleme
                     | "gridColumnSpan" -> elem.GridColumnSpan(int propValue)
                     | _ -> elem) element
     
+let applyFlexLayoutSettings (element: ViewElement) (props: Map<string, obj>) : ViewElement =
+    [ "flexBasis", tryFind "flexBasis" props
+      "flexOrder", tryFind "flexOrder" props
+      "flexGrow", tryFind "flexGrow" props
+      "flexShrink", tryFind "flexShrink" props
+      "flexLayoutDirection", tryFind "flexLayoutDirection" props
+      "flexAlignSelf", tryFind "flexAlignSelf" props]
+    |> List.choose (function 
+                    | (name, Some value) -> Some(name, value) 
+                    | _ -> None)
+    |> List.fold (fun (el: ViewElement) (propName, propValue) ->
+                  match propName with 
+                  | "flexBasis" -> el.FlexBasis (unbox<FlexBasis> propValue)
+                  | "flexOrder" -> el.FlexOrder (int propValue)
+                  | "flexGrow" -> el.FlexGrow(double propValue)
+                  | "flexShrink" -> el.FlexShrink (double propValue)
+                  | "flexLayoutDirection" -> el.FlexLayoutDirection(unbox<FlexDirection> propValue)
+                  | "flexAlignSelf" -> el.FlexAlignSelf (unbox<FlexAlignSelf> propValue)
+                  | _ -> el) element
+    
 let applyMarginSettings (map: Map<string, obj>) : Thickness = 
     let initialMargin = 
         Map.tryFind "margin" map  
