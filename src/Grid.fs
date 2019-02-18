@@ -6,6 +6,7 @@ open Fabulous.DynamicViews
 open Xamarin.Forms
 open Xamarin.Forms.StyleSheets
 open Util
+open Xamarin.Forms
 
 type IGridProp = 
     abstract name : string 
@@ -16,23 +17,9 @@ let internal createProp name value =
         member x.name = name 
         member x.value = value }
 
-type CellDef = 
-    | Fixed of int 
-    | Auto 
+let Rows (rowDefs: RowDefinition list) = createProp "rowdefs" rowDefs 
 
-let RowDef(row: CellDef) = 
-    match row with 
-    | Fixed n -> box (n.ToString())
-    | Auto -> box "*"
-
-let ColumnDef(row: CellDef) = 
-    match row with 
-    | Fixed n -> box (n.ToString())
-    | Auto -> box "*"
-
-let Rows (rowDefs: obj list) = createProp "rowdefs" rowDefs 
-
-let Columns (colDefs: obj list) = createProp "coldefs" colDefs 
+let Columns (colDefs: ColumnDefinition list) = createProp "coldefs" colDefs 
 
 let Children (elems: ViewElement list) = createProp "children" elems 
 
