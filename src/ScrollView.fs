@@ -68,6 +68,7 @@ let AutomationId (id: string) = createProp "automationId" id
 let Resources (values: (string * obj) list) = createProp "resources" values 
 let InputTransparent (condition: bool) = createProp "inputTransparent" condition 
 let OnCreated (f: ScrollView -> unit) = createProp "created" f
+let GestureRecognizers (elements: ViewElement list) = createProp "gestureRecognizers" elements
 
 let scrollView (props: IScrollViewProp list) : ViewElement = 
     let attributes = 
@@ -82,6 +83,7 @@ let scrollView (props: IScrollViewProp list) : ViewElement =
         ?horizontalScrollBarVisibility = find "horizontalScrollBarVisibility",
         ?verticalScrollBarVisibility = find "verticalScrollBarVisibility",
         ?ref = find "ref",  
+        ?gestureRecognizers = find "gestureRecognizers",
         ?created = find "created", 
         ?padding = Some (box (Util.applyPaddingSettings attributes)),
         ?isEnabled = find "isEnabled",
