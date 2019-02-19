@@ -66,7 +66,7 @@ let FlexAignSelf (value: FlexAlignSelf) = createProp "flexAlignSelf" value
 let FlexLayoutDirection (value: FlexDirection) = createProp "flexLayoutDirection" value
 let FlexBasis (value: FlexBasis) = createProp "flexBasis" value
 // === FlexLayout definitions ===
-
+let GestureRecognizers (elements: ViewElement list) = createProp "gestureRecognizers" elements
 let OnCreated (f: Switch -> unit) = createProp "created" f
 
 let switch (props: ISwitchProp list) : ViewElement = 

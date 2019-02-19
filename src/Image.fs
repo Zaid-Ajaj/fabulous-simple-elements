@@ -57,6 +57,7 @@ let MeasureInvalidated (f: System.EventArgs -> unit) = createProp "measureInvali
 let ChildrenReordered (f: System.EventArgs -> unit) = createProp "childrenReordered" f
 let SizeChanged (f: System.EventArgs -> unit) = createProp "sizeChanged" f
 let OnCreated (f: Image -> unit) = createProp "created" f
+let GestureRecognizers (elements: ViewElement list) = createProp "gestureRecognizers" elements
 
 let image (props: IImageProp list) =
     let attributes = 
