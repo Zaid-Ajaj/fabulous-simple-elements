@@ -68,6 +68,7 @@ let FlexBasis (value: FlexBasis) = createProp "flexBasis" value
 // === FlexLayout definitions ===
 let GestureRecognizers (elements: ViewElement list) = createProp "gestureRecognizers" elements
 let OnCreated (f: Switch -> unit) = createProp "created" f
+let ColorWhenEnabled (color: Color) = createProp "onColor" color
 
 let switch (props: ISwitchProp list) : ViewElement = 
     let attributes = 
@@ -79,10 +80,11 @@ let switch (props: ISwitchProp list) : ViewElement =
 
     View.Switch(?isToggled = find "isToggled",
         ?toggled = find "toggled",
+        ?onColor = find "onColor",
         ?ref = find "ref",
         ?isEnabled = find "isEnabled",
         ?isVisible = find "isVisible",
-        ?verticalOptions = find "verticalOptions",
+        ?verticalOptions = find "verticalOptions", 
         ?opacity = find "opacity",
         ?heightRequest = find "heightRequest", 
         ?widthRequest = find "widthRequest",

@@ -16,6 +16,7 @@ let internal createProp name value =
 
 
 let VerticalLayout (options: LayoutOptions) = createProp "verticalOptions" options 
+let HorizontalLayout (options: LayoutOptions) = createProp "horizontalOptions" options
 let Children (children: ViewElement list) = createProp "children" children
 let Orientation (orientation: StackOrientation) = createProp "stackOrientation" orientation 
 let Spacing (value: double) = createProp "spacing" value 
@@ -93,10 +94,10 @@ let stackLayout (props: IStackLayoutProp list) : ViewElement =
     
     let find name = Util.tryFind name attributes
     
-    View.StackLayout(?children = find "children", 
+    View.StackLayout(?children = find "children",
         ?padding = Some (box (Util.applyPaddingSettings attributes)), 
         ?margin = Some (box (Util.applyMarginSettings attributes)),
-        ?spacing = find "spacing",
+        ?spacing = find "spacing", 
         ?ref = find "ref",
         ?created = find "created",
         ?orientation = find "stackOrientation",
