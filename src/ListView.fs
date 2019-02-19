@@ -75,6 +75,7 @@ let FlexAignSelf (value: FlexAlignSelf) = createProp "flexAlignSelf" value
 let FlexLayoutDirection (value: FlexDirection) = createProp "flexLayoutDirection" value
 let FlexBasis (value: FlexBasis) = createProp "flexBasis" value
 // === FlexLayout definitions ===
+let SelectionMode (mode: ListViewSelectionMode) = createProp "selectionMode" mode
 
 let OnCreated (f: ListView -> unit) = createProp "created" f
 
@@ -89,6 +90,7 @@ let listView (props: IListViewProp list) : ViewElement =
     View.ListView(?items = find "items",
         ?hasUnevenRows = find "hasUnevenRows",
         ?ref = find "ref",
+        ?selectionMode=find"selectionMode",
         ?isGroupingEnabled = find "isGroupingEnabled",
         ?isPullToRefreshEnabled = find "isPullToRefreshEnabled",
         ?isRefreshing = find "isRefreshing",
