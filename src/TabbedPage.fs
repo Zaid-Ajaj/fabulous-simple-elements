@@ -82,7 +82,7 @@ let tabbedPage (props: ITabbedPageProp list) =
     
     let find name = Util.tryFind name attributes
 
-    View.TabbedPage(?children=find"childred",
+    View.TabbedPage(?children=find"children",
         ?barBackgroundColor=find"barBackgroundColor",
         ?barTextColor=find"barTextColor",
         ?currentPage=find"currentPage",
