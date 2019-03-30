@@ -83,7 +83,10 @@ let FlexLayoutDirection (value: FlexDirection) = createProp "flexLayoutDirection
 let FlexBasis (value: FlexBasis) = createProp "flexBasis" value
 // === FlexLayout definitions ===
 let GestureRecognizers (elements: ViewElement list) = createProp "gestureRecognizers" elements
-
+// === AbsoluteLayout definitions ===
+let AbsoluteLayoutFlags (flags: AbsoluteLayoutFlags) = createProp "absoluteLayoutFlags" flags 
+let AbsoluteLayoutBounds (rectabgleBounds: Rectangle) = createProp "absoluteLayoutBounds" rectabgleBounds
+// === AbsoluteLayout definitions === 
 let OnCreated (f: Grid -> unit) = createProp "created" f
 
 let grid (props: IGridProp list) : ViewElement = 
@@ -134,3 +137,4 @@ let grid (props: IGridProp list) : ViewElement =
     )
     |> fun element -> Util.applyGridSettings element attributes
     |> fun element -> Util.applyFlexLayoutSettings element attributes
+    |> fun element -> Util.applyAbsoluteLayoutSettings element attributes

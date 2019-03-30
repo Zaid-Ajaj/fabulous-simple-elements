@@ -78,7 +78,10 @@ let FlexAignSelf (value: FlexAlignSelf) = createProp "flexAlignSelf" value
 let FlexLayoutDirection (value: FlexDirection) = createProp "flexLayoutDirection" value
 let FlexBasis (value: FlexBasis) = createProp "flexBasis" value
 // === FlexLayout definitions ===
-
+// === AbsoluteLayout definitions ===
+let AbsoluteLayoutFlags (flags: AbsoluteLayoutFlags) = createProp "absoluteLayoutFlags" flags 
+let AbsoluteLayoutBounds (rectabgleBounds: Rectangle) = createProp "absoluteLayoutBounds" rectabgleBounds
+// === AbsoluteLayout definitions === 
 let TextDecorations (decorations: TextDecorations) = createProp "textDecorations" decorations 
 
 let OnCreated (f: Label -> unit) = createProp "created" f
@@ -133,3 +136,5 @@ let label (props: ILabelProp list) : ViewElement =
 
     |> fun element -> Util.applyGridSettings element attributes
     |> fun element -> Util.applyFlexLayoutSettings element attributes
+    |> fun element -> Util.applyAbsoluteLayoutSettings element attributes
+    

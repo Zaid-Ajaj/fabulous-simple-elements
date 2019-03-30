@@ -5,6 +5,7 @@ open Fabulous.Core
 open Fabulous.DynamicViews
 open Xamarin.Forms
 open Xamarin.Forms.StyleSheets
+open Xamarin.Forms
     
 type IButtonProp = 
     abstract name : string 
@@ -81,6 +82,11 @@ let FlexLayoutDirection (value: FlexDirection) = createProp "flexLayoutDirection
 let FlexBasis (value: FlexBasis) = createProp "flexBasis" value
 // === FlexLayout definitions ===
 
+// === AbsoluteLayout definitions ===
+let AbsoluteLayoutFlags (flags: AbsoluteLayoutFlags) = createProp "absoluteLayoutFlags" flags 
+let AbsoluteLayoutBounds (rectabgleBounds: Rectangle) = createProp "absoluteLayoutBounds" rectabgleBounds
+// === AbsoluteLayout definitions === 
+
 let OnCreated (f: Button -> unit) = createProp "created" f
 
 let button (props: IButtonProp list) : ViewElement = 
@@ -133,3 +139,4 @@ let button (props: IButtonProp list) : ViewElement =
         ?horizontalOptions = find "horizontalOptions")
     |> fun element ->  Util.applyGridSettings element attributes  
     |> fun element -> Util.applyFlexLayoutSettings element attributes
+    |> fun element -> Util.applyAbsoluteLayoutSettings element attributes 

@@ -25,7 +25,10 @@ let Ref (viewRef: ViewRef<TextCell>) = createProp "ref" viewRef
 let ClassId (id: string) = createProp "classId" id 
 let AutomationId (id: string) = createProp "automationId" id
 let OnCreated (f: Entry -> unit) = createProp "created" f
-
+// === AbsoluteLayout definitions ===
+let AbsoluteLayoutFlags (flags: AbsoluteLayoutFlags) = createProp "absoluteLayoutFlags" flags 
+let AbsoluteLayoutBounds (rectabgleBounds: Rectangle) = createProp "absoluteLayoutBounds" rectabgleBounds
+// === AbsoluteLayout definitions === 
 let textCell (props: ITextCellProp list) = 
     let attributes = 
         props 
@@ -49,3 +52,5 @@ let textCell (props: ITextCellProp list) =
 
     |> fun element -> Util.applyGridSettings element attributes
     |> fun element -> Util.applyFlexLayoutSettings element attributes 
+    |> fun element -> Util.applyAbsoluteLayoutSettings element attributes
+    

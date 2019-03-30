@@ -73,6 +73,10 @@ let FlexBasis (value: FlexBasis) = createProp "flexBasis" value
 // === FlexLayout definitions ===
 
 let OnCreated (f: Slider -> unit) = createProp "created" f
+// === AbsoluteLayout definitions ===
+let AbsoluteLayoutFlags (flags: AbsoluteLayoutFlags) = createProp "absoluteLayoutFlags" flags 
+let AbsoluteLayoutBounds (rectabgleBounds: Rectangle) = createProp "absoluteLayoutBounds" rectabgleBounds
+// === AbsoluteLayout definitions === 
 
 let slider (props: ISliderProp list) : ViewElement = 
     let attributes = 
@@ -121,3 +125,4 @@ let slider (props: ISliderProp list) : ViewElement =
         ?horizontalOptions = find "horizontalOptions")
     |> fun element -> Util.applyGridSettings element attributes
     |> fun element -> Util.applyFlexLayoutSettings element attributes
+    |> fun element -> Util.applyAbsoluteLayoutSettings element attributes

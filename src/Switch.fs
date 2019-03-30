@@ -69,7 +69,10 @@ let FlexBasis (value: FlexBasis) = createProp "flexBasis" value
 let GestureRecognizers (elements: ViewElement list) = createProp "gestureRecognizers" elements
 let OnCreated (f: Switch -> unit) = createProp "created" f
 let ColorWhenEnabled (color: Color) = createProp "onColor" color
-
+// === AbsoluteLayout definitions ===
+let AbsoluteLayoutFlags (flags: AbsoluteLayoutFlags) = createProp "absoluteLayoutFlags" flags 
+let AbsoluteLayoutBounds (rectabgleBounds: Rectangle) = createProp "absoluteLayoutBounds" rectabgleBounds
+// === AbsoluteLayout definitions === 
 let switch (props: ISwitchProp list) : ViewElement = 
     let attributes = 
         props 
@@ -112,3 +115,4 @@ let switch (props: ISwitchProp list) : ViewElement =
         ?horizontalOptions = find "horizontalOptions")
     |> fun element -> Util.applyGridSettings element attributes
     |> fun element -> Util.applyFlexLayoutSettings element attributes
+    |> fun element -> Util.applyAbsoluteLayoutSettings element attributes

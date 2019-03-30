@@ -78,7 +78,10 @@ let FlexBasis (value: FlexBasis) = createProp "flexBasis" value
 let SelectionMode (mode: ListViewSelectionMode) = createProp "selectionMode" mode
 
 let OnCreated (f: ListView -> unit) = createProp "created" f
-
+// === AbsoluteLayout definitions ===
+let AbsoluteLayoutFlags (flags: AbsoluteLayoutFlags) = createProp "absoluteLayoutFlags" flags 
+let AbsoluteLayoutBounds (rectabgleBounds: Rectangle) = createProp "absoluteLayoutBounds" rectabgleBounds
+// === AbsoluteLayout definitions === 
 let listView (props: IListViewProp list) : ViewElement = 
     let attributes = 
         props 
@@ -135,3 +138,5 @@ let listView (props: IListViewProp list) : ViewElement =
 
     |> fun element -> Util.applyGridSettings element attributes
     |> fun element -> Util.applyFlexLayoutSettings element attributes
+    |> fun element -> Util.applyAbsoluteLayoutSettings element attributes 
+    

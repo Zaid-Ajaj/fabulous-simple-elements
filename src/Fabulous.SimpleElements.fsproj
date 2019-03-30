@@ -8,7 +8,7 @@
     <PackageIconUrl></PackageIconUrl>
     <PackageTags>fsharp;xamarin;forms;view;dsl;elmish</PackageTags>
     <Authors>Zaid Ajaj</Authors>
-    <Version>0.23.0</Version>
+    <Version>0.24.0</Version>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
@@ -35,7 +35,8 @@
     <Compile Include="FlexLayout.fs" />
     <Compile Include="Image.fs" />
     <Compile Include="ImageCell.fs" />
-
+    <Compile Include="TabbedPage.fs" />
+    <Compile Include="AbsoluteLayout.fs" />
   </ItemGroup>
   <ItemGroup>
      <PackageReference Include="Fabulous.Core" Version="0.33.2" />

@@ -24,7 +24,19 @@ let applyGridSettings (element: ViewElement) (map: Map<string, obj>) : ViewEleme
                     | "gridRowSpan" -> elem.GridRowSpan(int propValue)
                     | "gridColumnSpan" -> elem.GridColumnSpan(int propValue)
                     | _ -> elem) element
-    
+
+let applyAbsoluteLayoutSettings (element: ViewElement) (props: Map<string, obj>) : ViewElement =
+    [ "absoluteLayoutFlags", tryFind "absoluteLayoutFlags" props
+      "absoluteLayoutBounds", tryFind "absoluteLayoutBounds" props ]
+    |> List.choose (function 
+                    | (name, Some value) -> Some(name, value) 
+                    | _ -> None)
+    |> List.fold (fun (el: ViewElement) (propName, propValue) ->
+                  match propName with 
+                  | "absoluteLayoutFlags" -> el.LayoutFlags (unbox<AbsoluteLayoutFlags> propValue)
+                  | "absoluteLayoutBounds" -> el.LayoutBounds (unbox<Rectangle> propValue)
+                  | _ -> el) element
+
 let applyFlexLayoutSettings (element: ViewElement) (props: Map<string, obj>) : ViewElement =
     [ "flexBasis", tryFind "flexBasis" props
       "flexOrder", tryFind "flexOrder" props

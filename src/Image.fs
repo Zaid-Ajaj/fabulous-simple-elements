@@ -58,7 +58,10 @@ let ChildrenReordered (f: System.EventArgs -> unit) = createProp "childrenReorde
 let SizeChanged (f: System.EventArgs -> unit) = createProp "sizeChanged" f
 let OnCreated (f: Image -> unit) = createProp "created" f
 let GestureRecognizers (elements: ViewElement list) = createProp "gestureRecognizers" elements
-
+// === AbsoluteLayout definitions ===
+let AbsoluteLayoutFlags (flags: AbsoluteLayoutFlags) = createProp "absoluteLayoutFlags" flags 
+let AbsoluteLayoutBounds (rectabgleBounds: Rectangle) = createProp "absoluteLayoutBounds" rectabgleBounds
+// === AbsoluteLayout definitions === 
 let image (props: IImageProp list) =
     let attributes = 
         props 
@@ -108,3 +111,4 @@ let image (props: IImageProp list) =
         ?created=find"created") 
     |> fun element -> Util.applyGridSettings element attributes 
     |> fun element -> Util.applyFlexLayoutSettings element attributes
+    |> fun element -> Util.applyAbsoluteLayoutSettings element attributes

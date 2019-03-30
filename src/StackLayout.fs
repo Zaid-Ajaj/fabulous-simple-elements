@@ -83,6 +83,10 @@ let FlexLayoutDirection (value: FlexDirection) = createProp "flexLayoutDirection
 let FlexBasis (value: FlexBasis) = createProp "flexBasis" value
 // === FlexLayout definitions ===
 
+// === AbsoluteLayout definitions ===
+let AbsoluteLayoutFlags (flags: AbsoluteLayoutFlags) = createProp "absoluteLayoutFlags" flags 
+let AbsoluteLayoutBounds (rectabgleBounds: Rectangle) = createProp "absoluteLayoutBounds" rectabgleBounds
+// === AbsoluteLayout definitions === 
 
 let OnCreated (f: StackLayout -> unit) = createProp "created" f
 
@@ -130,3 +134,4 @@ let stackLayout (props: IStackLayoutProp list) : ViewElement =
         ?horizontalOptions = find "horizontalOptions")
     |> fun element -> Util.applyGridSettings element attributes
     |> fun element -> Util.applyFlexLayoutSettings element attributes
+    |> fun element -> Util.applyAbsoluteLayoutSettings element attributes

@@ -43,6 +43,16 @@ let GridColumn (n: int) = createProp "gridColumn" n
 let GridRowSpan (n: int) = createProp "gridRowSpan" n
 let GridColumnSpan (n: int) = createProp "gridColumnSpan" n
 // === Grid definitions ===
+
+// === FlexLayout definitions ===
+let FlexOrder (n: int) = createProp "flexOrder" n
+let FlexGrow (value: double) = createProp "flexGrow" value
+let FlexShrink (value: double) = createProp "flexShrink" value
+let FlexAignSelf (value: FlexAlignSelf) = createProp "flexAlignSelf" value
+let FlexLayoutDirection (value: FlexDirection) = createProp "flexLayoutDirection" value
+let FlexBasis (value: FlexBasis) = createProp "flexBasis" value
+// === FlexLayout definitions ===
+
 let IsEnabled (condition: bool) = createProp "isEnabled" condition
 let IsVisible (condition: bool) = createProp "isVisible" condition
 let AnchorY (value: double) = createProp "anchorY" value 
@@ -69,7 +79,10 @@ let Resources (values: (string * obj) list) = createProp "resources" values
 let InputTransparent (condition: bool) = createProp "inputTransparent" condition 
 let OnCreated (f: ScrollView -> unit) = createProp "created" f
 let GestureRecognizers (elements: ViewElement list) = createProp "gestureRecognizers" elements
-
+// === AbsoluteLayout definitions ===
+let AbsoluteLayoutFlags (flags: AbsoluteLayoutFlags) = createProp "absoluteLayoutFlags" flags 
+let AbsoluteLayoutBounds (rectabgleBounds: Rectangle) = createProp "absoluteLayoutBounds" rectabgleBounds
+// === AbsoluteLayout definitions === 
 let scrollView (props: IScrollViewProp list) : ViewElement = 
     let attributes = 
         props 
@@ -112,3 +125,5 @@ let scrollView (props: IScrollViewProp list) : ViewElement =
     )
     
     |> fun elem -> Util.applyGridSettings elem attributes
+    |> fun elem -> Util.applyAbsoluteLayoutSettings elem attributes
+    |> fun elem -> Util.applyFlexLayoutSettings elem attributes

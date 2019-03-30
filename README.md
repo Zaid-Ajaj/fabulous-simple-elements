@@ -7,7 +7,7 @@ An alternative view rendering API for [Fabulous](https://github.com/fsprojects/F
 ```
 dotnet add package Fabulous.SimpleElements	
 ```
-# Example Code
+### Usage
 The library aims to unify both optional arguments and fluent extension methods for View elements into a list of attributes. This allows for easy API discoverability, just "dotting" through the element module to see what attributes you can set on the element. 
 ```fs
 StackLayout.stackLayout [
@@ -27,6 +27,30 @@ StackLayout.stackLayout [
             Button.OnClick (fun _ -> dispatch StartNewGame) 
         ]
     ]
+]
+```
+### Backwards compatible with existing DSL 
+This DSL is built on-top of the exisitng one in the core of Fabulous library which means if something isn't implemented here, that use can simply fallback to using the original DSL in a mix-and-match fashion:
+```fs
+View.ContentPage(content=StackLayout.stackLayout [ 
+    StackLayout.Children [
+        View.Button(text="Click me")
+    ]
+])
+```
+### Extension methods are included with attributes 
+Instead of
+```fs
+View.Button(text="hello")
+    .GridColumn(1)
+    .GridRow(1)
+```
+you write
+```fs
+Button.button [
+  Button.Text "Hello"
+  Button.GridRow 1
+  Button.GridColumn 1
 ]
 ```
 # Running the samples
