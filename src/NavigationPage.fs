@@ -76,6 +76,7 @@ let navigationPage (props: INavigationPageProp list) : ViewElement =
         ?barTextColor = find "barTextColor", 
         ?popped = find "popped", 
         ?ref = find "ref",
+        ?title = find "title",
         ?poppedToRoot = find "poppedToRoot",
         ?pushed = find "pushed",
         ?toolbarItems = find "toolbarItems",
