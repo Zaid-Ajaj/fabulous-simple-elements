@@ -86,6 +86,18 @@ let MarginBottom (value: double) = createProp "marginBottom" value
 let MarginThickness (thickness: Thickness) = createProp "margin" thickness 
 // === Margin settings ===
 
+// === AbsoluteLayout definitions ===
+let AbsoluteLayoutFlags (flags: AbsoluteLayoutFlags) = createProp "absoluteLayoutFlags" flags 
+let AbsoluteLayoutBounds (rectabgleBounds: Rectangle) = createProp "absoluteLayoutBounds" rectabgleBounds
+// === AbsoluteLayout definitions === 
+
+// === Relative Layout Constraints ===
+let WidthConstraint (value: Constraint) = createProp Keys.WidthConstraint value
+let HeightConstraint (value: Constraint) = createProp Keys.HeightConstraint value 
+let XConstraint (value: Constraint) = createProp Keys.XConstraint value 
+let YConstraint (value: Constraint) = createProp Keys.YConstraint value 
+// ===================================
+
 let absoluteLayout (props: IAbsoluteLayoutProp list) = 
     let attributes = 
         props 
@@ -128,3 +140,5 @@ let absoluteLayout (props: IAbsoluteLayoutProp list) =
         ?horizontalOptions = find "horizontalOptions")
     |> fun element -> Util.applyGridSettings element attributes
     |> fun element -> Util.applyFlexLayoutSettings element attributes
+    |> fun element -> Util.applyAbsoluteLayoutSettings element attributes
+    |> fun element -> Util.applyRelativeLayoutConstraints element attributes 

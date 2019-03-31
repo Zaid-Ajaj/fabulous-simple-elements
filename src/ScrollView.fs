@@ -6,6 +6,7 @@ open Xamarin.Forms
 open Xamarin.Forms.StyleSheets
 open Xamarin.Forms
 open Xamarin.Forms
+open Util
 
 type IScrollViewProp = 
     abstract name : string 
@@ -83,6 +84,14 @@ let GestureRecognizers (elements: ViewElement list) = createProp "gestureRecogni
 let AbsoluteLayoutFlags (flags: AbsoluteLayoutFlags) = createProp "absoluteLayoutFlags" flags 
 let AbsoluteLayoutBounds (rectabgleBounds: Rectangle) = createProp "absoluteLayoutBounds" rectabgleBounds
 // === AbsoluteLayout definitions === 
+
+// === Relative Layout Constraints ===
+let WidthConstraint (value: Constraint) = createProp Keys.WidthConstraint value
+let HeightConstraint (value: Constraint) = createProp Keys.HeightConstraint value 
+let XConstraint (value: Constraint) = createProp Keys.XConstraint value 
+let YConstraint (value: Constraint) = createProp Keys.YConstraint value 
+// ===================================
+
 let scrollView (props: IScrollViewProp list) : ViewElement = 
     let attributes = 
         props 
@@ -127,3 +136,4 @@ let scrollView (props: IScrollViewProp list) : ViewElement =
     |> fun elem -> Util.applyGridSettings elem attributes
     |> fun elem -> Util.applyAbsoluteLayoutSettings elem attributes
     |> fun elem -> Util.applyFlexLayoutSettings elem attributes
+    |> fun elem -> Util.applyRelativeLayoutConstraints elem attributes

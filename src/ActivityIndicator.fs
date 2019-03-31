@@ -67,6 +67,18 @@ let FlexLayoutDirection (value: FlexDirection) = createProp "flexLayoutDirection
 let FlexBasis (value: FlexBasis) = createProp "flexBasis" value
 // === FlexLayout definitions ===
 
+// === AbsoluteLayout definitions ===
+let AbsoluteLayoutFlags (flags: AbsoluteLayoutFlags) = createProp "absoluteLayoutFlags" flags 
+let AbsoluteLayoutBounds (rectabgleBounds: Rectangle) = createProp "absoluteLayoutBounds" rectabgleBounds
+// === AbsoluteLayout definitions === 
+
+// === Relative Layout Constraints ===
+let WidthConstraint (value: Constraint) = createProp Keys.WidthConstraint value
+let HeightConstraint (value: Constraint) = createProp Keys.HeightConstraint value 
+let XConstraint (value: Constraint) = createProp Keys.XConstraint value 
+let YConstraint (value: Constraint) = createProp Keys.YConstraint value 
+// ===================================
+
 let activityIndicator (props: IActivityIndicatorProp list) : ViewElement = 
     let attributes = 
         props 
@@ -110,3 +122,5 @@ let activityIndicator (props: IActivityIndicatorProp list) : ViewElement =
     )
     |> fun element -> Util.applyGridSettings element attributes
     |> fun element -> Util.applyFlexLayoutSettings element attributes
+    |> fun element -> Util.applyAbsoluteLayoutSettings element attributes
+    |> fun element -> Util.applyRelativeLayoutConstraints element attributes

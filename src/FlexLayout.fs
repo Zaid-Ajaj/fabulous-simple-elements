@@ -23,6 +23,11 @@ let JustifyContent (justify: FlexJustify) = createProp "justifyContent" justify
 let Children (children: ViewElement list) = createProp "children" children
 let IsClippedToBound (cond: bool) = createProp "isClipped" cond
 
+// === AbsoluteLayout definitions ===
+let AbsoluteLayoutFlags (flags: AbsoluteLayoutFlags) = createProp "absoluteLayoutFlags" flags 
+let AbsoluteLayoutBounds (rectabgleBounds: Rectangle) = createProp "absoluteLayoutBounds" rectabgleBounds
+// === AbsoluteLayout definitions === 
+
 // === Padding definitions ===
 let Padding (value: double) = createProp "padding" (Thickness(value)) 
 let PaddingLeft (value: double) = createProp "paddingLeft" value 
@@ -92,7 +97,12 @@ let TabIndex (index: int) = createProp "tabIndex" index
 let Ref (viewRef: ViewRef<FlexLayout>) = createProp "ref" viewRef
 let TranslationX (value: double) = createProp "translationX" value 
 let TranslationY (value: double) = createProp "translationY" value
-
+// === Relative Layout Constraints ===
+let WidthConstraint (value: Constraint) = createProp Keys.WidthConstraint value
+let HeightConstraint (value: Constraint) = createProp Keys.HeightConstraint value 
+let XConstraint (value: Constraint) = createProp Keys.XConstraint value 
+let YConstraint (value: Constraint) = createProp Keys.YConstraint value 
+// ===================================
 let flexLayout (props: IFlexLayoutProp list) = 
     let attributes = 
         props  
@@ -141,3 +151,5 @@ let flexLayout (props: IFlexLayoutProp list) =
 
     |> fun element -> Util.applyGridSettings element attributes 
     |> fun element -> Util.applyFlexLayoutSettings element attributes 
+    |> fun element -> Util.applyAbsoluteLayoutSettings element attributes 
+    |> fun element -> Util.applyRelativeLayoutConstraints element attributes

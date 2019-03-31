@@ -62,6 +62,14 @@ let GestureRecognizers (elements: ViewElement list) = createProp "gestureRecogni
 let AbsoluteLayoutFlags (flags: AbsoluteLayoutFlags) = createProp "absoluteLayoutFlags" flags 
 let AbsoluteLayoutBounds (rectabgleBounds: Rectangle) = createProp "absoluteLayoutBounds" rectabgleBounds
 // === AbsoluteLayout definitions === 
+
+// === Relative Layout Constraints ===
+let WidthConstraint (value: Constraint) = createProp Keys.WidthConstraint value
+let HeightConstraint (value: Constraint) = createProp Keys.HeightConstraint value 
+let XConstraint (value: Constraint) = createProp Keys.XConstraint value 
+let YConstraint (value: Constraint) = createProp Keys.YConstraint value 
+// ===================================
+
 let image (props: IImageProp list) =
     let attributes = 
         props 
@@ -112,3 +120,4 @@ let image (props: IImageProp list) =
     |> fun element -> Util.applyGridSettings element attributes 
     |> fun element -> Util.applyFlexLayoutSettings element attributes
     |> fun element -> Util.applyAbsoluteLayoutSettings element attributes
+    |> fun element -> Util.applyFlexLayoutSettings element attributes 

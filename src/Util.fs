@@ -25,16 +25,32 @@ let applyGridSettings (element: ViewElement) (map: Map<string, obj>) : ViewEleme
                     | "gridColumnSpan" -> elem.GridColumnSpan(int propValue)
                     | _ -> elem) element
 
+let isDefined = function 
+| (name, Some value) -> Some(name, value) 
+| _ -> None
+
 let applyAbsoluteLayoutSettings (element: ViewElement) (props: Map<string, obj>) : ViewElement =
     [ "absoluteLayoutFlags", tryFind "absoluteLayoutFlags" props
       "absoluteLayoutBounds", tryFind "absoluteLayoutBounds" props ]
-    |> List.choose (function 
-                    | (name, Some value) -> Some(name, value) 
-                    | _ -> None)
+    |> List.choose isDefined
     |> List.fold (fun (el: ViewElement) (propName, propValue) ->
                   match propName with 
                   | "absoluteLayoutFlags" -> el.LayoutFlags (unbox<AbsoluteLayoutFlags> propValue)
                   | "absoluteLayoutBounds" -> el.LayoutBounds (unbox<Rectangle> propValue)
+                  | _ -> el) element
+
+let applyRelativeLayoutConstraints (element: ViewElement) (props: Map<string, obj>) : ViewElement =
+    [ Keys.WidthConstraint, tryFind Keys.WidthConstraint props
+      Keys.HeightConstraint, tryFind Keys.HeightConstraint props
+      Keys.XConstraint, tryFind Keys.XConstraint props
+      Keys.YConstraint, tryFind Keys.YConstraint props ]
+    |> List.choose isDefined 
+    |> List.fold (fun (el: ViewElement) (propName, propValue) ->
+                  match propName with 
+                  | Keys.WidthConstraint -> el.WidthConstraint (unbox propValue)
+                  | Keys.HeightConstraint -> el.HeightConstraint (unbox propValue)
+                  | Keys.XConstraint -> el.XConstraint (unbox propValue)
+                  | Keys.YConstraint -> el.YConstraint (unbox propValue)
                   | _ -> el) element
 
 let applyFlexLayoutSettings (element: ViewElement) (props: Map<string, obj>) : ViewElement =

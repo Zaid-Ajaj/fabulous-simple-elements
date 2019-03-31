@@ -3,6 +3,7 @@ module TextCell
 
 open Fabulous.DynamicViews
 open Xamarin.Forms
+open Util
 
 type ITextCellProp = 
     abstract name : string 
@@ -29,6 +30,13 @@ let OnCreated (f: Entry -> unit) = createProp "created" f
 let AbsoluteLayoutFlags (flags: AbsoluteLayoutFlags) = createProp "absoluteLayoutFlags" flags 
 let AbsoluteLayoutBounds (rectabgleBounds: Rectangle) = createProp "absoluteLayoutBounds" rectabgleBounds
 // === AbsoluteLayout definitions === 
+// === Relative Layout Constraints ===
+let WidthConstraint (value: Constraint) = createProp Keys.WidthConstraint value
+let HeightConstraint (value: Constraint) = createProp Keys.HeightConstraint value 
+let XConstraint (value: Constraint) = createProp Keys.XConstraint value 
+let YConstraint (value: Constraint) = createProp Keys.YConstraint value 
+// ===================================
+
 let textCell (props: ITextCellProp list) = 
     let attributes = 
         props 
@@ -53,4 +61,5 @@ let textCell (props: ITextCellProp list) =
     |> fun element -> Util.applyGridSettings element attributes
     |> fun element -> Util.applyFlexLayoutSettings element attributes 
     |> fun element -> Util.applyAbsoluteLayoutSettings element attributes
+    |> fun element -> Util.applyRelativeLayoutConstraints element attributes
     

@@ -32,12 +32,6 @@ let PaddingBottom (value: double) = createProp "paddingBottom" value
 let PaddingThickness (thickness: Thickness) = createProp "padding" thickness 
 let Ref (viewRef : ViewRef<ContentPage>) = createProp "ref" viewRef 
 let Icon (name: string) = createProp "icon" name 
-// === Grid definitions ===
-let GridRow (n: int) = createProp "gridRow" n 
-let GridColumn (n: int) = createProp "gridColumn" n 
-let GridRowSpan (n: int) = createProp "gridRowSpan" n
-let GridColumnSpan (n: int) = createProp "gridColumnSpan" n
-// === Grid definitions ===
 let IsEnabled (condition: bool) = createProp "isEnabled" condition
 let IsVisible (condition: bool) = createProp "isVisible" condition
 let AnchorY (value: double) = createProp "anchorY" value 
