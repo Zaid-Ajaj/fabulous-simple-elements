@@ -104,29 +104,27 @@ let applyMarginSettings (map: Map<string, obj>) : Thickness =
 
 let applyPaddingSettings (map: Map<string, obj>) : Thickness = 
     let initiaPadding = 
-        Map.tryFind "padding" map  
+        Map.tryFind Keys.Padding map  
         |> Option.map (unbox<Thickness>)
         |> Option.defaultValue (Thickness(0.0))
     
-    [ "paddingLeft", tryFind "paddingLeft"  map
-      "paddingRight", tryFind "paddingRight" map
-      "paddingTop", tryFind "paddingTop" map
-      "paddingBottom", tryFind "paddingBottom" map ]
-    |> List.choose (function 
-                    | (name, Some value) -> Some (name, value)
-                    | _ -> None) 
+    [ Keys.PaddingLeft, tryFind Keys.PaddingLeft  map
+      Keys.PaddingRight, tryFind Keys.PaddingRight map
+      Keys.PaddingTop, tryFind Keys.PaddingTop map
+      Keys.PaddingBottom, tryFind Keys.PaddingBottom map ]
+    |> List.choose isDefined
     |> List.fold (fun (current: Thickness) (propName, propValue : obj) -> 
                   match propName with 
-                  | "paddingLeft" -> 
+                  | Keys.PaddingLeft -> 
                       let paddingLeft = unbox<float> propValue 
                       Thickness(paddingLeft, current.Top, current.Right, current.Bottom)
-                  | "paddingRight" -> 
+                  | Keys.PaddingRight -> 
                       let paddingRight = unbox<float> propValue 
                       Thickness(current.Left, current.Top, paddingRight, current.Bottom)
-                  | "paddingTop" -> 
+                  | Keys.PaddingTop -> 
                       let paddingTop = unbox<float> propValue 
                       Thickness(current.Left, paddingTop, current.Right, current.Bottom) 
-                  | "paddingBottom" -> 
+                  | Keys.PaddingBottom -> 
                       let paddingBottom = unbox<float> propValue 
                       Thickness(current.Left, current.Top, current.Right, paddingBottom)
                   | _ -> current) initiaPadding

@@ -27,6 +27,7 @@ let AutomationId (id: string) = createProp "automationId" id
 let toolbarItem (props: IToolbarItemProp list) : ViewElement = 
     let attributes = 
         props 
+        |> List.distinctBy (fun prop -> prop.name)
         |> List.map (fun prop -> prop.name, prop.value)  
         |> Map.ofList 
     

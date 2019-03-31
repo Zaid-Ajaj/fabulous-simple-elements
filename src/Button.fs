@@ -99,6 +99,7 @@ let OnCreated (f: Button -> unit) = createProp "created" f
 let button (props: IButtonProp list) : ViewElement = 
     let attributes = 
         props 
+        |> List.distinctBy (fun prop -> prop.name)
         |> List.map (fun prop -> prop.name, prop.value)  
         |> Map.ofList 
     

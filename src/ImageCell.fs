@@ -32,6 +32,7 @@ let OnCreated (f: ImageCell -> unit) = createProp "created" f
 let imageCell (props: IImageCellProp list) = 
     let attributes = 
         props 
+        |> List.distinctBy (fun prop -> prop.name)
         |> List.map (fun prop -> prop.name, prop.value)  
         |> Map.ofList 
     

@@ -55,7 +55,7 @@ let OnUnfocused (unfocused: FocusEventArgs -> unit) = createProp "unfocused" unf
 let OnChildrenReordered (reordered: System.EventArgs -> unit) = createProp "childrenReordered" reordered
 let OnMeasureInvalidated (measureInvalidated: System.EventArgs -> unit) = createProp "measureInvalidated" measureInvalidated
 let OnSizeChanged (sizeChanged: SizeChangedEventArgs -> unit) = createProp "sizeChanged" sizeChanged
-let Ref(ref: ViewRef<AbsoluteLayout> -> unit) = createProp "ref" ref
+let Ref(ref: ViewRef<RelativeLayout> -> unit) = createProp "ref" ref
 // === Grid definitions ===
 let GridRow (n: int) = createProp "gridRow" n 
 let GridColumn (n: int) = createProp "gridColumn" n 
@@ -100,6 +100,7 @@ let YConstraint (value: Constraint) = createProp Keys.YConstraint value
 let relativeLayout (props: IRelativeLayoutProp list) = 
     let attributes = 
         props 
+        |> List.distinctBy (fun prop -> prop.name)
         |> List.map (fun prop -> prop.name, prop.value)  
         |> Map.ofList 
     

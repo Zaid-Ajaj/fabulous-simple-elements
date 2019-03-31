@@ -82,6 +82,7 @@ let YConstraint (value: Constraint) = createProp Keys.YConstraint value
 let activityIndicator (props: IActivityIndicatorProp list) : ViewElement = 
     let attributes = 
         props 
+        |> List.distinctBy (fun prop -> prop.name)
         |> List.map (fun prop -> prop.name, prop.value)  
         |> Map.ofList 
     

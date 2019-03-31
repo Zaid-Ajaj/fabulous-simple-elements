@@ -77,6 +77,7 @@ let Ref(ref: ViewRef<TabbedPage> -> unit) = createProp "ref" ref
 let tabbedPage (props: ITabbedPageProp list) =
     let attributes = 
         props 
+        |> List.distinctBy (fun prop -> prop.name)
         |> List.map (fun prop -> prop.name, prop.value)
         |> Map.ofList 
     

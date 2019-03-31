@@ -63,6 +63,7 @@ let OnCreated (f: ContentPage -> unit) = createProp "created" f
 let contentPage (props: IContentPageProp list) : ViewElement =
     let attributes = 
         props 
+        |> List.distinctBy (fun prop -> prop.name)
         |> List.map (fun prop -> prop.name, prop.value)  
         |> Map.ofList 
     

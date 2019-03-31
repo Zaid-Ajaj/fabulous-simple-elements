@@ -101,6 +101,7 @@ let YConstraint (value: Constraint) = createProp Keys.YConstraint value
 let absoluteLayout (props: IAbsoluteLayoutProp list) = 
     let attributes = 
         props 
+        |> List.distinctBy (fun prop -> prop.name)
         |> List.map (fun prop -> prop.name, prop.value)  
         |> Map.ofList 
     

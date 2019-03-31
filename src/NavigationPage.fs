@@ -65,6 +65,7 @@ let OnCreated (f: NavigationPage -> unit) = createProp "created" f
 let navigationPage (props: INavigationPageProp list) : ViewElement = 
     let attributes = 
         props 
+        |> List.distinctBy (fun prop -> prop.name)
         |> List.map (fun prop -> prop.name, prop.value)
         |> Map.ofList 
     
