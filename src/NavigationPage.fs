@@ -62,7 +62,7 @@ let Resources (values: (string * obj) list) = createProp "resources" values
 let InputTransparent (condition: bool) = createProp "inputTransparent" condition 
 let OnCreated (f: NavigationPage -> unit) = createProp "created" f
 
-let navigationPage (props: INavigationPageProp list) : ViewElement = 
+let inline navigationPage (props: INavigationPageProp list) : ViewElement = 
     let attributes = 
         props 
         |> List.distinctBy (fun prop -> prop.name)

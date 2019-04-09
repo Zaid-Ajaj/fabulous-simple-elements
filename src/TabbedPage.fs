@@ -74,7 +74,7 @@ let OnMeasureInvalidated (measureInvalidated: System.EventArgs -> unit) = create
 let OnSizeChanged (sizeChanged: SizeChangedEventArgs -> unit) = createProp "sizeChanged" sizeChanged
 let Ref(ref: ViewRef<TabbedPage> -> unit) = createProp "ref" ref
 
-let tabbedPage (props: ITabbedPageProp list) =
+let inline tabbedPage (props: ITabbedPageProp list) =
     let attributes = 
         props 
         |> List.distinctBy (fun prop -> prop.name)

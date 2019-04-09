@@ -89,7 +89,7 @@ let XConstraint (value: Constraint) = createProp Keys.XConstraint value
 let YConstraint (value: Constraint) = createProp Keys.YConstraint value 
 // ===================================
 
-let textEntry (props: ITextEntryProp list) : ViewElement = 
+let inline textEntry (props: ITextEntryProp list) : ViewElement = 
     let attributes = 
         props 
         |> List.distinctBy (fun prop -> prop.name)

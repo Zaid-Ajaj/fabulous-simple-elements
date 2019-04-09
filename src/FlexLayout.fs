@@ -103,7 +103,7 @@ let HeightConstraint (value: Constraint) = createProp Keys.HeightConstraint valu
 let XConstraint (value: Constraint) = createProp Keys.XConstraint value 
 let YConstraint (value: Constraint) = createProp Keys.YConstraint value 
 // ===================================
-let flexLayout (props: IFlexLayoutProp list) = 
+let inline flexLayout (props: IFlexLayoutProp list) = 
     let attributes = 
         props  
         |> List.distinctBy (fun prop -> prop.name)

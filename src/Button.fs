@@ -96,7 +96,7 @@ let YConstraint (value: Constraint) = createProp Keys.YConstraint value
 
 let OnCreated (f: Button -> unit) = createProp "created" f
 
-let button (props: IButtonProp list) : ViewElement = 
+let inline button (props: IButtonProp list) : ViewElement = 
     let attributes = 
         props 
         |> List.distinctBy (fun prop -> prop.name)

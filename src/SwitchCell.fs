@@ -23,7 +23,7 @@ let Ref (viewRef: ViewRef<SwitchCell>) = createProp "ref" viewRef
 let ClassId (id: string) = createProp "classId" id 
 let AutomationId (id: string) = createProp "automationId" id
 let OnCreated (f: SwitchCell -> unit) = createProp "created" f
-let switchCell (props: ISwitchCellProp list) : ViewElement = 
+let inline switchCell (props: ISwitchCellProp list) : ViewElement = 
     let attributes = 
         props 
         |> List.distinctBy (fun prop -> prop.name)

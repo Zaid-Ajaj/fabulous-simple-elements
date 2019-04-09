@@ -85,7 +85,7 @@ let XConstraint (value: Constraint) = createProp Keys.XConstraint value
 let YConstraint (value: Constraint) = createProp Keys.YConstraint value 
 // ===================================
 
-let slider (props: ISliderProp list) : ViewElement = 
+let inline slider (props: ISliderProp list) : ViewElement = 
     let attributes = 
         props 
         |> List.distinctBy (fun prop -> prop.name)

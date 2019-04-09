@@ -92,7 +92,7 @@ let YConstraint (value: Constraint) = createProp Keys.YConstraint value
 
 let OnCreated (f: Label -> unit) = createProp "created" f
 
-let label (props: ILabelProp list) : ViewElement = 
+let inline label (props: ILabelProp list) : ViewElement = 
     let attributes = 
         props 
         |> List.distinctBy (fun prop -> prop.name)

@@ -92,7 +92,7 @@ let XConstraint (value: Constraint) = createProp Keys.XConstraint value
 let YConstraint (value: Constraint) = createProp Keys.YConstraint value 
 // ===================================
 
-let scrollView (props: IScrollViewProp list) : ViewElement = 
+let inline scrollView (props: IScrollViewProp list) : ViewElement = 
     let attributes = 
         props 
         |> List.distinctBy (fun prop -> prop.name)

@@ -24,7 +24,7 @@ let OnCreated (f: ToolbarItem -> unit) = createProp "created" f
 let StyleId (id: string) = createProp "styleId" id
 let ClassId (id: string) = createProp "classId" id 
 let AutomationId (id: string) = createProp "automationId" id
-let toolbarItem (props: IToolbarItemProp list) : ViewElement = 
+let inline toolbarItem (props: IToolbarItemProp list) : ViewElement = 
     let attributes = 
         props 
         |> List.distinctBy (fun prop -> prop.name)

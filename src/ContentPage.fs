@@ -60,7 +60,7 @@ let HasBackButton (condition: bool) = createProp "hasBackButton" condition
 let HasNavigationBar (condition: bool) = createProp "hasNavigationBar" condition 
 let OnCreated (f: ContentPage -> unit) = createProp "created" f
 
-let contentPage (props: IContentPageProp list) : ViewElement =
+let inline contentPage (props: IContentPageProp list) : ViewElement =
     let attributes = 
         props 
         |> List.distinctBy (fun prop -> prop.name)

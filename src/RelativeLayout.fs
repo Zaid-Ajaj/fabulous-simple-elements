@@ -97,7 +97,7 @@ let XConstraint (value: Constraint) = createProp Keys.XConstraint value
 let YConstraint (value: Constraint) = createProp Keys.YConstraint value 
 // ===================================
 
-let relativeLayout (props: IRelativeLayoutProp list) = 
+let inline relativeLayout (props: IRelativeLayoutProp list) = 
     let attributes = 
         props 
         |> List.distinctBy (fun prop -> prop.name)

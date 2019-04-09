@@ -96,7 +96,7 @@ let YConstraint (value: Constraint) = createProp Keys.YConstraint value
 
 let OnCreated (f: StackLayout -> unit) = createProp "created" f
 
-let stackLayout (props: IStackLayoutProp list) : ViewElement = 
+let inline stackLayout (props: IStackLayoutProp list) : ViewElement = 
     let attributes = 
         props 
         |> List.distinctBy (fun prop -> prop.name)

@@ -29,7 +29,7 @@ let Ref (viewRef: ViewRef<Button>) = createProp "ref" viewRef
 let AutomationId (id: string) = createProp "automationId" id
 let OnCreated (f: ImageCell -> unit) = createProp "created" f
 
-let imageCell (props: IImageCellProp list) = 
+let inline imageCell (props: IImageCellProp list) = 
     let attributes = 
         props 
         |> List.distinctBy (fun prop -> prop.name)

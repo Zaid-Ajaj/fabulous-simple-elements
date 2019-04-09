@@ -88,7 +88,7 @@ let OnCreated (f: ListView -> unit) = createProp "created" f
 let AbsoluteLayoutFlags (flags: AbsoluteLayoutFlags) = createProp "absoluteLayoutFlags" flags 
 let AbsoluteLayoutBounds (rectabgleBounds: Rectangle) = createProp "absoluteLayoutBounds" rectabgleBounds
 // === AbsoluteLayout definitions === 
-let listView (props: IListViewProp list) : ViewElement = 
+let inline listView (props: IListViewProp list) : ViewElement = 
     let attributes = 
         props 
         |> List.distinctBy (fun prop -> prop.name)

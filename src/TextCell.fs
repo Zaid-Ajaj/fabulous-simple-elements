@@ -37,7 +37,7 @@ let XConstraint (value: Constraint) = createProp Keys.XConstraint value
 let YConstraint (value: Constraint) = createProp Keys.YConstraint value 
 // ===================================
 
-let textCell (props: ITextCellProp list) = 
+let inline textCell (props: ITextCellProp list) = 
     let attributes = 
         props 
         |> List.distinctBy (fun prop -> prop.name)
