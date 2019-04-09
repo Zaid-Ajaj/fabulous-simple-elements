@@ -105,7 +105,7 @@ let inline absoluteLayout (props: IAbsoluteLayoutProp list) =
         |> List.map (fun prop -> prop.name, prop.value)  
         |> Map.ofList 
     
-    let find name = Util.tryFind name attributes
+    let inline find name = Util.tryFind name attributes
     
     View.AbsoluteLayout(?children = find "children",
         ?padding = Some (box (Util.applyPaddingSettings attributes)), 

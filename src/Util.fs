@@ -4,12 +4,12 @@ open Fabulous.Core
 open Fabulous.DynamicViews
 open Xamarin.Forms
 
-let tryFind<'t> name (map: Map<string, obj>) : Option<'t> =  
+let inline tryFind<'t> name (map: Map<string, obj>) : Option<'t> =  
     map
     |> Map.tryFind name
     |> Option.map unbox<'t>   
 
-let applyGridSettings (element: ViewElement) (map: Map<string, obj>) : ViewElement = 
+let inline applyGridSettings (element: ViewElement) (map: Map<string, obj>) : ViewElement = 
     [  "gridRow", tryFind "gridRow" map
        "gridColumn", tryFind "gridColumn" map 
        "gridRowSpan", tryFind "gridRowSpan" map
@@ -25,11 +25,12 @@ let applyGridSettings (element: ViewElement) (map: Map<string, obj>) : ViewEleme
                     | "gridColumnSpan" -> elem.GridColumnSpan(int propValue)
                     | _ -> elem) element
 
-let isDefined = function 
-| (name, Some value) -> Some(name, value) 
-| _ -> None
+let inline isDefined prop = 
+    match prop with
+    | (name, Some value) -> Some(name, value) 
+    | _ -> None
 
-let applyAbsoluteLayoutSettings (element: ViewElement) (props: Map<string, obj>) : ViewElement =
+let inline applyAbsoluteLayoutSettings (element: ViewElement) (props: Map<string, obj>) : ViewElement =
     [ "absoluteLayoutFlags", tryFind "absoluteLayoutFlags" props
       "absoluteLayoutBounds", tryFind "absoluteLayoutBounds" props ]
     |> List.choose isDefined
@@ -39,7 +40,7 @@ let applyAbsoluteLayoutSettings (element: ViewElement) (props: Map<string, obj>)
                   | "absoluteLayoutBounds" -> el.LayoutBounds (unbox<Rectangle> propValue)
                   | _ -> el) element
 
-let applyRelativeLayoutConstraints (element: ViewElement) (props: Map<string, obj>) : ViewElement =
+let inline applyRelativeLayoutConstraints (element: ViewElement) (props: Map<string, obj>) : ViewElement =
     [ Keys.WidthConstraint, tryFind Keys.WidthConstraint props
       Keys.HeightConstraint, tryFind Keys.HeightConstraint props
       Keys.XConstraint, tryFind Keys.XConstraint props
@@ -53,7 +54,7 @@ let applyRelativeLayoutConstraints (element: ViewElement) (props: Map<string, ob
                   | Keys.YConstraint -> el.YConstraint (unbox propValue)
                   | _ -> el) element
 
-let applyFlexLayoutSettings (element: ViewElement) (props: Map<string, obj>) : ViewElement =
+let inline applyFlexLayoutSettings (element: ViewElement) (props: Map<string, obj>) : ViewElement =
     [ "flexBasis", tryFind "flexBasis" props
       "flexOrder", tryFind "flexOrder" props
       "flexGrow", tryFind "flexGrow" props
@@ -73,7 +74,7 @@ let applyFlexLayoutSettings (element: ViewElement) (props: Map<string, obj>) : V
                   | "flexAlignSelf" -> el.FlexAlignSelf (unbox<FlexAlignSelf> propValue)
                   | _ -> el) element
     
-let applyMarginSettings (map: Map<string, obj>) : Thickness = 
+let inline applyMarginSettings (map: Map<string, obj>) : Thickness = 
     let initialMargin = 
         Map.tryFind "margin" map  
         |> Option.map (unbox<Thickness>)
@@ -102,7 +103,7 @@ let applyMarginSettings (map: Map<string, obj>) : Thickness =
                       Thickness(current.Left, current.Top, current.Right, marginBottom)
                   | _ -> current) initialMargin
 
-let applyPaddingSettings (map: Map<string, obj>) : Thickness = 
+let inline applyPaddingSettings (map: Map<string, obj>) : Thickness = 
     let initiaPadding = 
         Map.tryFind Keys.Padding map  
         |> Option.map (unbox<Thickness>)
