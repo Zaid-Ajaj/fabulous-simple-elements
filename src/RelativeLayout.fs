@@ -56,41 +56,28 @@ let OnChildrenReordered (reordered: System.EventArgs -> unit) = createProp "chil
 let OnMeasureInvalidated (measureInvalidated: System.EventArgs -> unit) = createProp "measureInvalidated" measureInvalidated
 let OnSizeChanged (sizeChanged: SizeChangedEventArgs -> unit) = createProp "sizeChanged" sizeChanged
 let Ref(ref: ViewRef<RelativeLayout> -> unit) = createProp "ref" ref
-// === Grid definitions ===
-let GridRow (n: int) = createProp "gridRow" n 
-let GridColumn (n: int) = createProp "gridColumn" n 
-let GridRowSpan (n: int) = createProp "gridRowSpan" n
-let GridColumnSpan (n: int) = createProp "gridColumnSpan" n
-// === Grid definitions ===
-
-// === FlexLayout definitions ===
-let FlexOrder (n: int) = createProp "flexOrder" n
-let FlexGrow (value: double) = createProp "flexGrow" value
-let FlexShrink (value: double) = createProp "flexShrink" value
-let FlexAignSelf (value: FlexAlignSelf) = createProp "flexAlignSelf" value
-let FlexLayoutDirection (value: FlexDirection) = createProp "flexLayoutDirection" value
-let FlexBasis (value: FlexBasis) = createProp "flexBasis" value
-// === FlexLayout definitions ===
-
-// === Padding definitions ===
-let Padding (value: double) = createProp "padding" (Thickness(value)) 
-let PaddingLeft (value: double) = createProp "paddingLeft" value 
-let PaddingRight (value: double) = createProp "paddingRight" value 
-let PaddingTop (value: double) = createProp "paddingTop" value 
-let PaddingBottom (value: double) = createProp "paddingBottom" value 
-let PaddingThickness (thickness: Thickness) = createProp "padding" thickness 
-// === Padding definitions ===
-
-// === Margin settings ===
-let Margin (value: double) = createProp "margin" (Thickness(value)) 
-let MarginLeft (value: double) = createProp "marginLeft" value 
-let MarginRight (value: double) = createProp "marginRight" value 
-let MarginTop (value: double) = createProp "marginTop" value 
-let MarginBottom (value: double) = createProp "marginBottom" value 
-let MarginThickness (thickness: Thickness) = createProp "margin" thickness 
-// === Margin settings ===
-
-// === Relative Layout Constraints ===
+let GridRow (n: int) = createProp Keys.GridRow n 
+let GridColumn (n: int) = createProp Keys.GridColumn n 
+let GridRowSpan (n: int) = createProp Keys.GridRowSpan n
+let GridColumnSpan (n: int) = createProp Keys.GridColumnSpan n
+let FlexOrder (n: int) = createProp Keys.FlexOrder n
+let FlexGrow (value: double) = createProp Keys.FlexGrow value
+let FlexShrink (value: double) = createProp Keys.FlexShrink value
+let FlexAlignSelf (value: FlexAlignSelf) = createProp Keys.FlexAlignSelf value
+let FlexLayoutDirection (value: FlexDirection) = createProp Keys.FlexLayoutDirection value
+let FlexBasis (value: FlexBasis) = createProp Keys.FlexBasis value
+let Padding (value: double) = createProp Keys.Padding (Thickness(value)) 
+let PaddingLeft (value: double) = createProp Keys.PaddingLeft value 
+let PaddingRight (value: double) = createProp Keys.PaddingRight value 
+let PaddingTop (value: double) = createProp Keys.PaddingTop value 
+let PaddingBottom (value: double) = createProp Keys.PaddingBottom value 
+let PaddingThickness (thickness: Thickness) = createProp Keys.Padding thickness 
+let Margin (value: double) = createProp Keys.Margin (Thickness(value)) 
+let MarginLeft (value: double) = createProp Keys.MarginLeft value 
+let MarginRight (value: double) = createProp Keys.MarginRight value 
+let MarginTop (value: double) = createProp Keys.MarginTop value 
+let MarginBottom (value: double) = createProp Keys.MarginBottom value 
+let MarginThickness (thickness: Thickness) = createProp Keys.Margin thickness  
 let WidthConstraint (value: Constraint) = createProp Keys.WidthConstraint value
 let HeightConstraint (value: Constraint) = createProp Keys.HeightConstraint value 
 let XConstraint (value: Constraint) = createProp Keys.XConstraint value 

@@ -8,7 +8,7 @@
     <PackageIconUrl></PackageIconUrl>
     <PackageTags>fsharp;xamarin;forms;view;dsl;elmish</PackageTags>
     <Authors>Zaid Ajaj</Authors>
-    <Version>0.30.0</Version>
+    <Version>0.31.0</Version>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
@@ -46,7 +46,7 @@
     <Compile Include="ClickGestureRecognizer.fs" />
     <Compile Include="SwipeGestureRecognizer.fs" />
     <Compile Include="PinchGestureRecognizer.fs" />
-
+    <Compile Include="BoxView.fs" />
   </ItemGroup>
   <ItemGroup>
      <PackageReference Include="Fabulous.Core" Version="0.33.2" />

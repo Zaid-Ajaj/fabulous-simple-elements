@@ -23,18 +23,13 @@ let OnRefresh (handler: unit -> unit) = createProp "refreshCommand" handler
 let RowHeight (value: int) = createProp "rowHeight" value 
 let SelectedItem (index: int option) = createProp "selectedItem" index
 let SeparatorVisibility (visibility: SeparatorVisibility) = createProp "separatorVisibility" visibility
-let SeperatorColor (color: Color) = createProp "seperatorColor" color 
+let SeperatorColor (color: Color) = createProp "separatorColor" color 
 let ItemAppearing (handler: int -> unit) = createProp "itemAppearing" handler 
 let Ref (viewRef: ViewRef<ListView>) = createProp "ref" viewRef
 let ItemDisappearing (handler: int -> unit) = createProp "itemDisappearing" handler 
 let ItemSelected (handler: int option -> unit) = createProp "itemSelected" handler
 let Refreshing (handler: unit -> unit) = createProp "refreshing" handler
-let Margin (value: double) = createProp "margin" (Thickness(value)) 
-let MarginLeft (value: double) = createProp "marginLeft" value 
-let MarginRight (value: double) = createProp "marginRight" value 
-let MarginTop (value: double) = createProp "marginTop" value 
-let MarginBottom (value: double) = createProp "marginBottom" value 
-let MarginThickness (thickness: Thickness) = createProp "margin" thickness 
+
 let GestureRecognizers (elements: ViewElement list) = createProp "gestureRecognizers" elements 
 let HorizontalLayout (options: LayoutOptions) = createProp "horizontalOptions" (box options)
 let IsEnabled (condition: bool) = createProp "isEnabled" condition
@@ -60,34 +55,30 @@ let ClassId (id: string) = createProp "classId" id
 let AutomationId (id: string) = createProp "automationId" id
 let Resources (values: (string * obj) list) = createProp "resources" values 
 let InputTransparent (condition: bool) = createProp "inputTransparent" condition 
-// === Grid definitions ===
-let GridRow (n: int) = createProp "gridRow" n 
-let GridColumn (n: int) = createProp "gridColumn" n 
-let GridRowSpan (n: int) = createProp "gridRowSpan" n
-let GridColumnSpan (n: int) = createProp "gridColumnSpan" n
-// === Grid definitions ===
-
-// === FlexLayout definitions ===
-let FlexOrder (n: int) = createProp "flexOrder" n
-let FlexGrow (value: double) = createProp "flexGrow" value
-let FlexShrink (value: double) = createProp "flexShrink" value
-let FlexAignSelf (value: FlexAlignSelf) = createProp "flexAlignSelf" value
-let FlexLayoutDirection (value: FlexDirection) = createProp "flexLayoutDirection" value
-let FlexBasis (value: FlexBasis) = createProp "flexBasis" value
-// === FlexLayout definitions ===
+let Margin (value: double) = createProp Keys.Margin (Thickness(value)) 
+let MarginLeft (value: double) = createProp Keys.MarginLeft value 
+let MarginRight (value: double) = createProp Keys.MarginRight value 
+let MarginTop (value: double) = createProp Keys.MarginTop value 
+let MarginBottom (value: double) = createProp Keys.MarginBottom value 
+let MarginThickness (thickness: Thickness) = createProp Keys.Margin thickness  
+let GridRow (n: int) = createProp Keys.GridRow n 
+let GridColumn (n: int) = createProp Keys.GridColumn n 
+let GridRowSpan (n: int) = createProp Keys.GridRowSpan n
+let GridColumnSpan (n: int) = createProp Keys.GridColumnSpan n
+let FlexOrder (n: int) = createProp Keys.FlexOrder n
+let FlexGrow (value: double) = createProp Keys.FlexGrow value
+let FlexShrink (value: double) = createProp Keys.FlexShrink value
+let FlexAlignSelf (value: FlexAlignSelf) = createProp Keys.FlexAlignSelf value
+let FlexLayoutDirection (value: FlexDirection) = createProp Keys.FlexLayoutDirection value
+let FlexBasis (value: FlexBasis) = createProp Keys.FlexBasis value
 let SelectionMode (mode: ListViewSelectionMode) = createProp "selectionMode" mode
-// === Relative Layout Constraints ===
 let WidthConstraint (value: Constraint) = createProp Keys.WidthConstraint value
 let HeightConstraint (value: Constraint) = createProp Keys.HeightConstraint value 
 let XConstraint (value: Constraint) = createProp Keys.XConstraint value 
 let YConstraint (value: Constraint) = createProp Keys.YConstraint value 
-// ===================================
-
-let OnCreated (f: ListView -> unit) = createProp "created" f
-// === AbsoluteLayout definitions ===
-let AbsoluteLayoutFlags (flags: AbsoluteLayoutFlags) = createProp "absoluteLayoutFlags" flags 
-let AbsoluteLayoutBounds (rectabgleBounds: Rectangle) = createProp "absoluteLayoutBounds" rectabgleBounds
-// === AbsoluteLayout definitions === 
+let OnCreated (f: ListView -> unit) = createProp Keys.Created f
+let AbsoluteLayoutFlags (flags: AbsoluteLayoutFlags) = createProp Keys.AbsoluteLayoutFlags flags 
+let AbsoluteLayoutBounds (rectabgleBounds: Rectangle) = createProp Keys.AbsoluteLayoutBounds rectabgleBounds
 let inline listView (props: IListViewProp list) : ViewElement = 
     let attributes = 
         props 

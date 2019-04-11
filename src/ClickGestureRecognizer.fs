@@ -2,8 +2,6 @@ module ClickGestureRecognizer
 
 open Fabulous.DynamicViews
 open Xamarin.Forms 
-open Xamarin.Forms
-
 
 type IClickGestureRecognizerProp = 
     abstract Name : string 

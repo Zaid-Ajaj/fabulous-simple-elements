@@ -27,7 +27,7 @@ let StyleId (id: string) = createProp "styleId" id
 let ClassId (id: string) = createProp "classId" id 
 let Ref (viewRef: ViewRef<Button>) = createProp "ref" viewRef 
 let AutomationId (id: string) = createProp "automationId" id
-let OnCreated (f: ImageCell -> unit) = createProp "created" f
+let OnCreated (f: ImageCell -> unit) = createProp Keys.Created f
 
 let inline imageCell (props: IImageCellProp list) = 
     let attributes = 
@@ -50,4 +50,4 @@ let inline imageCell (props: IImageCellProp list) =
         ?classId=find"classId",
         ?ref=find"ref",
         ?automationId=find"automationId",
-        ?created = find "created")
+        ?created = find Keys.Created)

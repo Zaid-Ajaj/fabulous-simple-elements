@@ -29,28 +29,22 @@ let FontSizeInPixels (fontSize: double) = createProp "fontSize" fontSize
 let FontAttributes (attributes: FontAttributes) = createProp "fontAttributes" attributes
 let FontFamily (fontFamily: string) = createProp "fontFamily" fontFamily
 let Keyboard (keyboard: Keyboard) = createProp "keyboard" keyboard
-let Margin (value: double) = createProp "margin" (Thickness(value)) 
-let MarginLeft (value: double) = createProp "marginLeft" value 
-let MarginRight (value: double) = createProp "marginRight" value 
-let MarginTop (value: double) = createProp "marginTop" value 
-let MarginBottom (value: double) = createProp "marginBottom" value 
-let MarginThickness (thickness: Thickness) = createProp "margin" thickness 
-
-// === Grid definitions ===
-let GridRow (n: int) = createProp "gridRow" n 
-let GridColumn (n: int) = createProp "gridColumn" n 
-let GridRowSpan (n: int) = createProp "gridRowSpan" n
-let GridColumnSpan (n: int) = createProp "gridColumnSpan" n
-// === Grid definitions ===
-
-// === FlexLayout definitions ===
-let FlexOrder (n: int) = createProp "flexOrder" n
-let FlexGrow (value: double) = createProp "flexGrow" value
-let FlexShrink (value: double) = createProp "flexShrink" value
-let FlexAignSelf (value: FlexAlignSelf) = createProp "flexAlignSelf" value
-let FlexLayoutDirection (value: FlexDirection) = createProp "flexLayoutDirection" value
-let FlexBasis (value: FlexBasis) = createProp "flexBasis" value
-// === FlexLayout definitions ===
+let Margin (value: double) = createProp Keys.Margin (Thickness(value)) 
+let MarginLeft (value: double) = createProp Keys.MarginLeft value 
+let MarginRight (value: double) = createProp Keys.MarginRight value 
+let MarginTop (value: double) = createProp Keys.MarginTop value 
+let MarginBottom (value: double) = createProp Keys.MarginBottom value 
+let MarginThickness (thickness: Thickness) = createProp Keys.Margin thickness 
+let GridRow (n: int) = createProp Keys.GridRow n 
+let GridColumn (n: int) = createProp Keys.GridColumn n 
+let GridRowSpan (n: int) = createProp Keys.GridRowSpan n
+let GridColumnSpan (n: int) = createProp Keys.GridColumnSpan n
+let FlexOrder (n: int) = createProp Keys.FlexOrder n
+let FlexGrow (value: double) = createProp Keys.FlexGrow value
+let FlexShrink (value: double) = createProp Keys.FlexShrink value
+let FlexAlignSelf (value: FlexAlignSelf) = createProp Keys.FlexAlignSelf value
+let FlexLayoutDirection (value: FlexDirection) = createProp Keys.FlexLayoutDirection value
+let FlexBasis (value: FlexBasis) = createProp Keys.FlexBasis value
 
 let GestureRecognizers (elements: ViewElement list) = createProp "gestureRecognizers" elements 
 let HorizontalLayout (options: LayoutOptions) = createProp "horizontalOptions" (box options)
@@ -78,16 +72,12 @@ let AutomationId (id: string) = createProp "automationId" id
 let Resources (values: (string * obj) list) = createProp "resources" values 
 let InputTransparent (condition: bool) = createProp "inputTransparent" condition 
 let OnCreated (f: Entry -> unit) = createProp "created" f
-// === AbsoluteLayout definitions ===
-let AbsoluteLayoutFlags (flags: AbsoluteLayoutFlags) = createProp "absoluteLayoutFlags" flags 
-let AbsoluteLayoutBounds (rectabgleBounds: Rectangle) = createProp "absoluteLayoutBounds" rectabgleBounds
-// === AbsoluteLayout definitions === 
-// === Relative Layout Constraints ===
+let AbsoluteLayoutFlags (flags: AbsoluteLayoutFlags) = createProp Keys.AbsoluteLayoutFlags flags 
+let AbsoluteLayoutBounds (rectabgleBounds: Rectangle) = createProp Keys.AbsoluteLayoutBounds rectabgleBounds
 let WidthConstraint (value: Constraint) = createProp Keys.WidthConstraint value
 let HeightConstraint (value: Constraint) = createProp Keys.HeightConstraint value 
 let XConstraint (value: Constraint) = createProp Keys.XConstraint value 
-let YConstraint (value: Constraint) = createProp Keys.YConstraint value 
-// ===================================
+let YConstraint (value: Constraint) = createProp Keys.YConstraint value
 
 let inline textEntry (props: ITextEntryProp list) : ViewElement = 
     let attributes = 

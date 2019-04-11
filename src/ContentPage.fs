@@ -24,12 +24,14 @@ let OnAppearing (handler: unit -> unit) = createProp "appearing" handler
 let OnDisappearing (handler: unit -> unit) = createProp "disappearing" handler 
 let OnLayoutChanged (handler: unit -> unit) = createProp "layoutChanged" handler 
 let BackgroundImage (value: string) = createProp "backgroundImage" value
-let Padding (value: double) = createProp "padding" value 
-let PaddingLeft (value: double) = createProp "paddingLeft" value 
-let PaddingRight (value: double) = createProp "paddingRight" value 
-let PaddingTop (value: double) = createProp "paddingTop" value 
-let PaddingBottom (value: double) = createProp "paddingBottom" value 
-let PaddingThickness (thickness: Thickness) = createProp "padding" thickness 
+// <Common Padding Props>
+let Padding (value: double) = createProp Keys.Padding (Thickness(value)) 
+let PaddingLeft (value: double) = createProp Keys.PaddingLeft value 
+let PaddingRight (value: double) = createProp Keys.PaddingRight value 
+let PaddingTop (value: double) = createProp Keys.PaddingTop value 
+let PaddingBottom (value: double) = createProp Keys.PaddingBottom value 
+let PaddingThickness (thickness: Thickness) = createProp Keys.Padding thickness 
+// </Common Padding Props>
 let Ref (viewRef : ViewRef<ContentPage>) = createProp "ref" viewRef 
 let Icon (name: string) = createProp "icon" name 
 let IsEnabled (condition: bool) = createProp "isEnabled" condition
@@ -106,8 +108,6 @@ let inline contentPage (props: IContentPageProp list) : ViewElement =
             ?minimumWidthRequest = find "minimumHeightRequest",
             ?backgroundColor = find "backgroundColor",
             ?inputTransparent = find "inputTransparent")
-    
-        |> fun elem -> Util.applyGridSettings elem attributes
 
     [ "hasBackButton", Util.tryFind<bool> "hasBackButton" attributes
       "hasNavigationBar", Util.tryFind<bool> "hasNavigationBar" attributes ]

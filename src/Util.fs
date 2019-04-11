@@ -9,35 +9,33 @@ let inline tryFind<'t> name (map: Map<string, obj>) : Option<'t> =
     |> Map.tryFind name
     |> Option.map unbox<'t>   
 
-let inline applyGridSettings (element: ViewElement) (map: Map<string, obj>) : ViewElement = 
-    [  "gridRow", tryFind "gridRow" map
-       "gridColumn", tryFind "gridColumn" map 
-       "gridRowSpan", tryFind "gridRowSpan" map
-       "gridColumnSpan", tryFind "gridColumnSpan" map ] 
-    |> List.choose (function 
-                    | (name, Some value) -> Some(name, value) 
-                    | _ -> None)   
-    |> List.fold (fun (elem: ViewElement) (propName, propValue) -> 
-                    match propName with 
-                    | "gridRow" -> elem.GridRow(int propValue)
-                    | "gridColumn" -> elem.GridColumn(int propValue)
-                    | "gridRowSpan" -> elem.GridRowSpan(int propValue)
-                    | "gridColumnSpan" -> elem.GridColumnSpan(int propValue)
-                    | _ -> elem) element
-
 let inline isDefined prop = 
     match prop with
     | (name, Some value) -> Some(name, value) 
     | _ -> None
 
+let inline applyGridSettings (element: ViewElement) (map: Map<string, obj>) : ViewElement = 
+    [  Keys.GridRow, tryFind Keys.GridRow map
+       Keys.GridColumn, tryFind Keys.GridColumn map 
+       Keys.GridRowSpan, tryFind Keys.GridRowSpan map
+       Keys.GridColumnSpan, tryFind Keys.GridColumnSpan map ] 
+    |> List.choose isDefined  
+    |> List.fold (fun (elem: ViewElement) (propName, propValue) -> 
+                    match propName with 
+                    | Keys.GridRow -> elem.GridRow(int propValue)
+                    | Keys.GridColumn -> elem.GridColumn(int propValue)
+                    | Keys.GridRowSpan -> elem.GridRowSpan(int propValue)
+                    | Keys.GridColumnSpan -> elem.GridColumnSpan(int propValue)
+                    | _ -> elem) element
+
 let inline applyAbsoluteLayoutSettings (element: ViewElement) (props: Map<string, obj>) : ViewElement =
-    [ "absoluteLayoutFlags", tryFind "absoluteLayoutFlags" props
-      "absoluteLayoutBounds", tryFind "absoluteLayoutBounds" props ]
+    [ Keys.AbsoluteLayoutFlags, tryFind Keys.AbsoluteLayoutFlags props
+      Keys.AbsoluteLayoutBounds, tryFind Keys.AbsoluteLayoutBounds props ]
     |> List.choose isDefined
     |> List.fold (fun (el: ViewElement) (propName, propValue) ->
                   match propName with 
-                  | "absoluteLayoutFlags" -> el.LayoutFlags (unbox<AbsoluteLayoutFlags> propValue)
-                  | "absoluteLayoutBounds" -> el.LayoutBounds (unbox<Rectangle> propValue)
+                  | Keys.AbsoluteLayoutFlags -> el.LayoutFlags (unbox<AbsoluteLayoutFlags> propValue)
+                  | Keys.AbsoluteLayoutBounds -> el.LayoutBounds (unbox<Rectangle> propValue)
                   | _ -> el) element
 
 let inline applyRelativeLayoutConstraints (element: ViewElement) (props: Map<string, obj>) : ViewElement =
@@ -55,58 +53,54 @@ let inline applyRelativeLayoutConstraints (element: ViewElement) (props: Map<str
                   | _ -> el) element
 
 let inline applyFlexLayoutSettings (element: ViewElement) (props: Map<string, obj>) : ViewElement =
-    [ "flexBasis", tryFind "flexBasis" props
-      "flexOrder", tryFind "flexOrder" props
-      "flexGrow", tryFind "flexGrow" props
-      "flexShrink", tryFind "flexShrink" props
-      "flexLayoutDirection", tryFind "flexLayoutDirection" props
-      "flexAlignSelf", tryFind "flexAlignSelf" props]
-    |> List.choose (function 
-                    | (name, Some value) -> Some(name, value) 
-                    | _ -> None)
+    [ Keys.FlexBasis, tryFind Keys.FlexBasis props
+      Keys.FlexOrder, tryFind Keys.FlexOrder props
+      Keys.FlexGrow, tryFind Keys.FlexGrow props
+      Keys.FlexShrink, tryFind Keys.FlexShrink props
+      Keys.FlexLayoutDirection, tryFind Keys.FlexLayoutDirection props
+      Keys.FlexAlignSelf, tryFind Keys.FlexAlignSelf props]
+    |> List.choose isDefined
     |> List.fold (fun (el: ViewElement) (propName, propValue) ->
                   match propName with 
-                  | "flexBasis" -> el.FlexBasis (unbox<FlexBasis> propValue)
-                  | "flexOrder" -> el.FlexOrder (int propValue)
-                  | "flexGrow" -> el.FlexGrow(double propValue)
-                  | "flexShrink" -> el.FlexShrink (double propValue)
-                  | "flexLayoutDirection" -> el.FlexLayoutDirection(unbox<FlexDirection> propValue)
-                  | "flexAlignSelf" -> el.FlexAlignSelf (unbox<FlexAlignSelf> propValue)
+                  | Keys.FlexBasis -> el.FlexBasis (unbox<FlexBasis> propValue)
+                  | Keys.FlexOrder -> el.FlexOrder (int propValue)
+                  | Keys.FlexGrow -> el.FlexGrow(double propValue)
+                  | Keys.FlexShrink -> el.FlexShrink (double propValue)
+                  | Keys.FlexLayoutDirection -> el.FlexLayoutDirection(unbox<FlexDirection> propValue)
+                  | Keys.FlexAlignSelf -> el.FlexAlignSelf (unbox<FlexAlignSelf> propValue)
                   | _ -> el) element
     
 let inline applyMarginSettings (map: Map<string, obj>) : Thickness = 
     let initialMargin = 
-        Map.tryFind "margin" map  
-        |> Option.map (unbox<Thickness>)
+        Map.tryFind Keys.Margin map  
+        |> Option.map unbox<Thickness>
         |> Option.defaultValue (Thickness(0.0))
     
-    [ "marginLeft", tryFind "marginLeft"  map
-      "marginRight", tryFind "marginRight" map
-      "marginTop", tryFind "marginTop" map
-      "marginBottom", tryFind "marginBottom" map ]
-    |> List.choose (function 
-                    | (name, Some value) -> Some (name, value)
-                    | _ -> None) 
+    [ Keys.MarginLeft, tryFind Keys.MarginLeft map
+      Keys.MarginRight, tryFind Keys.MarginRight map
+      Keys.MarginTop, tryFind Keys.MarginTop map
+      Keys.MarginBottom, tryFind Keys.MarginBottom map ]
+    |> List.choose isDefined
     |> List.fold (fun (current: Thickness) (propName, propValue : obj) -> 
                   match propName with 
-                  | "marginLeft" -> 
+                  | Keys.MarginLeft -> 
                       let marginLeft = unbox<float> propValue 
                       Thickness(marginLeft, current.Top, current.Right, current.Bottom)
-                  | "marginRight" -> 
+                  | Keys.MarginRight -> 
                       let marginRight = unbox<float> propValue 
                       Thickness(current.Left, current.Top, marginRight, current.Bottom)
-                  | "marginTop" -> 
+                  | Keys.MarginTop -> 
                       let marginTop = unbox<float> propValue 
                       Thickness(current.Left, marginTop, current.Right, current.Bottom) 
-                  | "marginBottom" -> 
+                  | Keys.MarginBottom -> 
                       let marginBottom = unbox<float> propValue 
                       Thickness(current.Left, current.Top, current.Right, marginBottom)
                   | _ -> current) initialMargin
 
 let inline applyPaddingSettings (map: Map<string, obj>) : Thickness = 
-    let initiaPadding = 
+    let initialPadding = 
         Map.tryFind Keys.Padding map  
-        |> Option.map (unbox<Thickness>)
+        |> Option.map unbox<Thickness>
         |> Option.defaultValue (Thickness(0.0))
     
     [ Keys.PaddingLeft, tryFind Keys.PaddingLeft  map
@@ -128,4 +122,4 @@ let inline applyPaddingSettings (map: Map<string, obj>) : Thickness =
                   | Keys.PaddingBottom -> 
                       let paddingBottom = unbox<float> propValue 
                       Thickness(current.Left, current.Top, current.Right, paddingBottom)
-                  | _ -> current) initiaPadding
+                  | _ -> current) initialPadding

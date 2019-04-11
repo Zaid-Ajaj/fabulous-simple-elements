@@ -4,9 +4,6 @@ module ScrollView
 open Fabulous.DynamicViews
 open Xamarin.Forms
 open Xamarin.Forms.StyleSheets
-open Xamarin.Forms
-open Xamarin.Forms
-open Util
 
 type IScrollViewProp = 
     abstract name : string 
@@ -21,39 +18,34 @@ let Orientation (orientation: ScrollOrientation) = createProp "orientation" orie
 let HorizontalScrollBarVisibility (visibility: ScrollBarVisibility) = createProp "horizontalScrollBarVisibility" visibility 
 let VerticalScrollBarVisibility (visibility: ScrollBarVisibility) = createProp "verticalScrollBarVisibility" visibility 
 
-let Margin (value: double) = createProp "margin" (Thickness(value)) 
-let MarginLeft (value: double) = createProp "marginLeft" value 
-let MarginRight (value: double) = createProp "marginRight" value 
-let MarginTop (value: double) = createProp "marginTop" value 
-let MarginBottom (value: double) = createProp "marginBottom" value
-let MarginThickness (thickness: Thickness) = createProp "margin" thickness 
+let Margin (value: double) = createProp Keys.Margin (Thickness(value)) 
+let MarginLeft (value: double) = createProp Keys.MarginLeft value 
+let MarginRight (value: double) = createProp Keys.MarginRight value 
+let MarginTop (value: double) = createProp Keys.MarginTop value 
+let MarginBottom (value: double) = createProp Keys.MarginBottom value
+let MarginThickness (thickness: Thickness) = createProp Keys.Margin thickness 
 
 let Content (elem: ViewElement) = createProp "content" elem 
 let BackgroundImage (value: string) = createProp "backgroundImage" value
-let Padding (value: double) = createProp "padding" value 
-let PaddingLeft (value: double) = createProp "paddingLeft" value 
-let PaddingRight (value: double) = createProp "paddingRight" value 
-let PaddingTop (value: double) = createProp "paddingTop" value 
-let PaddingBottom (value: double) = createProp "paddingBottom" value 
-let PaddingThickness (thickness: Thickness) = createProp "padding" thickness 
+let Padding (value: double) = createProp Keys.Padding (Thickness(value)) 
+let PaddingLeft (value: double) = createProp Keys.PaddingLeft value 
+let PaddingRight (value: double) = createProp Keys.PaddingRight value 
+let PaddingTop (value: double) = createProp Keys.PaddingTop value 
+let PaddingBottom (value: double) = createProp Keys.PaddingBottom value 
+let PaddingThickness (thickness: Thickness) = createProp Keys.Padding thickness 
 let Ref (viewRef : ViewRef<ScrollView>) = createProp "ref" viewRef 
 let Icon (name: string) = createProp "icon" name 
 // === Grid definitions ===
-let GridRow (n: int) = createProp "gridRow" n 
-let GridColumn (n: int) = createProp "gridColumn" n 
-let GridRowSpan (n: int) = createProp "gridRowSpan" n
-let GridColumnSpan (n: int) = createProp "gridColumnSpan" n
-// === Grid definitions ===
-
-// === FlexLayout definitions ===
-let FlexOrder (n: int) = createProp "flexOrder" n
-let FlexGrow (value: double) = createProp "flexGrow" value
-let FlexShrink (value: double) = createProp "flexShrink" value
-let FlexAignSelf (value: FlexAlignSelf) = createProp "flexAlignSelf" value
-let FlexLayoutDirection (value: FlexDirection) = createProp "flexLayoutDirection" value
-let FlexBasis (value: FlexBasis) = createProp "flexBasis" value
-// === FlexLayout definitions ===
-
+let GridRow (n: int) = createProp Keys.GridRow n 
+let GridColumn (n: int) = createProp Keys.GridColumn n 
+let GridRowSpan (n: int) = createProp Keys.GridRowSpan n
+let GridColumnSpan (n: int) = createProp Keys.GridColumnSpan n
+let FlexOrder (n: int) = createProp Keys.FlexOrder n
+let FlexGrow (value: double) = createProp Keys.FlexGrow value
+let FlexShrink (value: double) = createProp Keys.FlexShrink value
+let FlexAlignSelf (value: FlexAlignSelf) = createProp Keys.FlexAlignSelf value
+let FlexLayoutDirection (value: FlexDirection) = createProp Keys.FlexLayoutDirection value
+let FlexBasis (value: FlexBasis) = createProp Keys.FlexBasis value
 let IsEnabled (condition: bool) = createProp "isEnabled" condition
 let IsVisible (condition: bool) = createProp "isVisible" condition
 let AnchorY (value: double) = createProp "anchorY" value 
@@ -80,12 +72,8 @@ let Resources (values: (string * obj) list) = createProp "resources" values
 let InputTransparent (condition: bool) = createProp "inputTransparent" condition 
 let OnCreated (f: ScrollView -> unit) = createProp "created" f
 let GestureRecognizers (elements: ViewElement list) = createProp "gestureRecognizers" elements
-// === AbsoluteLayout definitions ===
-let AbsoluteLayoutFlags (flags: AbsoluteLayoutFlags) = createProp "absoluteLayoutFlags" flags 
-let AbsoluteLayoutBounds (rectabgleBounds: Rectangle) = createProp "absoluteLayoutBounds" rectabgleBounds
-// === AbsoluteLayout definitions === 
-
-// === Relative Layout Constraints ===
+let AbsoluteLayoutFlags (flags: AbsoluteLayoutFlags) = createProp Keys.AbsoluteLayoutFlags flags 
+let AbsoluteLayoutBounds (rectabgleBounds: Rectangle) = createProp Keys.AbsoluteLayoutBounds rectabgleBounds
 let WidthConstraint (value: Constraint) = createProp Keys.WidthConstraint value
 let HeightConstraint (value: Constraint) = createProp Keys.HeightConstraint value 
 let XConstraint (value: Constraint) = createProp Keys.XConstraint value 
@@ -102,13 +90,13 @@ let inline scrollView (props: IScrollViewProp list) : ViewElement =
     let find name = Util.tryFind name attributes
     View.ScrollView(?content = find "content", 
         ?orientation = find "orientation",
-        ?margin = Some (box (Util.applyMarginSettings attributes)),
+        margin = box (Util.applyMarginSettings attributes),
         ?horizontalScrollBarVisibility = find "horizontalScrollBarVisibility",
         ?verticalScrollBarVisibility = find "verticalScrollBarVisibility",
         ?ref = find "ref",  
         ?gestureRecognizers = find "gestureRecognizers",
         ?created = find "created", 
-        ?padding = Some (box (Util.applyPaddingSettings attributes)),
+        padding = box (Util.applyPaddingSettings attributes),
         ?isEnabled = find "isEnabled",
         ?isVisible = find "isVisible",
         ?opacity = find "opacity",
