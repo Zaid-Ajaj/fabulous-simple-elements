@@ -4,6 +4,7 @@ module Grid
 open Fabulous.DynamicViews
 open Xamarin.Forms
 open Xamarin.Forms.StyleSheets
+open Xamarin.Forms
 
 type IGridProp = 
     abstract name : string 
@@ -14,9 +15,9 @@ let internal createProp name value =
         member x.name = name 
         member x.value = value }
 
-let Rows (rowDefs: RowDefinition list) = createProp "rowdefs" rowDefs 
+let Rows (rowDefs: GridLength list) = createProp "rowdefs" rowDefs 
 
-let Columns (colDefs: ColumnDefinition list) = createProp "coldefs" colDefs 
+let Columns (colDefs: GridLength list) = createProp "coldefs" colDefs 
 
 let Children (elems: ViewElement list) = createProp "children" elems 
 
