@@ -1,3 +1,4 @@
+[<RequireQualifiedAccess>]
 module RelativeLayout 
 
 open Xamarin.Forms

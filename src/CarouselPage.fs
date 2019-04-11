@@ -1,3 +1,4 @@
+[<RequireQualifiedAccess>]
 module CarouselPage
 
 open Xamarin.Forms

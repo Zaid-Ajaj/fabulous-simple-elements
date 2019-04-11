@@ -1,3 +1,4 @@
+[<RequireQualifiedAccess>]
 module SwipeGestureRecognizer
 
 open Fabulous.DynamicViews

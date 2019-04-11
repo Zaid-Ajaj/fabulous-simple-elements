@@ -1,5 +1,5 @@
+[<RequireQualifiedAccess>]
 module TabbedPage 
-
 
 open Fabulous.DynamicViews
 open Fabulous.CustomControls

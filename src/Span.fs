@@ -1,3 +1,4 @@
+[<RequireQualifiedAccess>]
 module Span
 
 open Fabulous.DynamicViews

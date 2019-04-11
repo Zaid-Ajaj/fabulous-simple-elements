@@ -47,6 +47,7 @@
     <Compile Include="SwipeGestureRecognizer.fs" />
     <Compile Include="PinchGestureRecognizer.fs" />
     <Compile Include="BoxView.fs" />
+    <Compile Include="WebView.fs" />
   </ItemGroup>
   <ItemGroup>
      <PackageReference Include="Fabulous.Core" Version="0.33.2" />

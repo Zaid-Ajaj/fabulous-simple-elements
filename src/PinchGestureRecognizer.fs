@@ -1,3 +1,4 @@
+[<RequireQualifiedAccess>]
 module PinchGestureRecognizer
 
 open Fabulous.DynamicViews

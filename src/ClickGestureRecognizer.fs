@@ -1,3 +1,4 @@
+[<RequireQualifiedAccess>]
 module ClickGestureRecognizer
 
 open Fabulous.DynamicViews

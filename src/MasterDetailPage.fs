@@ -1,6 +1,6 @@
+[<RequireQualifiedAccess>]
 module MasterDetailPage 
 
-open Fabulous.Core
 open Fabulous.DynamicViews
 open Fabulous.CustomControls
 open Xamarin.Forms
