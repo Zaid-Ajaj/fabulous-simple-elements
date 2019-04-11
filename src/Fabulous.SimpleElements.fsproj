@@ -48,6 +48,7 @@
     <Compile Include="PinchGestureRecognizer.fs" />
     <Compile Include="BoxView.fs" />
     <Compile Include="WebView.fs" />
+    <Compile Include="PanGestureRecognizer.fs" />
   </ItemGroup>
   <ItemGroup>
      <PackageReference Include="Fabulous.Core" Version="0.33.2" />
