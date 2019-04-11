@@ -92,10 +92,12 @@ let inline grid (props: IGridProp list) : ViewElement =
     
     let find name = Util.tryFind name attributes
 
+    let rowDefs = find "rowdefs" |> Option.map (fun (xs: GridLength list) -> List.map box xs)
+    let colDefs = find "coldefs" |> Option.map (fun (xs: GridLength list) -> List.map box xs)
     View.Grid(
-        ?rowdefs = find "rowdefs",
+        ?rowdefs = rowDefs,
+        ?coldefs = colDefs,
         ?ref = find "ref",
-        ?coldefs = find "coldefs",
         ?children = find "children",
         ?created = find "created",
         ?rowSpacing = find "rowSpacing",
