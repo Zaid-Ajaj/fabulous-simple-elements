@@ -30,7 +30,7 @@ StackLayout.stackLayout [
 ]
 ```
 ### Backwards compatible with existing DSL 
-This DSL is built on-top of the exisitng one in the core of Fabulous library which means if something isn't implemented here, that use can simply fallback to using the original DSL in a mix-and-match fashion:
+This DSL is built on-top of the existing one in the core of Fabulous library which means if something isn't implemented here, that use can simply fallback to using the original DSL in a mix-and-match fashion:
 ```fs
 View.ContentPage(content=StackLayout.stackLayout [ 
     StackLayout.Children [
