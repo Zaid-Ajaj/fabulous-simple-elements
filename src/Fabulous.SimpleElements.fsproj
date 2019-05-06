@@ -50,6 +50,7 @@
     <Compile Include="WebView.fs" />
     <Compile Include="PanGestureRecognizer.fs" />
     <Compile Include="Picker.fs" />
+    <Compile Include="Frame.fs" />
   </ItemGroup>
   <ItemGroup>
      <PackageReference Include="Fabulous.Core" Version="0.33.2" />
