@@ -59,7 +59,7 @@ let ScaleY (value: double) = createProp Keys.ScaleY value
 let ClassId (id: string) = createProp Keys.ClassId id
 let StyleId (id: string) = createProp Keys.StyleId id
 let AutomationId (id: string) = createProp Keys.AutomationId id
-let Ref (viewRef: ViewRef<Picker>) = createProp Keys.Ref viewRef
+let Ref (viewRef: ViewRef<Frame>) = createProp Keys.Ref viewRef
 let GridRow (n: int) = createProp Keys.GridRow n
 let GridColumn (n: int) = createProp Keys.GridColumn n
 let GridRowSpan (n: int) = createProp Keys.GridRowSpan n
@@ -77,7 +77,7 @@ let HeightConstraint (value: Constraint) = createProp Keys.HeightConstraint valu
 let XConstraint (value: Constraint) = createProp Keys.XConstraint value
 let YConstraint (value: Constraint) = createProp Keys.YConstraint value
 
-let OnCreated (f: Picker -> unit) = createProp Keys.Created f
+let OnCreated (f: Frame -> unit) = createProp Keys.Created f
 
 let inline frame (props: IFrameProp list) : ViewElement =
     let attributes =
