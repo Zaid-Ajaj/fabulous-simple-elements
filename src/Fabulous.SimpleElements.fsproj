@@ -51,9 +51,14 @@
     <Compile Include="PanGestureRecognizer.fs" />
     <Compile Include="Picker.fs" />
     <Compile Include="Frame.fs" />
+    <Compile Include="Shell.fs" />
+    <Compile Include="ShellContent.fs" />
+    <Compile Include="FlyoutItem.fs" />
+    <Compile Include="Tab.fs" />
+    <Compile Include="TabBar.fs" />
   </ItemGroup>
   <ItemGroup>
-     <PackageReference Include="Fabulous.Core" Version="0.33.2" />
-     <PackageReference Include="FSharp.Core" Version="4.5.0" />
+     <PackageReference Include="Fabulous.Core" Version="0.35.0" />
+     <PackageReference Include="FSharp.Core" Version="4.6.2" />
   </ItemGroup>
 </Project>
