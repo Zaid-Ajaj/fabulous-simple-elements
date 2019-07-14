@@ -1,7 +1,8 @@
 [<RequireQualifiedAccess>]
 module Image
 
-open Fabulous.DynamicViews
+open Fabulous
+open Fabulous.XamarinForms
 open Xamarin.Forms
 open Xamarin.Forms.StyleSheets
 
@@ -117,9 +118,9 @@ let inline image (props: IImageProp list) =
         ?tabIndex=find"tabIndex",
         ?focused=find "focused",
         ?unfocused=find"unfocused",
-        ?measureInvalidated=find"measureInvalidated",
-        ?childrenReordered=find"childrenReordered",
-        ?sizeChanged=find"sizeChanged",
+        //?measureInvalidated=find"measureInvalidated",
+        //?childrenReordered=find"childrenReordered",
+        //?sizeChanged=find"sizeChanged",
         ?created=find"created") 
     |> fun element -> Util.applyGridSettings element attributes 
     |> fun element -> Util.applyFlexLayoutSettings element attributes

@@ -1,7 +1,8 @@
 [<RequireQualifiedAccess>]
 module TextCell
 
-open Fabulous.DynamicViews
+open Fabulous
+open Fabulous.XamarinForms
 open Xamarin.Forms
 open Util
 

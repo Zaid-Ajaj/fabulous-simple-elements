@@ -1,11 +1,10 @@
 ﻿[<RequireQualifiedAccess>]
 module Label  
     
-open Fabulous.Core
-open Fabulous.DynamicViews
+open Fabulous
+open Fabulous.XamarinForms
 open Xamarin.Forms
 open Xamarin.Forms.StyleSheets
-open Xamarin.Forms
 
 type ILabelProp = 
     abstract name : string 

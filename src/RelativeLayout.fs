@@ -2,14 +2,11 @@
 module RelativeLayout 
 
 open Xamarin.Forms
-open Fabulous.DynamicViews
-
-open Fabulous.DynamicViews
-open Xamarin.Forms
 open Xamarin.Forms.StyleSheets
-open Fabulous.CustomControls
 open System.Data
 open Util
+open Fabulous
+open Fabulous.XamarinForms
 
 type IRelativeLayoutProp = 
     abstract name : string 

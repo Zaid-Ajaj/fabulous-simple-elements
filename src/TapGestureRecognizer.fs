@@ -1,7 +1,8 @@
 [<RequireQualifiedAccess>]
 module TapGestureRecognizer
 
-open Fabulous.DynamicViews
+open Fabulous
+open Fabulous.XamarinForms
 open Xamarin.Forms 
 open Xamarin.Forms
 

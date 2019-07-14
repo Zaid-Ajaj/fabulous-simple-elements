@@ -1,10 +1,10 @@
 ﻿[<RequireQualifiedAccess>]
 module Grid
 
-open Fabulous.DynamicViews
+open Fabulous
+open Fabulous.XamarinForms
 open Xamarin.Forms
 open Xamarin.Forms.StyleSheets
-open Xamarin.Forms
 
 type IGridProp = 
     abstract name : string 

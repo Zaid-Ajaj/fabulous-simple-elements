@@ -1,7 +1,7 @@
 module internal Util 
 
-open Fabulous.Core
-open Fabulous.DynamicViews
+open Fabulous
+open Fabulous.XamarinForms
 open Xamarin.Forms
 
 let inline tryFind<'t> name (map: Map<string, obj>) : Option<'t> =  

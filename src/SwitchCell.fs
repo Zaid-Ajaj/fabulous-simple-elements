@@ -1,7 +1,8 @@
 [<RequireQualifiedAccess>]
 module SwitchCell 
 
-open Fabulous.DynamicViews
+open Fabulous
+open Fabulous.XamarinForms
 open Xamarin.Forms
 
 type ISwitchCellProp = 

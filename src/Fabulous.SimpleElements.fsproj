@@ -53,7 +53,8 @@
     <Compile Include="Frame.fs" />
   </ItemGroup>
   <ItemGroup>
-     <PackageReference Include="Fabulous.Core" Version="0.33.2" />
-     <PackageReference Include="FSharp.Core" Version="4.5.0" />
+    <PackageReference Include="Fabulous" Version="0.41.0" />
+    <PackageReference Include="Fabulous.XamarinForms" Version="0.41.0" />
+    <PackageReference Include="FSharp.Core" Version="4.6.2" />
   </ItemGroup>
 </Project>

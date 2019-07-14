@@ -1,7 +1,8 @@
 [<RequireQualifiedAccess>]
 module SwipeGestureRecognizer
 
-open Fabulous.DynamicViews
+open Fabulous
+open Fabulous.XamarinForms
 open Xamarin.Forms 
 
 type ISwipeGestureRecognizerProp = 

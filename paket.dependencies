@@ -2,8 +2,8 @@ source https://api.nuget.org/v3/index.json
 
 storage:none
 
-nuget Fabulous.Core
-nuget FSharp.Core ~> 4.5.0
+nuget Fabulous
+nuget Fabulous.XamarinForms
 
 group Build
   framework >= net45

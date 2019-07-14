@@ -1,8 +1,8 @@
 [<RequireQualifiedAccess>]
 module TabbedPage 
 
-open Fabulous.DynamicViews
-open Fabulous.CustomControls
+open Fabulous
+open Fabulous.XamarinForms
 open Xamarin.Forms
 open Xamarin.Forms.StyleSheets
 
@@ -125,7 +125,7 @@ let inline tabbedPage (props: ITabbedPageProp list) =
         ?tabIndex=find"tabStop",
         ?focused=find"focused",
         ?unfocused=find"unfocused",
-        ?childrenReordered=find"childrenReordered",
-        ?measureInvalidated=find"measureInvalidated",
-        ?sizeChanged=find"sizeChanged",
+        //?childrenReordered=find"childrenReordered",
+        //?measureInvalidated=find"measureInvalidated",
+        //?sizeChanged=find"sizeChanged",
         ?ref=find"ref")

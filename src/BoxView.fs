@@ -3,8 +3,8 @@ module BoxView
 
 open Xamarin.Forms
 open Xamarin.Forms.StyleSheets
-open Fabulous.DynamicViews
-open Fabulous.CustomControls
+open Fabulous
+open Fabulous.XamarinForms
 
 type IBoxViewProp = 
     abstract Name : string 
@@ -91,9 +91,9 @@ let inline boxView (props: IBoxViewProp list) =
         ?verticalOptions = find Keys.VerticalLayout,
         margin = Util.applyMarginSettings attributes, 
         ?ref = find Keys.Ref,
-        ?sizeChanged = find Keys.SizeChanged,
-        ?childrenReordered = find Keys.ChildrenReordered,
-        ?measureInvalidated = find Keys.MeasureInvalidated,
+//        ?sizeChanged = find Keys.SizeChanged,
+        //?childrenReordered = find Keys.ChildrenReordered,
+        //?measureInvalidated = find Keys.MeasureInvalidated,
         ?created = find Keys.Created,
         ?isEnabled = find Keys.IsEnabled, 
         ?isVisible = find Keys.IsVisible,
