@@ -1,9 +1,9 @@
 [<RequireQualifiedAccess>]
 module ToolbarItem 
 
-open Fabulous.DynamicViews
+open Fabulous
+open Fabulous.XamarinForms
 open Xamarin.Forms
-open Xamarin.Forms.StyleSheets
 
 type IToolbarItemProp = 
     abstract name : string 

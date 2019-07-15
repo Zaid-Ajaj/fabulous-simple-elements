@@ -1,8 +1,8 @@
 [<RequireQualifiedAccess>]
 module TabbedPage 
 
-open Fabulous.DynamicViews
-open Fabulous.CustomControls
+open Fabulous
+open Fabulous.XamarinForms
 open Xamarin.Forms
 open Xamarin.Forms.StyleSheets
 
@@ -69,9 +69,6 @@ let TabIndex (tabIndex: int) = createProp "tabIndex" tabIndex
 
 let OnFocused (focused: FocusEventArgs -> unit) = createProp "focused" focused
 let OnUnfocused (unfocused: FocusEventArgs -> unit) = createProp "unfocused" unfocused
-let OnChildrenReordered (reordered: System.EventArgs -> unit) = createProp "childrenReordered" reordered
-let OnMeasureInvalidated (measureInvalidated: System.EventArgs -> unit) = createProp "measureInvalidated" measureInvalidated
-let OnSizeChanged (sizeChanged: SizeChangedEventArgs -> unit) = createProp "sizeChanged" sizeChanged
 let Ref(ref: ViewRef<TabbedPage> -> unit) = createProp "ref" ref
 
 let inline tabbedPage (props: ITabbedPageProp list) =
@@ -125,7 +122,4 @@ let inline tabbedPage (props: ITabbedPageProp list) =
         ?tabIndex=find"tabStop",
         ?focused=find"focused",
         ?unfocused=find"unfocused",
-        ?childrenReordered=find"childrenReordered",
-        ?measureInvalidated=find"measureInvalidated",
-        ?sizeChanged=find"sizeChanged",
         ?ref=find"ref")

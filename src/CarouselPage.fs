@@ -1,11 +1,10 @@
 [<RequireQualifiedAccess>]
 module CarouselPage
 
+open Fabulous
+open Fabulous.XamarinForms
 open Xamarin.Forms
-open Fabulous.Core
-open Fabulous.DynamicViews
 open Xamarin.Forms.StyleSheets
-open Fabulous.CustomControls
 
 type ICarouselPageProp = 
     abstract name : string 
@@ -71,9 +70,6 @@ let TabIndex (tabIndex: int) = createProp Keys.TabIndex tabIndex
 
 let OnFocused (focused: FocusEventArgs -> unit) = createProp Keys.Focused focused
 let OnUnfocused (unfocused: FocusEventArgs -> unit) = createProp Keys.Unfocused unfocused
-let OnChildrenReordered (reordered: System.EventArgs -> unit) = createProp Keys.ChildrenReordered reordered
-let OnMeasureInvalidated (measureInvalidated: System.EventArgs -> unit) = createProp Keys.MeasureInvalidated measureInvalidated
-let OnSizeChanged (sizeChanged: SizeChangedEventArgs -> unit) = createProp Keys.SizeChanged sizeChanged
 let Ref(ref: ViewRef<CarouselPage> -> unit) = createProp Keys.Ref ref
 
 let inline carouselPage (props: ICarouselPageProp list) = 
@@ -123,8 +119,6 @@ let inline carouselPage (props: ICarouselPageProp list) =
         ?scaleX = find Keys.ScaleX,
         ?scaleY = find Keys.ScaleY,
         ?isTabStop = find Keys.IsTabStop,
-        ?sizeChanged = find Keys.SizeChanged,
         ?focused = find Keys.Focused,
-        ?unfocused = find Keys.Unfocused,
-        ?childrenReordered = find Keys.ChildrenReordered,
-        ?measureInvalidated = find Keys.MeasureInvalidated)
+        ?unfocused = find Keys.Unfocused
+        )

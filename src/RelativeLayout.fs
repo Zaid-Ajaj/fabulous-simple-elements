@@ -2,14 +2,11 @@
 module RelativeLayout 
 
 open Xamarin.Forms
-open Fabulous.DynamicViews
-
-open Fabulous.DynamicViews
-open Xamarin.Forms
 open Xamarin.Forms.StyleSheets
-open Fabulous.CustomControls
 open System.Data
 open Util
+open Fabulous
+open Fabulous.XamarinForms
 
 type IRelativeLayoutProp = 
     abstract name : string 
@@ -53,9 +50,6 @@ let TabIndex (tabIndex: int) = createProp "tabIndex" tabIndex
 let GestureRecognizers (elements: ViewElement list) = createProp "gestureRecognizers" elements
 let OnFocused (focused: FocusEventArgs -> unit) = createProp "focused" focused
 let OnUnfocused (unfocused: FocusEventArgs -> unit) = createProp "unfocused" unfocused
-let OnChildrenReordered (reordered: System.EventArgs -> unit) = createProp "childrenReordered" reordered
-let OnMeasureInvalidated (measureInvalidated: System.EventArgs -> unit) = createProp "measureInvalidated" measureInvalidated
-let OnSizeChanged (sizeChanged: SizeChangedEventArgs -> unit) = createProp "sizeChanged" sizeChanged
 let Ref(ref: ViewRef<RelativeLayout> -> unit) = createProp "ref" ref
 let GridRow (n: int) = createProp Keys.GridRow n 
 let GridColumn (n: int) = createProp Keys.GridColumn n 

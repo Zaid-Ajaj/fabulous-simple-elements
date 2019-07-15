@@ -2,7 +2,8 @@
 module PanGestureRecognizer
 
 open Xamarin.Forms
-open Fabulous.DynamicViews
+open Fabulous
+open Fabulous.XamarinForms
 
 type IPanGestureRecognizerProp = 
     abstract Name : string 

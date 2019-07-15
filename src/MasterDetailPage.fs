@@ -1,8 +1,8 @@
 [<RequireQualifiedAccess>]
 module MasterDetailPage 
 
-open Fabulous.DynamicViews
-open Fabulous.CustomControls
+open Fabulous
+open Fabulous.XamarinForms
 open Xamarin.Forms
 open Xamarin.Forms.StyleSheets
 open System
@@ -67,11 +67,8 @@ let TranslationY (value: double) = createProp Keys.TranslationY value
 let Width (value: double) = createProp Keys.WidthRequest value
 let Opacity (value: double) = createProp Keys.Opacity value
 let IsTabStop (value: bool) = createProp Keys.IsTabStop value
-let SizeChanged (handler: SizeChangedEventArgs -> unit) = createProp Keys.SizeChanged handler
 let Focused (handler: FocusEventArgs -> unit) = createProp Keys.Focused handler
 let Unfocused (handler: FocusEventArgs -> unit) = createProp Keys.Unfocused handler
-let ChildrenReordered (handler: EventArgs -> unit) = createProp Keys.ChildrenReordered handler
-let MeasureInvalidated (handler: EventArgs -> unit) = createProp Keys.MeasureInvalidated handler 
 
 let inline masterDetailPage(props:IMasterDetailPageProp list) =
     let attributes = 
@@ -120,8 +117,6 @@ let inline masterDetailPage(props:IMasterDetailPageProp list) =
         ?scaleX = find Keys.ScaleX,
         ?scaleY = find Keys.ScaleY,
         ?isTabStop = find Keys.IsTabStop,
-        ?sizeChanged = find Keys.SizeChanged,
         ?focused = find Keys.Focused,
-        ?unfocused = find Keys.Unfocused,
-        ?childrenReordered = find Keys.ChildrenReordered,
-        ?measureInvalidated = find Keys.MeasureInvalidated)
+        ?unfocused = find Keys.Unfocused
+        )

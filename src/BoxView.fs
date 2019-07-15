@@ -3,8 +3,8 @@ module BoxView
 
 open Xamarin.Forms
 open Xamarin.Forms.StyleSheets
-open Fabulous.DynamicViews
-open Fabulous.CustomControls
+open Fabulous
+open Fabulous.XamarinForms
 
 type IBoxViewProp = 
     abstract Name : string 
@@ -68,9 +68,6 @@ let IsTabStop (tabStop: bool) = createProp Keys.IsTabStop tabStop
 let TabIndex (tabIndex: int) = createProp Keys.TabIndex tabIndex
 let OnFocused (focused: FocusEventArgs -> unit) = createProp Keys.Focused focused
 let OnUnfocused (unfocused: FocusEventArgs -> unit) = createProp Keys.Unfocused unfocused
-let OnChildrenReordered (reordered: System.EventArgs -> unit) = createProp Keys.ChildrenReordered reordered
-let OnMeasureInvalidated (measureInvalidated: System.EventArgs -> unit) = createProp Keys.MeasureInvalidated measureInvalidated
-let OnSizeChanged (sizeChanged: SizeChangedEventArgs -> unit) = createProp Keys.SizeChanged sizeChanged
 let Ref(ref: ViewRef<BoxView> -> unit) = createProp Keys.Ref ref
 
 let HorizontalLayout (options: LayoutOptions) = createProp Keys.HorizontalLayout options
@@ -91,9 +88,6 @@ let inline boxView (props: IBoxViewProp list) =
         ?verticalOptions = find Keys.VerticalLayout,
         margin = Util.applyMarginSettings attributes, 
         ?ref = find Keys.Ref,
-        ?sizeChanged = find Keys.SizeChanged,
-        ?childrenReordered = find Keys.ChildrenReordered,
-        ?measureInvalidated = find Keys.MeasureInvalidated,
         ?created = find Keys.Created,
         ?isEnabled = find Keys.IsEnabled, 
         ?isVisible = find Keys.IsVisible,

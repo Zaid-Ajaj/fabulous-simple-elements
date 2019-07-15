@@ -1,7 +1,8 @@
 [<RequireQualifiedAccess>]
 module ClickGestureRecognizer
 
-open Fabulous.DynamicViews
+open Fabulous
+open Fabulous.XamarinForms
 open Xamarin.Forms 
 
 type IClickGestureRecognizerProp = 

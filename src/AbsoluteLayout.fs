@@ -1,10 +1,10 @@
 [<RequireQualifiedAccess>]
 module AbsoluteLayout 
 
-open Fabulous.DynamicViews
+open Fabulous
+open Fabulous.XamarinForms
 open Xamarin.Forms
 open Xamarin.Forms.StyleSheets
-open Fabulous.CustomControls
 
 type IAbsoluteLayoutProp = 
     abstract name : string 
@@ -48,9 +48,6 @@ let TabIndex (tabIndex: int) = createProp "tabIndex" tabIndex
 let GestureRecognizers (elements: ViewElement list) = createProp "gestureRecognizers" elements
 let OnFocused (focused: FocusEventArgs -> unit) = createProp "focused" focused
 let OnUnfocused (unfocused: FocusEventArgs -> unit) = createProp "unfocused" unfocused
-let OnChildrenReordered (reordered: System.EventArgs -> unit) = createProp "childrenReordered" reordered
-let OnMeasureInvalidated (measureInvalidated: System.EventArgs -> unit) = createProp "measureInvalidated" measureInvalidated
-let OnSizeChanged (sizeChanged: SizeChangedEventArgs -> unit) = createProp "sizeChanged" sizeChanged
 let Ref(ref: ViewRef<AbsoluteLayout> -> unit) = createProp "ref" ref
 let Margin (value: double) = createProp Keys.Margin (Thickness(value)) 
 let MarginLeft (value: double) = createProp Keys.MarginLeft value 

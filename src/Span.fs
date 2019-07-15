@@ -1,7 +1,8 @@
 [<RequireQualifiedAccess>]
 module Span
 
-open Fabulous.DynamicViews
+open Fabulous
+open Fabulous.XamarinForms
 open Xamarin.Forms 
 
 type ISpanProp = 
