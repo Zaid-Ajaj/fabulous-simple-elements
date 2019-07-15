@@ -49,9 +49,6 @@ let IsTapStop (condition: bool) = createProp "isTabStop" condition
 let TabIndex (index: int) = createProp "tabIndex" index
 let Focused (f: FocusEventArgs -> unit) = createProp "focused" f
 let Unfocused (f: FocusEventArgs -> unit) = createProp "unfocused" f
-let MeasureInvalidated (f: System.EventArgs -> unit) = createProp "measureInvalidated" f
-let ChildrenReordered (f: System.EventArgs -> unit) = createProp "childrenReordered" f
-let SizeChanged (f: System.EventArgs -> unit) = createProp "sizeChanged" f
 let OnCreated (f: Image -> unit) = createProp "created" f
 let GestureRecognizers (elements: ViewElement list) = createProp "gestureRecognizers" elements
 
@@ -118,9 +115,6 @@ let inline image (props: IImageProp list) =
         ?tabIndex=find"tabIndex",
         ?focused=find "focused",
         ?unfocused=find"unfocused",
-        //?measureInvalidated=find"measureInvalidated",
-        //?childrenReordered=find"childrenReordered",
-        //?sizeChanged=find"sizeChanged",
         ?created=find"created") 
     |> fun element -> Util.applyGridSettings element attributes 
     |> fun element -> Util.applyFlexLayoutSettings element attributes
