@@ -1,60 +1,60 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <Description>An alternative view rendering API for Fabulous that is easy to use and simple to read, inspired by Elmish on the web. </Description>
-    <PackageProjectUrl>https://github.com/Zaid-Ajaj/fabulous-simple-elements</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/Zaid-Ajaj/fabulous-simple-elements.git</RepositoryUrl>
-    <PackageLicenseUrl>https://github.com/Zaid-Ajaj/fabulous-simple-elements/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageIconUrl></PackageIconUrl>
-    <PackageTags>fsharp;xamarin;forms;view;dsl;elmish</PackageTags>
-    <Authors>Zaid Ajaj</Authors>
-    <Version>0.36.0</Version>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-  </PropertyGroup>
+    <PropertyGroup>
+        <Description>An alternative view rendering API for Fabulous that is easy to use and simple to read, inspired by Elmish on the web. </Description>
+        <PackageProjectUrl>https://github.com/Zaid-Ajaj/fabulous-simple-elements</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/Zaid-Ajaj/fabulous-simple-elements.git</RepositoryUrl>
+        <PackageLicenseUrl>https://github.com/Zaid-Ajaj/fabulous-simple-elements/blob/master/LICENSE</PackageLicenseUrl>
+        <PackageIconUrl></PackageIconUrl>
+        <PackageTags>fsharp;xamarin;forms;view;dsl;elmish</PackageTags>
+        <Authors>Zaid Ajaj</Authors>
+        <Version>0.37.0</Version>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Include="Keys.fs" />
-    <Compile Include="Util.fs" />
-    <Compile Include="FontSizes.fs" />
-    <Compile Include="ContentPage.fs" />
-    <Compile Include="TextEntry.fs" />
-    <Compile Include="Grid.fs" />
-    <Compile Include="ActivityIndicator.fs" />
-    <Compile Include="DatePicker.fs" />
-    <Compile Include="Switch.fs" />
-    <Compile Include="StackLayout.fs" />
-    <Compile Include="Button.fs" />
-    <Compile Include="Label.fs" />
-    <Compile Include="Slider.fs" />
-    <Compile Include="ListView.fs" />
-    <Compile Include="ToolbarItem.fs" />
-    <Compile Include="SwitchCell.fs" />
-    <Compile Include="NavigationPage.fs" />
-    <Compile Include="ScrollView.fs" />
-    <Compile Include="TextCell.fs" />
-    <Compile Include="FlexLayout.fs" />
-    <Compile Include="Image.fs" />
-    <Compile Include="ImageCell.fs" />
-    <Compile Include="TabbedPage.fs" />
-    <Compile Include="AbsoluteLayout.fs" />
-    <Compile Include="RelativeLayout.fs" />
-    <Compile Include="MasterDetailPage.fs" />
-    <Compile Include="CarouselPage.fs" />
-    <Compile Include="Span.fs" />
-    <Compile Include="TapGestureRecognizer.fs" />
-    <Compile Include="ClickGestureRecognizer.fs" />
-    <Compile Include="SwipeGestureRecognizer.fs" />
-    <Compile Include="PinchGestureRecognizer.fs" />
-    <Compile Include="BoxView.fs" />
-    <Compile Include="WebView.fs" />
-    <Compile Include="PanGestureRecognizer.fs" />
-    <Compile Include="Picker.fs" />
-    <Compile Include="Frame.fs" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Fabulous" Version="0.41.0" />
-    <PackageReference Include="Fabulous.XamarinForms" Version="0.41.0" />
-    <PackageReference Include="FSharp.Core" Version="4.6.2" />
-  </ItemGroup>
+    <ItemGroup>
+        <Compile Include="Keys.fs" />
+        <Compile Include="Util.fs" />
+        <Compile Include="FontSizes.fs" />
+        <Compile Include="ContentPage.fs" />
+        <Compile Include="TextEntry.fs" />
+        <Compile Include="Grid.fs" />
+        <Compile Include="ActivityIndicator.fs" />
+        <Compile Include="DatePicker.fs" />
+        <Compile Include="Switch.fs" />
+        <Compile Include="StackLayout.fs" />
+        <Compile Include="Button.fs" />
+        <Compile Include="Label.fs" />
+        <Compile Include="Slider.fs" />
+        <Compile Include="ListView.fs" />
+        <Compile Include="ToolbarItem.fs" />
+        <Compile Include="SwitchCell.fs" />
+        <Compile Include="NavigationPage.fs" />
+        <Compile Include="ScrollView.fs" />
+        <Compile Include="TextCell.fs" />
+        <Compile Include="FlexLayout.fs" />
+        <Compile Include="Image.fs" />
+        <Compile Include="ImageCell.fs" />
+        <Compile Include="TabbedPage.fs" />
+        <Compile Include="AbsoluteLayout.fs" />
+        <Compile Include="RelativeLayout.fs" />
+        <Compile Include="MasterDetailPage.fs" />
+        <Compile Include="CarouselPage.fs" />
+        <Compile Include="Span.fs" />
+        <Compile Include="TapGestureRecognizer.fs" />
+        <Compile Include="ClickGestureRecognizer.fs" />
+        <Compile Include="SwipeGestureRecognizer.fs" />
+        <Compile Include="PinchGestureRecognizer.fs" />
+        <Compile Include="BoxView.fs" />
+        <Compile Include="WebView.fs" />
+        <Compile Include="PanGestureRecognizer.fs" />
+        <Compile Include="Picker.fs" />
+        <Compile Include="Frame.fs" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Fabulous" Version="0.41.0" />
+        <PackageReference Include="Fabulous.XamarinForms" Version="0.41.0" />
+        <PackageReference Include="FSharp.Core" Version="4.6.2" />
+    </ItemGroup>
 </Project>
