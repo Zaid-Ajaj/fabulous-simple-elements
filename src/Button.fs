@@ -83,6 +83,8 @@ let WidthConstraint (value: Constraint) = createProp Keys.WidthConstraint value
 let HeightConstraint (value: Constraint) = createProp Keys.HeightConstraint value 
 let XConstraint (value: Constraint) = createProp Keys.XConstraint value 
 let YConstraint (value: Constraint) = createProp Keys.YConstraint value 
+
+let Image (source : string) = createProp "image" source
 // ===================================
 
 let OnCreated (f: Button -> unit) = createProp Keys.Created f
@@ -135,7 +137,8 @@ let inline button (props: IButtonProp list) : ViewElement =
         ?fontFamily = find "fontFamily",
         ?backgroundColor = find "backgroundColor",
         ?inputTransparent = find "inputTransparent",
-        ?horizontalOptions = find "horizontalOptions")
+        ?horizontalOptions = find "horizontalOptions",
+        ?image = find "image")
     |> fun element ->  Util.applyGridSettings element attributes  
     |> fun element -> Util.applyFlexLayoutSettings element attributes
     |> fun element -> Util.applyAbsoluteLayoutSettings element attributes 
