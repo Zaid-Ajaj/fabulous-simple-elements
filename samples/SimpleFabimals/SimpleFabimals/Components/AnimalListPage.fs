@@ -54,14 +54,15 @@ module AnimalList =
                 | true, Device.iOS -> Thickness(0., 40., 0., 0.)
                 | _ -> Thickness(0.)
 
-            View.ContentPage(
-                title=pageTitle,
-                shellSearchHandler=(SearchHandlers.animalSearchHandler filteredAnimals (SearchHandlerMsg >> dispatch)),
-                content=View.CollectionView(
-                    margin=contentMargin,
-                    selectionMode=SelectionMode.Single,
-                    selectionChanged=(navigateToAfterSelectionChanged dispatch),
-                    items=(allAnimals |> List.map Templates.animalTemplate)
-                )
-            )
+            ContentPage.contentPage [
+                ContentPage.Title pageTitle
+                ContentPage.ShellSearchHandler (SearchHandlers.animalSearchHandler filteredAnimals (SearchHandlerMsg >> dispatch))
+                ContentPage.Content <|
+                    CollectionView.collectionView [
+                        CollectionView.MarginThickness contentMargin
+                        CollectionView.SelectionMode SelectionMode.Single
+                        CollectionView.SelectionChanged (navigateToAfterSelectionChanged dispatch)
+                        CollectionView.Items (allAnimals |> List.map Templates.animalTemplate)
+                    ]
+            ]
         )

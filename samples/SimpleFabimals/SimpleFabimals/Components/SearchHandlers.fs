@@ -11,32 +11,34 @@ module SearchHandlers =
         | AnimalSelected of Animal
 
     let animalSearchHandler animals dispatch =
-        View.SearchHandler(
-            placeholder="Enter search term",
-            showsResults=true,
-            queryChanged=(fun (_, newValue) -> dispatch (QueryChanged newValue)),
-            itemSelected=(fun item ->
-                let data = item :?> ItemListElementData
-                let animal = data.Key.GetAttributeKeyed(ViewAttributes.TagAttribKey) :?> Animal
-                dispatch (AnimalSelected animal)),
-            items=[
+        SearchHandler.searchHandler [
+            SearchHandler.Placeholder "Enter search term"
+            SearchHandler.ShowResults true
+            SearchHandler.QueryChanged (fun (_, newValue) -> dispatch (QueryChanged newValue))
+            SearchHandler.ItemSelected <|
+                fun item ->
+                    let data = item :?> ItemListElementData
+                    let animal = data.Key.GetAttributeKeyed(ViewAttributes.TagAttribKey) :?> Animal
+                    dispatch (AnimalSelected animal)
+            SearchHandler.Items [
                 for animal in animals do
-                    yield View.Grid(
-                        tag=animal,
-                        padding=Thickness(10.),
-                        coldefs=["0.15*"; "0.85*"],
-                        children=[
-                            View.Image(
-                                source=animal.ImageUrl,
-                                aspect=Aspect.AspectFill,
-                                heightRequest=40.,
-                                widthRequest=40.
-                            )
-                            View.Label(
-                                text=animal.Name,
-                                fontAttributes=FontAttributes.Bold
-                            ).GridColumn(1)
+                    yield Grid.grid [
+                        Grid.Tag animal
+                        Grid.PaddingThickness (Thickness(10.))
+                        Grid.Columns [GridLength(0.15, GridUnitType.Star); GridLength(0.85, GridUnitType.Star)]
+                        Grid.Children [
+                            Image.image [
+                                Image.SourceString animal.ImageUrl
+                                Image.Aspect Aspect.AspectFill
+                                Image.Height 40.
+                                Image.Width 40.
+                            ]
+                            Label.label [
+                                Label.Text animal.Name
+                                Label.FontAttributes FontAttributes.Bold
+                                Label.GridColumn 1
+                            ]
                         ]
-                    )
+                    ]
             ]
-        )
+        ]

@@ -1,25 +1,29 @@
-﻿[<RequireQualifiedAccess>]
-module Picker
-
+[<RequireQualifiedAccess>]
+module CollectionView
 open Fabulous
 open Fabulous.XamarinForms
 open Xamarin.Forms
 open Xamarin.Forms.StyleSheets
 
-type IPickerProp =
+type ICollectionViewProp =
     abstract name : string
     abstract value : obj
-
+    
 let internal createProp name value =
-    { new IPickerProp with
+    { new ICollectionViewProp with
         member x.name = name
         member x.value = value }
 
-let ItemsSource (items: seq<'T>) = createProp Keys.ItemsSource items
-let SelectedIndex (index: int) = createProp Keys.SelectedIndex index
-let Title (value: string) = createProp Keys.Title value
-let TextColor (color: Color)= createProp Keys.TextColor color
-let OnIndexChanged (f: (int * 'T option) -> unit) = createProp Keys.SelectedIndexChanged f
+let Items (items: seq<ViewElement>) = createProp Keys.Items items
+let SelectedItem (item: obj) = createProp Keys.SelectedItem item
+let SelectedItems (items: seq<ViewElement>) = createProp Keys.SelectedItems items
+let SelectionChangedCommand (f: unit -> unit) = createProp Keys.SelectionChangedCommand f
+let SelectionMode (mode: SelectionMode) = createProp Keys.SelectionMode mode
+let SelectionChanged (f: SelectionChangedEventArgs -> unit) = createProp Keys.SelectionChanged f
+let EmptyView (value: obj) = createProp Keys.EmptyView value
+let ItemSizingStrategy (strategy: ItemSizingStrategy) = createProp Keys.ItemSizingStrategy strategy
+let ScrollToRequested (f: ScrollToRequestedEventArgs -> unit) = createProp Keys.ScrollToRequested f
+let ScrollTo (value: obj * obj * ScrollToPosition * AnimationKind) = createProp Keys.ScrollTo value
 let HorizontalLayout (options: LayoutOptions) = createProp Keys.HorizontalLayout options
 let VerticalLayout (options: LayoutOptions) = createProp Keys.VerticalLayout options
 let Margin (value: double) = createProp Keys.Margin (Thickness(value))
@@ -35,60 +39,54 @@ let BackgroundColor (color: Color) = createProp Keys.BackgroundColor color
 let HeightRequest (value: double) = createProp Keys.HeightRequest value
 let InputTransparent (condition: bool) = createProp Keys.InputTransparent condition
 let IsEnabled (condition: bool) = createProp Keys.IsEnabled condition
+let IsTabStop (condition: bool) = createProp Keys.IsTabStop condition
 let IsVisible (condition: bool) = createProp Keys.IsVisible condition
 let MinimumHeight (value: double) = createProp Keys.MinimumHeightRequest value
 let MinimumWidth (value: double) = createProp Keys.MinimumWidthRequest value
 let Opacity (value: double) = createProp Keys.Opacity value
+let Resources (values: (string * obj) list) = createProp Keys.Resources values
 let Rotation (value: double) = createProp Keys.Rotation value
 let RotationX (value: double) = createProp Keys.RotationX value
 let RotationY (value: double) = createProp Keys.RotationY value
 let Scale (value: double) = createProp Keys.Scale value
-let Style (style: Style) = createProp Keys.Style style
+let ScaleX (value: double) = createProp Keys.ScaleX value
+let ScaleY (value: double) = createProp Keys.ScaleY value
+let TabIndex (index: int) = createProp Keys.TabIndex index
 let TranslationX (value: double) = createProp Keys.TranslationX value
 let TranslationY (value: double) = createProp Keys.TranslationY value
 let WidthRequest (value: double) = createProp Keys.WidthRequest value
-let Resources (values: (string * obj) list) = createProp Keys.Resources values
 let StyleSheets (sheets: StyleSheet list) = createProp Keys.StyleSheets sheets
-let ScaleX (value: double) = createProp Keys.ScaleX value
-let ScaleY (value: double) = createProp Keys.ScaleY value
+let Focused (f: FocusEventArgs -> unit) = createProp Keys.Focused f
+let Unfocused (f: FocusEventArgs -> unit) = createProp Keys.Unfocused f
+let Style (style: Style) = createProp Keys.Style style
 let ClassId (id: string) = createProp Keys.ClassId id
 let StyleId (id: string) = createProp Keys.StyleId id
 let AutomationId (id: string) = createProp Keys.AutomationId id
-let Ref (viewRef: ViewRef<Picker>) = createProp Keys.Ref viewRef
-let GridRow (n: int) = createProp Keys.GridRow n
-let GridColumn (n: int) = createProp Keys.GridColumn n
-let GridRowSpan (n: int) = createProp Keys.GridRowSpan n
-let GridColumnSpan (n: int) = createProp Keys.GridColumnSpan n
-let FlexOrder (n: int) = createProp Keys.FlexOrder n
-let FlexGrow (value: double) = createProp Keys.FlexGrow value
-let FlexShrink (value: double) = createProp Keys.FlexShrink value
-let FlexAlignSelf (value: FlexAlignSelf) = createProp Keys.FlexAlignSelf value
-let FlexLayoutDirection (value: FlexDirection) = createProp Keys.FlexLayoutDirection value
-let FlexBasis (value: FlexBasis) = createProp Keys.FlexBasis value
-let AbsoluteLayoutFlags (flags: AbsoluteLayoutFlags) = createProp Keys.AbsoluteLayoutFlags flags
-let AbsoluteLayoutBounds (rectangleBounds: Rectangle) = createProp Keys.AbsoluteLayoutBounds rectangleBounds
-let WidthConstraint (value: Constraint) = createProp Keys.WidthConstraint value
-let HeightConstraint (value: Constraint) = createProp Keys.HeightConstraint value
-let XConstraint (value: Constraint) = createProp Keys.XConstraint value
-let YConstraint (value: Constraint) = createProp Keys.YConstraint value
+let Ref (viewRef: ViewRef<CollectionView>) = createProp Keys.Ref viewRef
+let Tag (tag: obj) = createProp Keys.Tag tag
 
-let OnCreated (f: Picker -> unit) = createProp Keys.Created f
+let OnCreated (f: CollectionView -> unit) = createProp Keys.Created f
 
-let inline picker (props: IPickerProp list) : ViewElement =
-    let attributes =
-        props
+let collectionView (props: ICollectionViewProp list) : ViewElement =
+    let attributes = 
+        props 
         |> List.distinctBy (fun prop -> prop.name)
-        |> List.map (fun prop -> prop.name, prop.value)
-        |> Map.ofList
-
+        |> List.map (fun prop -> prop.name, prop.value)  
+        |> Map.ofList 
+    
     let find name = Util.tryFind name attributes
-
-    View.Picker(
-        ?itemsSource = find Keys.ItemsSource,
-        ?selectedIndex = find Keys.SelectedIndex,
-        ?title = find Keys.Title,
-        ?textColor = find Keys.TextColor,
-        ?selectedIndexChanged = find Keys.SelectedIndexChanged,
+    
+    View.CollectionView(
+        ?items = find Keys.Items,
+        ?selectedItem = find Keys.SelectedItem,
+        ?selectedItems = find Keys.SelectedItems,
+        ?selectionChangedCommand = find Keys.SelectionChangedCommand,
+        ?selectionMode = find Keys.SelectionMode,
+        ?selectionChanged = find Keys.SelectionChanged,
+        ?emptyView = find Keys.EmptyView,
+        ?itemSizingStrategy = find Keys.ItemSizingStrategy,
+        ?scrollToRequested = find Keys.ScrollToRequested,
+        ?scrollTo = find Keys.ScrollTo,
         ?horizontalOptions = find Keys.HorizontalLayout,
         ?verticalOptions = find Keys.VerticalLayout,
         ?margin = Some (box (Util.applyMarginSettings attributes)),
@@ -99,29 +97,30 @@ let inline picker (props: IPickerProp list) : ViewElement =
         ?heightRequest = find Keys.HeightRequest,
         ?inputTransparent = find Keys.InputTransparent,
         ?isEnabled = find Keys.IsEnabled,
+        ?isTabStop = find Keys.IsTabStop,
         ?isVisible = find Keys.IsVisible,
         ?minimumHeightRequest = find Keys.MinimumHeightRequest,
         ?minimumWidthRequest = find Keys.MinimumWidthRequest,
         ?opacity = find Keys.Opacity,
+        ?resources = find Keys.Resources,
         ?rotation = find Keys.Rotation,
         ?rotationX = find Keys.RotationX,
         ?rotationY = find Keys.RotationY,
         ?scale = find Keys.Scale,
-        ?style = find Keys.Style,
+        ?scaleX = find Keys.ScaleX,
+        ?scaleY = find Keys.ScaleY,
+        ?tabIndex = find Keys.TabIndex,
         ?translationX = find Keys.TranslationX,
         ?translationY = find Keys.TranslationY,
         ?widthRequest = find Keys.WidthRequest,
-        ?resources = find Keys.Resources,
         ?styleSheets = find Keys.StyleSheets,
-        ?scaleX = find Keys.ScaleX,
-        ?scaleY = find Keys.ScaleY,
+        ?focused = find Keys.Focused,
+        ?unfocused = find Keys.Unfocused,
+        ?style = find Keys.Style,
         ?classId = find Keys.ClassId,
         ?styleId = find Keys.StyleId,
         ?automationId = find Keys.AutomationId,
         ?created = find Keys.Created,
-        ?ref = find Keys.Ref
+        ?ref = find Keys.Ref,
+        ?tag = find Keys.Tag
     )
-    |> fun element -> Util.applyGridSettings element attributes
-    |> fun element -> Util.applyFlexLayoutSettings element attributes
-    |> fun element -> Util.applyAbsoluteLayoutSettings element attributes
-    |> fun element -> Util.applyRelativeLayoutConstraints element attributes 

@@ -17,7 +17,7 @@ let internal createProp name value =
 
 let Rows (rowDefs: GridLength list) = createProp "rowdefs" rowDefs 
 
-let Columns (colDefs: GridLength list) = createProp "coldefs" colDefs 
+let Columns (colDefs: GridLength list) = createProp "coldefs" colDefs
 
 let Children (elems: ViewElement list) = createProp "children" elems 
 
@@ -93,7 +93,7 @@ let inline grid (props: IGridProp list) : ViewElement =
     
     let find name = Util.tryFind name attributes
 
-    let rowDefs = find "rowdefs" |> Option.map (fun (xs: GridLength list) -> List.map box xs)
+    let rowDefs = find "rowdefs" |> Option.map (fun (xs: GridLength list) -> List.map box xs)            
     let colDefs = find "coldefs" |> Option.map (fun (xs: GridLength list) -> List.map box xs)
     View.Grid(
         ?rowdefs = rowDefs,

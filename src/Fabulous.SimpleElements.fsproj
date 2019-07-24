@@ -59,6 +59,8 @@
         <Compile Include="ContentView.fs" />
         <Compile Include="MenuItem.fs" />
         <Compile Include="FormattedString.fs" />
+        <Compile Include="SearchHandler.fs" />
+        <Compile Include="CollectionView.fs" />
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="Fabulous" Version="0.41.0" />
