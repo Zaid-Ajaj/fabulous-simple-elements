@@ -31,6 +31,7 @@ let HorizontalTextAlignment (alignment: TextAlignment) = createProp "horizontalT
 let VerticalTextAlignment (alignment: TextAlignment) = createProp "verticalTextAlignment" alignment
 let GestureRecognizers (elements: ViewElement list) = createProp "gestureRecognizers" elements 
 let HorizontalLayout (options: LayoutOptions) = createProp "horizontalOptions" (box options)
+let VerticalLayout (options: LayoutOptions) = createProp "verticalOptions" (box options)
 let IsEnabled (condition: bool) = createProp "isEnabled" condition
 let IsVisible (condition: bool) = createProp "isVisible" condition
 let AnchorY (value: double) = createProp "anchorY" value 

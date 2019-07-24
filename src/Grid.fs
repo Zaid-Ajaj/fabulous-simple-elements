@@ -79,7 +79,8 @@ let PaddingLeft (value: double) = createProp Keys.PaddingLeft value
 let PaddingRight (value: double) = createProp Keys.PaddingRight value 
 let PaddingTop (value: double) = createProp Keys.PaddingTop value 
 let PaddingBottom (value: double) = createProp Keys.PaddingBottom value 
-let PaddingThickness (thickness: Thickness) = createProp Keys.Padding thickness 
+let PaddingThickness (thickness: Thickness) = createProp Keys.Padding thickness
+let Tag (tag: obj) = createProp Keys.Tag tag
 
 let GestureRecognizers (elements: ViewElement list) = createProp "gestureRecognizers" elements
 let OnCreated (f: Grid -> unit) = createProp "created" f
@@ -130,7 +131,8 @@ let inline grid (props: IGridProp list) : ViewElement =
         ?minimumWidthRequest = find "minimumHeightRequest",
         ?backgroundColor = find "backgroundColor",
         ?inputTransparent = find "inputTransparent",
-        ?horizontalOptions = find "horizontalOptions"
+        ?horizontalOptions = find "horizontalOptions",
+        ?tag = find Keys.Tag
     )
     |> fun element -> Util.applyGridSettings element attributes
     |> fun element -> Util.applyFlexLayoutSettings element attributes

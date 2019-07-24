@@ -51,6 +51,14 @@
         <Compile Include="PanGestureRecognizer.fs" />
         <Compile Include="Picker.fs" />
         <Compile Include="Frame.fs" />
+        <Compile Include="Shell.fs" />
+        <Compile Include="ShellContent.fs" />
+        <Compile Include="FlyoutItem.fs" />
+        <Compile Include="Tab.fs" />
+        <Compile Include="TabBar.fs" />
+        <Compile Include="ContentView.fs" />
+        <Compile Include="MenuItem.fs" />
+        <Compile Include="FormattedString.fs" />
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="Fabulous" Version="0.41.0" />
