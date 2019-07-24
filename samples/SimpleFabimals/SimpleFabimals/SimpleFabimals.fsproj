@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Models\Animal.fs" />
+    <Compile Include="Data\BearData.fs" />
+    <Compile Include="Data\CatData.fs" />
+    <Compile Include="Data\DogData.fs" />
+    <Compile Include="Data\ElephantData.fs" />
+    <Compile Include="Data\MonkeyData.fs" />
+    <Compile Include="Components\SearchHandlers.fs" />
+    <Compile Include="Components\Templates.fs" />
+    <Compile Include="Components\AnimalListPage.fs" />
+    <Compile Include="Components\AnimalDetailsPage.fs" />
+    <Compile Include="Views\About.fs" />
+    <Compile Include="Views\Bears.fs" />
+    <Compile Include="Views\Cats.fs" />
+    <Compile Include="Views\Dogs.fs" />
+    <Compile Include="Views\Elephants.fs" />
+    <Compile Include="Views\Monkeys.fs" />
+    <Compile Include="Routes.fs" />
+    <Compile Include="App.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="4.1.0.555618" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.1.0" />
+    <PackageReference Include="Fabulous.XamarinForms" Version="0.41.0" />
+    <PackageReference Include="Fabulous.XamarinForms.LiveUpdate" Version="0.41.0" />
+    <PackageReference Include="FSharp.Core" Version="4.6.2" />
+    <PackageReference Update="FSharp.Core" Version="4.6.2" /> <!-- workaround for VSMac bug https://github.com/mono/monodevelop/pull/5137 --> 
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\Fabulous.SimpleElements.fsproj" />
+  </ItemGroup>
+</Project>

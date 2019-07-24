@@ -62,6 +62,7 @@ let InputTransparent (condition: bool) = createProp "inputTransparent" condition
 let HasBackButton (condition: bool) = createProp "hasBackButton" condition 
 let HasNavigationBar (condition: bool) = createProp "hasNavigationBar" condition 
 let OnCreated (f: ContentPage -> unit) = createProp "created" f
+let ShellSearchHandler (value: ViewElement) = createProp Keys.ShellSearchHandler value
 
 let inline contentPage (props: IContentPageProp list) : ViewElement =
     let attributes = 
@@ -108,7 +109,8 @@ let inline contentPage (props: IContentPageProp list) : ViewElement =
             ?minimumHeightRequest = find "minimumHeightRequest",
             ?minimumWidthRequest = find "minimumHeightRequest",
             ?backgroundColor = find "backgroundColor",
-            ?inputTransparent = find "inputTransparent")
+            ?inputTransparent = find "inputTransparent",
+            ?shellSearchHandler = find Keys.ShellSearchHandler)
 
     [ "hasBackButton", Util.tryFind<bool> "hasBackButton" attributes
       "hasNavigationBar", Util.tryFind<bool> "hasNavigationBar" attributes ]
