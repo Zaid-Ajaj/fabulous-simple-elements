@@ -32,7 +32,7 @@ let inline clickGestureRecognizer (props: IClickGestureRecognizerProp list) =
     
     let find name = Util.tryFind name attributes
 
-    View.ClickGestureRecognizer(?command = find Keys.IsPinching,
+    View.ClickGestureRecognizer(?command = find Keys.OnClicked,
         ?numberOfClicksRequired = find Keys.ClicksRequired,
         ?buttons = find Keys.ButtonsMask,
         ?styleId = find Keys.StyleId,

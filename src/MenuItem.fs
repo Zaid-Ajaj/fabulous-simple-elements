@@ -15,7 +15,7 @@ let internal createProp name value =
     
 let Text (text: string) = createProp Keys.Text text
 let Command (f: unit -> unit) = createProp Keys.Command f
-let Icon (value: string) = createProp Keys.Icon value
+let Icon (value: InputTypes.Image) = createProp Keys.Icon value
 let Accelerator (value: string) = createProp Keys.Accelerator value
 let ClassId (id: string) = createProp Keys.ClassId id
 let StyleId (id: string) = createProp Keys.StyleId id

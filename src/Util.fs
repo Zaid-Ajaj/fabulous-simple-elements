@@ -15,17 +15,17 @@ let inline isDefined prop =
     | _ -> None
 
 let inline applyGridSettings (element: ViewElement) (map: Map<string, obj>) : ViewElement = 
-    [  Keys.GridRow, tryFind Keys.GridRow map
-       Keys.GridColumn, tryFind Keys.GridColumn map 
-       Keys.GridRowSpan, tryFind Keys.GridRowSpan map
-       Keys.GridColumnSpan, tryFind Keys.GridColumnSpan map ] 
+    [  Keys.Row, tryFind Keys.Row map
+       Keys.Column, tryFind Keys.Column map 
+       Keys.RowSpan, tryFind Keys.RowSpan map
+       Keys.ColumnSpan, tryFind Keys.ColumnSpan map ] 
     |> List.choose isDefined  
     |> List.fold (fun (elem: ViewElement) (propName, propValue) -> 
                     match propName with 
-                    | Keys.GridRow -> elem.GridRow(int propValue)
-                    | Keys.GridColumn -> elem.GridColumn(int propValue)
-                    | Keys.GridRowSpan -> elem.GridRowSpan(int propValue)
-                    | Keys.GridColumnSpan -> elem.GridColumnSpan(int propValue)
+                    | Keys.Row -> elem.Row(int propValue)
+                    | Keys.Column -> elem.Column(int propValue)
+                    | Keys.RowSpan -> elem.RowSpan(int propValue)
+                    | Keys.ColumnSpan -> elem.ColumnSpan(int propValue)
                     | _ -> elem) element
 
 let inline applyAbsoluteLayoutSettings (element: ViewElement) (props: Map<string, obj>) : ViewElement =
@@ -53,21 +53,21 @@ let inline applyRelativeLayoutConstraints (element: ViewElement) (props: Map<str
                   | _ -> el) element
 
 let inline applyFlexLayoutSettings (element: ViewElement) (props: Map<string, obj>) : ViewElement =
-    [ Keys.FlexBasis, tryFind Keys.FlexBasis props
-      Keys.FlexOrder, tryFind Keys.FlexOrder props
-      Keys.FlexGrow, tryFind Keys.FlexGrow props
-      Keys.FlexShrink, tryFind Keys.FlexShrink props
+    [ Keys.Basis, tryFind Keys.Basis props
+      Keys.Order, tryFind Keys.Order props
+      Keys.Grow, tryFind Keys.Grow props
+      Keys.Shrink, tryFind Keys.Shrink props
       Keys.FlexLayoutDirection, tryFind Keys.FlexLayoutDirection props
-      Keys.FlexAlignSelf, tryFind Keys.FlexAlignSelf props]
+      Keys.AlignSelf, tryFind Keys.AlignSelf props]
     |> List.choose isDefined
     |> List.fold (fun (el: ViewElement) (propName, propValue) ->
                   match propName with 
-                  | Keys.FlexBasis -> el.FlexBasis (unbox<FlexBasis> propValue)
-                  | Keys.FlexOrder -> el.FlexOrder (int propValue)
-                  | Keys.FlexGrow -> el.FlexGrow(double propValue)
-                  | Keys.FlexShrink -> el.FlexShrink (double propValue)
+                  | Keys.Basis -> el.Basis (unbox<FlexBasis> propValue)
+                  | Keys.Order -> el.Order (int propValue)
+                  | Keys.Grow -> el.Grow(double propValue)
+                  | Keys.Shrink -> el.Shrink (single propValue)
                   | Keys.FlexLayoutDirection -> el.FlexLayoutDirection(unbox<FlexDirection> propValue)
-                  | Keys.FlexAlignSelf -> el.FlexAlignSelf (unbox<FlexAlignSelf> propValue)
+                  | Keys.AlignSelf -> el.AlignSelf (unbox<FlexAlignSelf> propValue)
                   | _ -> el) element
     
 let inline applyMarginSettings (map: Map<string, obj>) : Thickness = 

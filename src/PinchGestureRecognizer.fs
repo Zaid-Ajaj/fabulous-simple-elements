@@ -14,7 +14,6 @@ let createProp name value =
         member x.Name = name
         member x.Value = value }
 
-let IsPinching (isPinching: bool) = createProp Keys.IsPinching isPinching
 let PinchUpdated (handler: PinchGestureUpdatedEventArgs -> unit) = createProp Keys.PinchUpdated threshold 
 let StyleId (id: string) = createProp Keys.StyleId id
 let ClassId (id: string) = createProp Keys.ClassId id 
@@ -31,8 +30,7 @@ let inline pinchGestureRecognizer (props: IPinchGestureRecognizerProp list) =
     
     let find name = Util.tryFind name attributes
 
-    View.PinchGestureRecognizer(?isPinching = find Keys.IsPinching,
-        ?pinchUpdated = find Keys.PinchUpdated,
+    View.PinchGestureRecognizer(?pinchUpdated = find Keys.PinchUpdated,
         ?styleId = find Keys.StyleId,
         ?classId = find Keys.ClassId, 
         ?automationId = find Keys.AutomationId,

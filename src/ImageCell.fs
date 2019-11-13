@@ -15,7 +15,7 @@ let internal createProp name value =
         member x.name = name 
         member x.value = value }
 
-let Source (src: Xamarin.Forms.ImageSource) = createProp "source" src
+let Image (src: Xamarin.Forms.Image) = createProp "image" src
 let Text (value: string) = createProp "text" value
 let TextColor (color: Color) = createProp "textColor" color 
 let Detail (value: string) = createProp "detail" value 
@@ -39,12 +39,12 @@ let inline imageCell (props: IImageCellProp list) =
     
     let find name = Util.tryFind name attributes
 
-    View.ImageCell(?imageSource=find"source",
+    View.ImageCell(?image=find"image",
         ?text=find"text",
         ?textColor=find"textColor",
         ?detail=find"detail",
         ?detailColor=find"detailColor",
-        ?canExecute = find"canExecute",
+        ?commandCanExecute = find"canExecute",
         ?command = find "command",
         ?height = find "height",
         ?styleId=find"styleId",
