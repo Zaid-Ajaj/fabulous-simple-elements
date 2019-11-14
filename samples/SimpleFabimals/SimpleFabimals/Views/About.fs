@@ -20,7 +20,7 @@ module About =
     type CmdMsg = GoToUrl of string
 
     let goToUrl url =
-        Device.OpenUri(new Uri(url))
+        SimpleFabimals.Helper.openUri(url)
         Cmd.none
 
     let mapCommands cmdMsg =
@@ -51,7 +51,7 @@ module About =
                                         ContentView.PaddingThickness (Thickness(0., 40.))
                                         ContentView.Content <|
                                             Image.image [
-                                                Image.SourceString "xamarin_logo.png"
+                                                Image.Source <| Image.Path "xamarin_logo.png"
                                                 Image.HorizontalLayout LayoutOptions.Center
                                                 Image.VerticalLayout LayoutOptions.Center
                                                 Image.Height 64.
@@ -64,14 +64,14 @@ module About =
                                         //StackLayout.FlexGrow 1. //throwing invalid cast exception
                                         StackLayout.Children [
                                             Label.label [
-                                                Label.FontSizeInPixels 22.
+                                                Label.FontSize <| FontSize 22.
                                                 Label.FormattedText <|
                                                     FormattedString.formattedString [
                                                         FormattedString.Spans [
                                                             Span.span [
                                                                 Span.Text "Fabulous Animals - Simple Elements"
                                                                 Span.FontAttributes FontAttributes.Bold
-                                                                Span.FontSizeInPixels 22.
+                                                                Span.FontSize <| FontSize 22.
                                                             ]
                                                             Span.span [
                                                                 Span.Text " "

@@ -39,7 +39,7 @@ module AnimalDetails =
                                 Label.HorizontalLayout LayoutOptions.Center
                             ]
                             Image.image [
-                                Image.SourceString animal.ImageUrl
+                                Image.Source <| Image.Path animal.ImageUrl
                                 Image.Width 200.
                                 Image.Height 200.
                                 Image.HorizontalLayout LayoutOptions.CenterAndExpand

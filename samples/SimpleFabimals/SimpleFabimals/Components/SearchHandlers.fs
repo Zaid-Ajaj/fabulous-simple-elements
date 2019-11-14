@@ -17,18 +17,18 @@ module SearchHandlers =
             SearchHandler.QueryChanged (fun (_, newValue) -> dispatch (QueryChanged newValue))
             SearchHandler.ItemSelected <|
                 fun item ->
-                    let data = item :?> ItemListElementData
-                    let animal = data.Key.GetAttributeKeyed(ViewAttributes.TagAttribKey) :?> Animal
+                    let data = item :?> ViewElementHolder
+                    let animal = data.ViewElement.GetAttributeKeyed(ViewAttributes.TagAttribKey) :?> Animal
                     dispatch (AnimalSelected animal)
             SearchHandler.Items [
                 for animal in animals do
                     yield Grid.grid [
                         Grid.Tag animal
                         Grid.PaddingThickness (Thickness(10.))
-                        Grid.Columns [GridLength(0.15, GridUnitType.Star); GridLength(0.85, GridUnitType.Star)]
+                        Grid.Columns [Stars 0.15; Stars 0.85]
                         Grid.Children [
                             Image.image [
-                                Image.SourceString animal.ImageUrl
+                                Image.Source <| Image.Path animal.ImageUrl
                                 Image.Aspect Aspect.AspectFill
                                 Image.Height 40.
                                 Image.Width 40.
@@ -36,7 +36,7 @@ module SearchHandlers =
                             Label.label [
                                 Label.Text animal.Name
                                 Label.FontAttributes FontAttributes.Bold
-                                Label.GridColumn 1
+                                Label.Column 1
                             ]
                         ]
                     ]

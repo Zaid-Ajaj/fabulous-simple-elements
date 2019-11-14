@@ -3,6 +3,7 @@ module TextEntry
 
 open Fabulous
 open Fabulous.XamarinForms
+open Fabulous.XamarinForms.InputTypes
 open Xamarin.Forms
 open Xamarin.Forms.StyleSheets
 
@@ -25,8 +26,7 @@ let OnCompleted (f: string -> unit) = createProp "completed" f
 let Ref (viewRef : ViewRef<Entry>) = createProp "ref" viewRef
 let HorizontalTextAlignment (alignment: TextAlignment) = createProp "horizontalTextAlignment" alignment
 let VerticalTextAlignment (alignment: TextAlignment) = createProp "verticalTextAlignment" alignment
-let FontSize ((FontSize.FontSize size): FontSize.IFontSize) = createProp "fontSize" size 
-let FontSizeInPixels (fontSize: double) = createProp "fontSize" fontSize
+let FontSize (size: FontSize) = createProp "fontSize" size 
 let FontAttributes (attributes: FontAttributes) = createProp "fontAttributes" attributes
 let FontFamily (fontFamily: string) = createProp "fontFamily" fontFamily
 let Keyboard (keyboard: Keyboard) = createProp "keyboard" keyboard
@@ -36,16 +36,16 @@ let MarginRight (value: double) = createProp Keys.MarginRight value
 let MarginTop (value: double) = createProp Keys.MarginTop value 
 let MarginBottom (value: double) = createProp Keys.MarginBottom value 
 let MarginThickness (thickness: Thickness) = createProp Keys.Margin thickness 
-let GridRow (n: int) = createProp Keys.GridRow n 
-let GridColumn (n: int) = createProp Keys.GridColumn n 
-let GridRowSpan (n: int) = createProp Keys.GridRowSpan n
-let GridColumnSpan (n: int) = createProp Keys.GridColumnSpan n
-let FlexOrder (n: int) = createProp Keys.FlexOrder n
-let FlexGrow (value: double) = createProp Keys.FlexGrow value
-let FlexShrink (value: double) = createProp Keys.FlexShrink value
-let FlexAlignSelf (value: FlexAlignSelf) = createProp Keys.FlexAlignSelf value
+let Row (n: int) = createProp Keys.Row n 
+let Column (n: int) = createProp Keys.Column n 
+let RowSpan (n: int) = createProp Keys.RowSpan n
+let ColumnSpan (n: int) = createProp Keys.ColumnSpan n
+let Order (n: int) = createProp Keys.Order n
+let Grow (value: double) = createProp Keys.Grow value
+let Shrink (value: single) = createProp Keys.Shrink value
+let AlignSelf (value: FlexAlignSelf) = createProp Keys.AlignSelf value
 let FlexLayoutDirection (value: FlexDirection) = createProp Keys.FlexLayoutDirection value
-let FlexBasis (value: FlexBasis) = createProp Keys.FlexBasis value
+let Basis (value: FlexBasis) = createProp Keys.Basis value
 
 let GestureRecognizers (elements: ViewElement list) = createProp "gestureRecognizers" elements 
 let HorizontalLayout (options: LayoutOptions) = createProp "horizontalOptions" (box options)
@@ -61,10 +61,10 @@ let RotationY (value: double) = createProp "rotationY" value
 let TranslationX (value: double) = createProp "translationX" value 
 let TranslationY (value: double) = createProp "translationY" value
 let Opacity (value: double) = createProp "opacity" value
-let Height (value: double) = createProp "heightRequest" value 
-let MinimumHeight (value: double) = createProp "minimumHeightRequest" value 
-let MinimumWidth (value: double) = createProp "minimumWidthRequest" value 
-let Width (value: double) = createProp "widthRequest" value
+let Height (value: double) = createProp "height" value 
+let MinimumHeight (value: double) = createProp "minimumHeight" value 
+let MinimumWidth (value: double) = createProp "minimumWidth" value 
+let Width (value: double) = createProp "width" value
 let Style (style: Style) = createProp "style" style 
 let StyleSheets (sheets: StyleSheet list) = createProp "styleSheets" sheets
 let StyleId (id: string) = createProp "styleId" id
@@ -98,7 +98,7 @@ let inline textEntry (props: ITextEntryProp list) : ViewElement =
         ?fontFamily = find "fontFamily",
         ?fontAttributes = find "fontAttributes",
         ?keyboard = find "keyboard",
-        ?margin = Some (box (Util.applyMarginSettings attributes)),
+        ?margin = Some (Util.applyMarginSettings attributes),
         ?isPassword = find "isPassword",
         ?isEnabled = find "isEnabled",
         ?isVisible = find "isVisible",
@@ -106,8 +106,8 @@ let inline textEntry (props: ITextEntryProp list) : ViewElement =
         ?textChanged = find "textChanged",
         ?verticalOptions = find "verticalOptions",
         ?opacity = find "opacity",
-        ?heightRequest = find "heightRequest",
-        ?widthRequest = find "widthRequest",
+        ?height = find "height",
+        ?width = find "width",
         ?anchorX = find "anchorX", 
         ?anchorY = find "anchorY", 
         ?scale = find "scale", 
@@ -123,8 +123,8 @@ let inline textEntry (props: ITextEntryProp list) : ViewElement =
         ?styleId = find "styleId",
         ?automationId = find "automationId",
         ?resources = find "resources",
-        ?minimumHeightRequest = find "minimumHeightRequest",
-        ?minimumWidthRequest = find "minimumHeightRequest",
+        ?minimumHeight = find "minimumHeight",
+        ?minimumWidth = find "minimumHeight",
         ?backgroundColor = find "backgroundColor",
         ?inputTransparent = find "inputTransparent",
         ?horizontalOptions = find "horizontalOptions"
