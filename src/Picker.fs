@@ -15,11 +15,11 @@ let internal createProp name value =
         member x.name = name
         member x.value = value }
 
-let Items (items: seq<'T>) = createProp Keys.Items items
+let Items (items: string list) = createProp Keys.Items items
 let SelectedIndex (index: int) = createProp Keys.SelectedIndex index
 let Title (value: string) = createProp Keys.Title value
 let TextColor (color: Color)= createProp Keys.TextColor color
-let OnIndexChanged (f: (int * 'T option) -> unit) = createProp Keys.SelectedIndexChanged f
+let OnIndexChanged (f: (int * string option) -> unit) = createProp Keys.SelectedIndexChanged f
 let HorizontalLayout (options: LayoutOptions) = createProp Keys.HorizontalLayout options
 let VerticalLayout (options: LayoutOptions) = createProp Keys.VerticalLayout options
 let Margin (value: double) = createProp Keys.Margin (Thickness(value))
