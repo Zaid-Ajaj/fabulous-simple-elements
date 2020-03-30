@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Xamarin.Forms.4.3.0.947036\build\Xamarin.Forms.props" Condition="Exists('..\packages\Xamarin.Forms.4.3.0.947036\build\Xamarin.Forms.props')" />
+  <Import Project="..\packages\Xamarin.Forms.4.4.0.991640\build\Xamarin.Forms.props" Condition="Exists('..\packages\Xamarin.Forms.4.4.0.991640\build\Xamarin.Forms.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -26,8 +26,8 @@
     <RestorePackages>true</RestorePackages>
     <OtherFlags>/warnon:1182</OtherFlags>
     <WarningLevel>4</WarningLevel>
-    <SelectedDevice>C-Android_Accelerated_x86_Oreo</SelectedDevice>
-    <DefaultDevice>C-Android_Accelerated_x86_Oreo</DefaultDevice>
+    <SelectedDevice>pixel_2_pie_9_0_-_api_28</SelectedDevice>
+    <DefaultDevice>pixel_2_pie_9_0_-_api_28</DefaultDevice>
     <AndroidDesignerPreferredDevice>Nexus 4</AndroidDesignerPreferredDevice>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -126,25 +126,20 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Fabulous, Version=0.50.3.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\Fabulous.0.50.3\lib\netstandard2.0\Fabulous.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Fabulous">
+      <HintPath>..\packages\Fabulous.0.52.0\lib\netstandard2.0\Fabulous.dll</HintPath>
     </Reference>
-    <Reference Include="Fabulous.LiveUpdate, Version=0.50.3.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\Fabulous.LiveUpdate.0.50.3\lib\netstandard2.0\Fabulous.LiveUpdate.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Fabulous.LiveUpdate">
+      <HintPath>..\packages\Fabulous.LiveUpdate.0.52.0\lib\netstandard2.0\Fabulous.LiveUpdate.dll</HintPath>
     </Reference>
-    <Reference Include="Fabulous.XamarinForms, Version=0.50.3.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\Fabulous.XamarinForms.0.50.3\lib\netstandard2.0\Fabulous.XamarinForms.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Fabulous.XamarinForms">
+      <HintPath>..\packages\Fabulous.XamarinForms.0.52.0\lib\netstandard2.0\Fabulous.XamarinForms.dll</HintPath>
     </Reference>
-    <Reference Include="Fabulous.XamarinForms.LiveUpdate, Version=0.50.3.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\Fabulous.XamarinForms.LiveUpdate.0.50.3\lib\netstandard2.0\Fabulous.XamarinForms.LiveUpdate.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Fabulous.XamarinForms.LiveUpdate">
+      <HintPath>..\packages\Fabulous.XamarinForms.LiveUpdate.0.52.0\lib\netstandard2.0\Fabulous.XamarinForms.LiveUpdate.dll</HintPath>
     </Reference>
-    <Reference Include="FormsViewGroup, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\Xamarin.Forms.4.3.0.947036\lib\MonoAndroid90\FormsViewGroup.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="FormsViewGroup">
+      <HintPath>..\packages\Xamarin.Forms.4.4.0.991640\lib\MonoAndroid90\FormsViewGroup.dll</HintPath>
     </Reference>
     <Reference Include="FSharp.Core, Version=4.7.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <HintPath>..\packages\FSharp.Core.4.7.0\lib\netstandard2.0\FSharp.Core.dll</HintPath>
@@ -322,18 +317,6 @@
       <HintPath>..\packages\Xamarin.Essentials.1.3.1\lib\monoandroid90\Xamarin.Essentials.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\Xamarin.Forms.4.3.0.947036\lib\MonoAndroid90\Xamarin.Forms.Core.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Xamarin.Forms.Platform, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\Xamarin.Forms.4.3.0.947036\lib\MonoAndroid90\Xamarin.Forms.Platform.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Xamarin.Forms.Platform.Android, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\Xamarin.Forms.4.3.0.947036\lib\MonoAndroid90\Xamarin.Forms.Platform.Android.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -341,9 +324,25 @@
       <Project>{D3E847E0-DBB4-49FE-AE60-3D1ADE347BB1}</Project>
       <Name>SimpleFabimals</Name>
     </ProjectReference>
-    <Reference Include="Xamarin.Forms.Xaml, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\Xamarin.Forms.4.3.0.947036\lib\MonoAndroid90\Xamarin.Forms.Xaml.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Xamarin.Forms.Core">
+      <HintPath>..\packages\Xamarin.Forms.4.4.0.991640\lib\MonoAndroid90\Xamarin.Forms.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform">
+      <HintPath>..\packages\Xamarin.Forms.4.4.0.991640\lib\MonoAndroid90\Xamarin.Forms.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform.Android">
+      <HintPath>..\packages\Xamarin.Forms.4.4.0.991640\lib\MonoAndroid90\Xamarin.Forms.Platform.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Xaml">
+      <HintPath>..\packages\Xamarin.Forms.4.4.0.991640\lib\MonoAndroid90\Xamarin.Forms.Xaml.dll</HintPath>
     </Reference>
   </ItemGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Xamarin.Forms.4.4.0.991640\build\Xamarin.Forms.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Forms.4.4.0.991640\build\Xamarin.Forms.props'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Forms.4.4.0.991640\build\Xamarin.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Forms.4.4.0.991640\build\Xamarin.Forms.targets'))" />
+  </Target>
+  <Import Project="..\packages\Xamarin.Forms.4.4.0.991640\build\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.4.4.0.991640\build\Xamarin.Forms.targets')" />
 </Project>
