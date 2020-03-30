@@ -15,21 +15,21 @@ let internal createProp name value =
         member x.name = name 
         member x.value = value }
 
-let Text (value: string) = createProp "text" value 
-let Detail (value: string) = createProp "detail" value 
-let TextColor (color: Color) = createProp "textColor" color
-let Command (cmd: unit -> unit) = createProp "command" cmd 
-let CanExecute (cond: bool) = createProp "canExecute" cond 
-let IsEnabled (cond: bool) = createProp "isEnabled" cond
-let Height (value: double) = createProp "height" value 
-let StyleId (id: string) = createProp "styleId" id
-let Ref (viewRef: ViewRef<TextCell>) = createProp "ref" viewRef 
-let ClassId (id: string) = createProp "classId" id 
-let AutomationId (id: string) = createProp "automationId" id
-let OnCreated (f: Entry -> unit) = createProp "created" f
+let Text (value: string) = createProp Keys.Text value 
+let Detail (value: string) = createProp Keys.Detail value 
+let TextColor (color: Color) = createProp Keys.TextColor color
+let Command (cmd: unit -> unit) = createProp Keys.Command cmd 
+let CanExecute (cond: bool) = createProp Keys.CanExecute cond 
+let IsEnabled (cond: bool) = createProp Keys.IsEnabled cond
+let Height (value: double) = createProp Keys.Height value 
+let StyleId (id: string) = createProp Keys.StyleId id
+let Ref (viewRef: ViewRef<TextCell>) = createProp Keys.Ref viewRef 
+let ClassId (id: string) = createProp Keys.ClassId id 
+let AutomationId (id: string) = createProp Keys.AutomationId id
+let OnCreated (f: Entry -> unit) = createProp Keys.Created f
 // === AbsoluteLayout definitions ===
-let AbsoluteLayoutFlags (flags: AbsoluteLayoutFlags) = createProp "absoluteLayoutFlags" flags 
-let AbsoluteLayoutBounds (rectabgleBounds: Rectangle) = createProp "absoluteLayoutBounds" rectabgleBounds
+let AbsoluteLayoutFlags (flags: AbsoluteLayoutFlags) = createProp Keys.AbsoluteLayoutBounds flags 
+let AbsoluteLayoutBounds (rectabgleBounds: Rectangle) = createProp Keys.AbsoluteLayoutBounds rectabgleBounds
 // === AbsoluteLayout definitions === 
 // === Relative Layout Constraints ===
 let WidthConstraint (value: Constraint) = createProp Keys.WidthConstraint value
@@ -47,18 +47,18 @@ let inline textCell (props: ITextCellProp list) =
     
     let find name = Util.tryFind name attributes
 
-    View.TextCell(?text=find"text",
-        ?detail=find"detail",
-        ?textColor=find"textColor",
-        ?command=find"command",
-        ?commandCanExecute=find"canExeucte", 
-        ?isEnabled=find"isEnabled", 
-        ?height=find"height",
-        ?classId=find"classId", 
-        ?styleId=find"styleId",
-        ?ref=find"ref",
-        ?automationId=find"automationId",
-        ?created=find"created") 
+    View.TextCell(?text=find Keys.Text,
+        ?detail=find Keys.Detail,
+        ?textColor=find Keys.TextColor,
+        ?command=find Keys.Command,
+        ?commandCanExecute=find Keys.CanExecute, 
+        ?isEnabled=find Keys.IsEnabled, 
+        ?height=find Keys.Height,
+        ?classId=find Keys.ClassId, 
+        ?styleId=find Keys.StyleId,
+        ?ref=find Keys.Ref,
+        ?automationId=find Keys.AutomationId,
+        ?created=find Keys.Created) 
 
     |> fun element -> Util.applyGridSettings element attributes
     |> fun element -> Util.applyFlexLayoutSettings element attributes 
