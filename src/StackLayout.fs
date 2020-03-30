@@ -77,7 +77,8 @@ let AbsoluteLayoutBounds (rectabgleBounds: Rectangle) = createProp Keys.Absolute
 let WidthConstraint (value: Constraint) = createProp Keys.WidthConstraint value
 let HeightConstraint (value: Constraint) = createProp Keys.HeightConstraint value 
 let XConstraint (value: Constraint) = createProp Keys.XConstraint value 
-let YConstraint (value: Constraint) = createProp Keys.YConstraint value 
+let YConstraint (value: Constraint) = createProp Keys.YConstraint value
+let Tag (value: obj) = createProp Keys.Tag value
 
 let OnCreated (f: StackLayout -> unit) = createProp "created" f
 
@@ -123,7 +124,8 @@ let inline stackLayout (props: IStackLayoutProp list) : ViewElement =
         ?minimumWidth = find "minimumHeight",
         ?backgroundColor = find "backgroundColor",
         ?inputTransparent = find "inputTransparent",
-        ?horizontalOptions = find "horizontalOptions")
+        ?horizontalOptions = find "horizontalOptions",
+        ?tag = find Keys.Tag)
     |> fun element -> Util.applyGridSettings element attributes
     |> fun element -> Util.applyFlexLayoutSettings element attributes
     |> fun element -> Util.applyAbsoluteLayoutSettings element attributes

@@ -61,6 +61,7 @@ let StyleId (id: string) = createProp Keys.StyleId id
 let AutomationId (id: string) = createProp Keys.AutomationId id
 let Ref (viewRef: ViewRef<CollectionView>) = createProp Keys.Ref viewRef
 let Tag (tag: obj) = createProp Keys.Tag tag
+let ItemsLayout (layout: IItemsLayout) = createProp Keys.ItemsLayout layout
 
 let OnCreated (f: CollectionView -> unit) = createProp Keys.Created f
 
@@ -116,5 +117,6 @@ let collectionView (props: ICollectionViewProp list) : ViewElement =
         ?automationId = find Keys.AutomationId,
         ?created = find Keys.Created,
         ?ref = find Keys.Ref,
-        ?tag = find Keys.Tag
+        ?tag = find Keys.Tag,
+        ?itemsLayout = find Keys.ItemsLayout
     )

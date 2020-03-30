@@ -127,7 +127,8 @@ let inline textEntry (props: ITextEntryProp list) : ViewElement =
         ?minimumWidth = find "minimumHeight",
         ?backgroundColor = find "backgroundColor",
         ?inputTransparent = find "inputTransparent",
-        ?horizontalOptions = find "horizontalOptions"
+        ?horizontalOptions = find "horizontalOptions",
+        ?verticalTextAlignment = find "verticalTextAlignment"
     )
     |> fun element -> Util.applyGridSettings element attributes
     |> fun element -> Util.applyFlexLayoutSettings element attributes
