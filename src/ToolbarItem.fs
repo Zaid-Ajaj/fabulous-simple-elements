@@ -14,16 +14,16 @@ let internal createProp name value =
         member x.name = name 
         member x.value = value }    
 
-let Text (value: string) = createProp "text" value 
-let OnClick (handler: unit -> unit) = createProp "command" handler 
-let Priority (value: int) = createProp "priority" value  
-let Order (toolbarItemOrder: ToolbarItemOrder) = createProp "order" toolbarItemOrder
-let Icon (icon: string) = createProp "icon" icon 
-let Ref (viewRef: ViewRef<ToolbarItem>) = createProp "ref" viewRef
-let OnCreated (f: ToolbarItem -> unit) = createProp "created" f
-let StyleId (id: string) = createProp "styleId" id
-let ClassId (id: string) = createProp "classId" id 
-let AutomationId (id: string) = createProp "automationId" id
+let Text (value: string) = createProp Keys.Text value 
+let OnClick (handler: unit -> unit) = createProp Keys.Command handler 
+let Priority (value: int) = createProp Keys.Priority value  
+let Order (toolbarItemOrder: ToolbarItemOrder) = createProp Keys.Order toolbarItemOrder
+let Icon (icon: string) = createProp Keys.Icon icon 
+let Ref (viewRef: ViewRef<ToolbarItem>) = createProp Keys.Ref viewRef
+let OnCreated (f: ToolbarItem -> unit) = createProp Keys.Created f
+let StyleId (id: string) = createProp Keys.StyleId id
+let ClassId (id: string) = createProp Keys.ClassId id 
+let AutomationId (id: string) = createProp Keys.AutomationId id
 let inline toolbarItem (props: IToolbarItemProp list) : ViewElement = 
     let attributes = 
         props 
@@ -32,4 +32,13 @@ let inline toolbarItem (props: IToolbarItemProp list) : ViewElement =
         |> Map.ofList 
     
     let find name = Util.tryFind name attributes
-    View.ToolbarItem(?text=find "text", ?ref = find "ref", ?created = find "created", ?command = find "command",?priority = find "priority", ?order = find "order", ?icon = find "icon", ?classId = find "classId",?styleId = find "styleId", ?automationId = find "automationId")
+    View.ToolbarItem(?text=find Keys.Text,
+        ?ref = find Keys.Ref,
+        ?created = find Keys.Created,
+        ?command = find Keys.Command,
+        ?priority = find Keys.Priority,
+        ?order = find Keys.Order,
+        ?icon = find Keys.Icon,
+        ?classId = find Keys.ClassId,
+        ?styleId = find Keys.StyleId,
+        ?automationId = find Keys.AutomationId)
