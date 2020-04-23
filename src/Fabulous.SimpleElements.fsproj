@@ -8,7 +8,7 @@
         <PackageIconUrl></PackageIconUrl>
         <PackageTags>fsharp;xamarin;forms;view;dsl;elmish</PackageTags>
         <Authors>Zaid Ajaj</Authors>
-        <Version>0.41.0</Version>
+        <Version>0.42.0</Version>
         <TargetFramework>netstandard2.0</TargetFramework>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>
@@ -62,8 +62,8 @@
         <Compile Include="CollectionView.fs" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Fabulous" Version="0.52.0" />
-        <PackageReference Include="Fabulous.XamarinForms" Version="0.52.0" />
+        <PackageReference Include="Fabulous" Version="0.53.2" />
+        <PackageReference Include="Fabulous.XamarinForms" Version="0.53.2" />
         <PackageReference Include="FSharp.Core" Version="4.7.0" />
     </ItemGroup>
 </Project>
