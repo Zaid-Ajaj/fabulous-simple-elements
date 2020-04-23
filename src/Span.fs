@@ -44,6 +44,9 @@ let inline span (props: ISpanProp list) =
         ?fontSize = find Keys.FontSize,
         ?fontAttributes = find Keys.FontAttributes,
         ?backgroundColor = find Keys.BackgroundColor,
+        // Temporarily removed. foregroundColor not supported with fabulous 0.53. See issue
+        // https://github.com/Zaid-Ajaj/fabulous-simple-elements/issues/20
+        // ?foregroundColor = find Keys.ForegroundColor,        
         ?foregroundColor = find Keys.ForegroundColor,
         ?textColor = find Keys.TextColor,
         ?textDecorations = find Keys.TextDecoration,
