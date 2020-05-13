@@ -62,8 +62,8 @@
         <Compile Include="CollectionView.fs" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Fabulous" Version="0.53.2" />
-        <PackageReference Include="Fabulous.XamarinForms" Version="0.53.2" />
-        <PackageReference Include="FSharp.Core" Version="4.7.0" />
+        <PackageReference Include="Fabulous" Version="0.54.0" />
+        <PackageReference Include="Fabulous.XamarinForms" Version="0.54.0" />
+        <PackageReference Include="FSharp.Core" Version="4.7.1" />
     </ItemGroup>
 </Project>

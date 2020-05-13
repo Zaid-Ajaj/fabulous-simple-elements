@@ -51,7 +51,7 @@ module About =
                                         ContentView.PaddingThickness (Thickness(0., 40.))
                                         ContentView.Content <|
                                             Image.image [
-                                                Image.Source <| Image.Path "xamarin_logo.png"
+                                                Image.Source <| Image.ImagePath "xamarin_logo.png"
                                                 Image.HorizontalLayout LayoutOptions.Center
                                                 Image.VerticalLayout LayoutOptions.Center
                                                 Image.Height 64.
