@@ -16,7 +16,7 @@ module Templates =
                 Grid.Rows [Auto; Auto]
                 Grid.Children [
                     Image.image [
-                        Image.Source <| Image.Path animal.ImageUrl
+                        Image.Source <| Image.ImagePath animal.ImageUrl
                         Image.Aspect Aspect.AspectFill
                         Image.Height 40.
                         Image.Width 40.

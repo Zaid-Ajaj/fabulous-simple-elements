@@ -44,7 +44,7 @@ let Unfocused (f: unit -> unit) = createProp Keys.Unfocused f
 let Focused (f: unit -> unit) = createProp Keys.Focused f
 let QueryChanged (f: string * string -> unit) = createProp Keys.QueryChanged f
 let QueryConfirmed (f: unit -> unit) = createProp Keys.QueryConfirmed f
-let ItemSelected (f: obj -> unit) = createProp Keys.ItemSelected f
+let ItemSelected (f: ViewElement option -> unit) = createProp Keys.ItemSelected f
 
 let inline searchHandler (props: ISearchHandlerProp list) : ViewElement =
     let attributes =

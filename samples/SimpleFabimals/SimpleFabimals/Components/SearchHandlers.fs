@@ -16,10 +16,12 @@ module SearchHandlers =
             SearchHandler.ShowResults true
             SearchHandler.QueryChanged (fun (_, newValue) -> dispatch (QueryChanged newValue))
             SearchHandler.ItemSelected <|
-                fun item ->
-                    let data = item :?> ViewElementHolder
-                    let animal = data.ViewElement.GetAttributeKeyed(ViewAttributes.TagAttribKey) :?> Animal
-                    dispatch (AnimalSelected animal)
+                fun itemOpt ->
+                    match itemOpt with
+                    | None -> ()
+                    | Some item ->
+                        let animal = item.TryGetTag<Animal>().Value
+                        dispatch (AnimalSelected animal)
             SearchHandler.Items [
                 for animal in animals do
                     yield Grid.grid [
@@ -28,7 +30,7 @@ module SearchHandlers =
                         Grid.Columns [Stars 0.15; Stars 0.85]
                         Grid.Children [
                             Image.image [
-                                Image.Source <| Image.Path animal.ImageUrl
+                                Image.Source <| Image.ImagePath animal.ImageUrl
                                 Image.Aspect Aspect.AspectFill
                                 Image.Height 40.
                                 Image.Width 40.
