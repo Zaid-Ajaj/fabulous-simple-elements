@@ -72,6 +72,7 @@ let XConstraint (value: Constraint) = createProp Keys.XConstraint value
 let YConstraint (value: Constraint) = createProp Keys.YConstraint value 
 
 let OnCreated (f: DatePicker -> unit) = createProp Keys.Created f
+let Unfocused (value: FocusEventArgs -> unit) = createProp Keys.Unfocused value
 
 let inline datePicker (props: IDatePickerProp list) : ViewElement = 
     let attributes = 
@@ -116,7 +117,8 @@ let inline datePicker (props: IDatePickerProp list) : ViewElement =
         ?minimumWidth = find Keys.MinimumWidth,
         ?backgroundColor = find Keys.BackgroundColor,
         ?inputTransparent = find Keys.InputTransparent,
-        ?horizontalOptions = find Keys.HorizontalLayout
+        ?horizontalOptions = find Keys.HorizontalLayout,
+        ?unfocused = find Keys.Unfocused
     )
     |> fun element -> Util.applyGridSettings element attributes
     |> fun element -> Util.applyFlexLayoutSettings element attributes

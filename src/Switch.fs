@@ -72,6 +72,7 @@ let WidthConstraint (value: Constraint) = createProp Keys.WidthConstraint value
 let HeightConstraint (value: Constraint) = createProp Keys.HeightConstraint value 
 let XConstraint (value: Constraint) = createProp Keys.XConstraint value 
 let YConstraint (value: Constraint) = createProp Keys.YConstraint value 
+let Unfocused (value: FocusEventArgs -> unit) = createProp Keys.Unfocused value
 
 let inline switch (props: ISwitchProp list) : ViewElement = 
     let attributes = 
@@ -113,7 +114,9 @@ let inline switch (props: ISwitchProp list) : ViewElement =
         ?minimumWidth = find Keys.MinimumWidth,
         ?backgroundColor = find Keys.BackgroundColor,
         ?inputTransparent = find Keys.InputTransparent,
-        ?horizontalOptions = find Keys.HorizontalLayout)
+        ?horizontalOptions = find Keys.HorizontalLayout,
+        ?unfocused = find Keys.Unfocused
+        )
     |> fun element -> Util.applyGridSettings element attributes
     |> fun element -> Util.applyFlexLayoutSettings element attributes
     |> fun element -> Util.applyAbsoluteLayoutSettings element attributes
