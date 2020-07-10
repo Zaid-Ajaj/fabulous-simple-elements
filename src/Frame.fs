@@ -77,6 +77,7 @@ let WidthConstraint (value: Constraint) = createProp Keys.WidthConstraint value
 let HeightConstraint (value: Constraint) = createProp Keys.HeightConstraint value
 let XConstraint (value: Constraint) = createProp Keys.XConstraint value
 let YConstraint (value: Constraint) = createProp Keys.YConstraint value
+let Tag (value: obj) = createProp Keys.Tag value
 
 let OnCreated (f: Frame -> unit) = createProp Keys.Created f
 
@@ -126,7 +127,8 @@ let inline frame (props: IFrameProp list) : ViewElement =
         ?styleId = find Keys.StyleId,
         ?automationId = find Keys.AutomationId,
         ?created = find Keys.Created,
-        ?ref = find Keys.Ref
+        ?ref = find Keys.Ref,
+        ?tag = find Keys.Tag
     )
     |> fun element -> Util.applyGridSettings element attributes
     |> fun element -> Util.applyFlexLayoutSettings element attributes

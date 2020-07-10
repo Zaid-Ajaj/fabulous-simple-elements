@@ -79,6 +79,7 @@ let WidthConstraint (value: Constraint) = createProp Keys.WidthConstraint value
 let HeightConstraint (value: Constraint) = createProp Keys.HeightConstraint value 
 let XConstraint (value: Constraint) = createProp Keys.XConstraint value 
 let YConstraint (value: Constraint) = createProp Keys.YConstraint value 
+let Tag (value: obj) = createProp Keys.Tag value
 // ===================================
 
 let OnCreated (f: Label -> unit) = createProp Keys.Created f
@@ -130,7 +131,8 @@ let inline label (props: ILabelProp list) : ViewElement =
         ?fontSize = find Keys.FontSize,
         ?backgroundColor = find Keys.BackgroundColor,
         ?inputTransparent = find Keys.InputTransparent,
-        ?horizontalOptions = find Keys.HorizontalLayout)
+        ?horizontalOptions = find Keys.HorizontalLayout,
+        ?tag = find Keys.Tag)
 
     |> fun element -> Util.applyGridSettings element attributes
     |> fun element -> Util.applyFlexLayoutSettings element attributes

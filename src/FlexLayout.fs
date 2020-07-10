@@ -88,6 +88,7 @@ let TabIndex (index: int) = createProp Keys.TabIndex index
 let Ref (viewRef: ViewRef<FlexLayout>) = createProp Keys.Ref viewRef
 let TranslationX (value: double) = createProp Keys.TranslationX value 
 let TranslationY (value: double) = createProp Keys.TranslationY value
+let Tag (value: obj) = createProp Keys.Tag value
 
 let inline flexLayout (props: IFlexLayoutProp list) = 
     let attributes = 
@@ -134,7 +135,8 @@ let inline flexLayout (props: IFlexLayoutProp list) =
         ?isTabStop = find Keys.IsTabStop,
         ?tabIndex = find Keys.TabIndex,
         ?ref = find Keys.Ref,
-        ?created = find Keys.Created)
+        ?created = find Keys.Created,
+        ?tag = find Keys.Tag)
 
     |> fun element -> Util.applyGridSettings element attributes 
     |> fun element -> Util.applyFlexLayoutSettings element attributes 

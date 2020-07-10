@@ -77,6 +77,7 @@ let PaddingRight (value: double) = createProp Keys.PaddingRight value
 let PaddingTop (value: double) = createProp Keys.PaddingTop value 
 let PaddingBottom (value: double) = createProp Keys.PaddingBottom value 
 let PaddingThickness (thickness: Thickness) = createProp Keys.Padding thickness 
+let Tag (value: obj) = createProp Keys.Tag value
 
 let inline absoluteLayout (props: IAbsoluteLayoutProp list) = 
     let attributes = 
@@ -118,7 +119,8 @@ let inline absoluteLayout (props: IAbsoluteLayoutProp list) =
         ?minimumWidth = find Keys.MinimumWidth,
         ?backgroundColor = find Keys.BackgroundColor,
         ?inputTransparent = find Keys.InputTransparent,
-        ?horizontalOptions = find Keys.HorizontalLayout)
+        ?horizontalOptions = find Keys.HorizontalLayout,
+        ?tag = find Keys.Tag)
     |> fun element -> Util.applyGridSettings element attributes
     |> fun element -> Util.applyFlexLayoutSettings element attributes
     |> fun element -> Util.applyAbsoluteLayoutSettings element attributes

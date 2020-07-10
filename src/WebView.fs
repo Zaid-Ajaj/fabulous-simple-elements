@@ -68,6 +68,7 @@ let WidthConstraint (value: Constraint) = createProp Keys.WidthConstraint value
 let HeightConstraint (value: Constraint) = createProp Keys.HeightConstraint value 
 let XConstraint (value: Constraint) = createProp Keys.XConstraint value 
 let YConstraint (value: Constraint) = createProp Keys.YConstraint value 
+let Tag (value: obj) = createProp Keys.Tag value
 
 let inline webView (props: IWebViewProp list) = 
     let attributes = 
@@ -107,7 +108,8 @@ let inline webView (props: IWebViewProp list) =
         ?minimumWidth = find Keys.MinimumWidth,
         ?inputTransparent = find Keys.InputTransparent,
         ?ref = find Keys.Ref,
-        ?created = find Keys.Created)
+        ?created = find Keys.Created,
+        ?tag = find Keys.Tag)
     
     |> fun element -> Util.applyAbsoluteLayoutSettings element attributes 
     |> fun element -> Util.applyFlexLayoutSettings element attributes 

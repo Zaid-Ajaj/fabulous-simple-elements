@@ -80,6 +80,8 @@ let YConstraint (value: Constraint) = createProp Keys.YConstraint value
 let OnCreated (f: ListView -> unit) = createProp Keys.Created f
 let AbsoluteLayoutFlags (flags: AbsoluteLayoutFlags) = createProp Keys.AbsoluteLayoutFlags flags 
 let AbsoluteLayoutBounds (rectabgleBounds: Rectangle) = createProp Keys.AbsoluteLayoutBounds rectabgleBounds
+let Tag (value: obj) = createProp Keys.Tag value
+
 let inline listView (props: IListViewProp list) : ViewElement = 
     let attributes = 
         props 
@@ -132,7 +134,8 @@ let inline listView (props: IListViewProp list) : ViewElement =
         ?minimumWidth = find Keys.MinimumWidth,
         ?backgroundColor = find Keys.BackgroundColor,
         ?inputTransparent = find Keys.InputTransparent,
-        ?horizontalOptions = find Keys.HorizontalLayout
+        ?horizontalOptions = find Keys.HorizontalLayout,
+        ?tag = find Keys.Tag
     )
 
     |> fun element -> Util.applyGridSettings element attributes

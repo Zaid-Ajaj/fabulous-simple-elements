@@ -77,6 +77,7 @@ let WidthConstraint (value: Constraint) = createProp Keys.WidthConstraint value
 let HeightConstraint (value: Constraint) = createProp Keys.HeightConstraint value 
 let XConstraint (value: Constraint) = createProp Keys.XConstraint value 
 let YConstraint (value: Constraint) = createProp Keys.YConstraint value 
+let Tag (value: obj) = createProp Keys.Tag value
 // ===================================
 
 let inline relativeLayout (props: IRelativeLayoutProp list) = 
@@ -119,7 +120,8 @@ let inline relativeLayout (props: IRelativeLayoutProp list) =
         ?minimumWidth = find Keys.MinimumWidth,
         ?backgroundColor = find Keys.BackgroundColor,
         ?inputTransparent = find Keys.InputTransparent,
-        ?horizontalOptions = find Keys.HorizontalLayout)
+        ?horizontalOptions = find Keys.HorizontalLayout,
+        ?tag = find Keys.Tag)
     |> fun element -> Util.applyGridSettings element attributes
     |> fun element -> Util.applyFlexLayoutSettings element attributes
     |> fun element -> Util.applyAbsoluteLayoutSettings element attributes

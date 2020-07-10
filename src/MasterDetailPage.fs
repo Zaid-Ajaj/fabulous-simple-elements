@@ -68,6 +68,7 @@ let Opacity (value: double) = createProp Keys.Opacity value
 let IsTabStop (value: bool) = createProp Keys.IsTabStop value
 let Focused (handler: FocusEventArgs -> unit) = createProp Keys.Focused handler
 let Unfocused (handler: FocusEventArgs -> unit) = createProp Keys.Unfocused handler
+let Tag (value: obj) = createProp Keys.Tag value
 
 let inline masterDetailPage(props:IMasterDetailPageProp list) =
     let attributes = 
@@ -116,5 +117,6 @@ let inline masterDetailPage(props:IMasterDetailPageProp list) =
         ?scaleY = find Keys.ScaleY,
         ?isTabStop = find Keys.IsTabStop,
         ?focused = find Keys.Focused,
-        ?unfocused = find Keys.Unfocused
+        ?unfocused = find Keys.Unfocused,
+        ?tag = find Keys.Tag
         )

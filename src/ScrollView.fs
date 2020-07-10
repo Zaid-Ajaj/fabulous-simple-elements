@@ -79,6 +79,7 @@ let WidthConstraint (value: Constraint) = createProp Keys.WidthConstraint value
 let HeightConstraint (value: Constraint) = createProp Keys.HeightConstraint value 
 let XConstraint (value: Constraint) = createProp Keys.XConstraint value 
 let YConstraint (value: Constraint) = createProp Keys.YConstraint value 
+let Tag (value: obj) = createProp Keys.Tag value
 // ===================================
 
 let inline scrollView (props: IScrollViewProp list) : ViewElement = 
@@ -120,7 +121,8 @@ let inline scrollView (props: IScrollViewProp list) : ViewElement =
         ?minimumHeight = find Keys.MinimumHeight,
         ?minimumWidth = find Keys.MinimumWidth,
         ?backgroundColor = find Keys.BackgroundColor,
-        ?inputTransparent = find Keys.InputTransparent
+        ?inputTransparent = find Keys.InputTransparent,
+        ?tag = find Keys.Tag
     )
     
     |> fun elem -> Util.applyGridSettings elem attributes

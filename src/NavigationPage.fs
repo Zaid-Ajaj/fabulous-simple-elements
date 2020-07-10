@@ -61,6 +61,7 @@ let AutomationId (id: string) = createProp Keys.AutomationId id
 let Resources (values: (string * obj) list) = createProp Keys.Resources values 
 let InputTransparent (condition: bool) = createProp Keys.InputTransparent condition 
 let OnCreated (f: NavigationPage -> unit) = createProp Keys.Created f
+let Tag (value: obj) = createProp Keys.Tag value
 
 let inline navigationPage (props: INavigationPageProp list) : ViewElement = 
     let attributes = 
@@ -109,5 +110,6 @@ let inline navigationPage (props: INavigationPageProp list) : ViewElement =
         ?minimumHeight = find Keys.MinimumHeight,
         ?minimumWidth = find Keys.MinimumWidth,
         ?backgroundColor = find Keys.BackgroundColor,
-        ?inputTransparent = find Keys.InputTransparent
+        ?inputTransparent = find Keys.InputTransparent,
+        ?tag = find Keys.Tag
     )
