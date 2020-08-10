@@ -1,8 +1,29 @@
 language: csharp
-mono: 5.2.0
-dotnet: 2.0.0
-dist: trusty
+dist: xenial
+sudo: required
+dotnet: 3.0.100
+mono: none
+addons:
+  snaps:
+    - name: dotnet-sdk
+      classic: true
+      channel: latest/beta
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - libstdc++-4.9-dev
+      - libunwind8-dev
+
+before_install:
+  - export PATH="$PATH:$HOME/.dotnet/tools"
+  - nvm install 10.12.0
+  - nvm use 10.12.0
+  - sudo snap alias dotnet-sdk.dotnet dotnet
+  - dotnet --version
+  - dotnet tool restore
+
 script:
- - cd src
- - dotnet restore
- - dotnet build
+  - cd src
+  - dotnet restore
+  - dotnet build
