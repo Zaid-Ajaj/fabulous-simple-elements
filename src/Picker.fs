@@ -71,6 +71,7 @@ let WidthConstraint (value: Constraint) = createProp Keys.WidthConstraint value
 let HeightConstraint (value: Constraint) = createProp Keys.HeightConstraint value
 let XConstraint (value: Constraint) = createProp Keys.XConstraint value
 let YConstraint (value: Constraint) = createProp Keys.YConstraint value
+let Tag (value: obj) = createProp Keys.Tag value
 
 let OnCreated (f: Picker -> unit) = createProp Keys.Created f
 let Unfocused (value: FocusEventArgs -> unit) = createProp Keys.Unfocused value
@@ -121,7 +122,8 @@ let inline picker (props: IPickerProp list) : ViewElement =
         ?automationId = find Keys.AutomationId,
         ?created = find Keys.Created,
         ?ref = find Keys.Ref,
-        ?unfocused = find Keys.Unfocused
+        ?unfocused = find Keys.Unfocused,
+        ?tag = find Keys.Tag
     )
     |> fun element -> Util.applyGridSettings element attributes
     |> fun element -> Util.applyFlexLayoutSettings element attributes

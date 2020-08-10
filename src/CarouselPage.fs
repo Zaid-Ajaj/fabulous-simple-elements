@@ -66,6 +66,7 @@ let InputTransparent (condition: bool) = createProp Keys.InputTransparent condit
 let OnCreated (f: NavigationPage -> unit) = createProp Keys.Created f
 let IsTabStop (tabStop: bool) = createProp Keys.IsTabStop tabStop
 let TabIndex (tabIndex: int) = createProp Keys.TabIndex tabIndex
+let Tag (value: obj) = createProp Keys.Tag value
 
 let OnFocused (focused: FocusEventArgs -> unit) = createProp Keys.Focused focused
 let OnUnfocused (unfocused: FocusEventArgs -> unit) = createProp Keys.Unfocused unfocused
@@ -118,5 +119,6 @@ let inline carouselPage (props: ICarouselPageProp list) =
         ?scaleY = find Keys.ScaleY,
         ?isTabStop = find Keys.IsTabStop,
         ?focused = find Keys.Focused,
-        ?unfocused = find Keys.Unfocused
+        ?unfocused = find Keys.Unfocused,
+        ?tag = find Keys.Tag
         )

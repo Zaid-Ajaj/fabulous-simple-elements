@@ -30,6 +30,7 @@ let ClassId (id: string) = createProp Keys.ClassId id
 let AutomationId (id: string) = createProp Keys.AutomationId id
 let Created (handler: Span -> unit) = createProp Keys.Created handler
 let Ref (ref: ViewRef<Span>) = createProp Keys.Ref ref
+let Tag (value: obj) = createProp Keys.Tag value
 
 let inline span (props: ISpanProp list) =
     let attributes =
@@ -53,4 +54,5 @@ let inline span (props: ISpanProp list) =
         ?automationId = find Keys.AutomationId,
         ?created = find Keys.Created,
         ?ref = find Keys.Ref,
-        ?gestureRecognizers = find Keys.GestureRecognizers)
+        ?gestureRecognizers = find Keys.GestureRecognizers,
+        ?tag = find Keys.Tag)

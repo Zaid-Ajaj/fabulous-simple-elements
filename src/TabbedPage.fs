@@ -65,6 +65,7 @@ let InputTransparent (condition: bool) = createProp Keys.InputTransparent condit
 let OnCreated (f: NavigationPage -> unit) = createProp Keys.Created f
 let IsTabStop (tabStop: bool) = createProp Keys.IsTabStop tabStop
 let TabIndex (tabIndex: int) = createProp Keys.TabIndex tabIndex
+let Tag (value: obj) = createProp Keys.Tag value
 
 let OnFocused (focused: FocusEventArgs -> unit) = createProp Keys.Focused focused
 let OnUnfocused (unfocused: FocusEventArgs -> unit) = createProp Keys.Unfocused unfocused
@@ -120,4 +121,5 @@ let inline tabbedPage (props: ITabbedPageProp list) =
         ?tabIndex=find Keys.TabIndex,
         ?focused=find Keys.Focused,
         ?unfocused=find Keys.Unfocused,
-        ?ref=find Keys.Ref)
+        ?ref=find Keys.Ref,
+        ?tag = find Keys.Tag)

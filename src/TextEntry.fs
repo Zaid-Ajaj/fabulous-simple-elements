@@ -80,6 +80,7 @@ let HeightConstraint (value: Constraint) = createProp Keys.HeightConstraint valu
 let XConstraint (value: Constraint) = createProp Keys.XConstraint value 
 let YConstraint (value: Constraint) = createProp Keys.YConstraint value
 let Unfocused (value: FocusEventArgs -> unit) = createProp Keys.Unfocused value
+let Tag (value: obj) = createProp Keys.Tag value
 
 let inline textEntry (props: ITextEntryProp list) : ViewElement = 
     let attributes = 
@@ -130,7 +131,8 @@ let inline textEntry (props: ITextEntryProp list) : ViewElement =
         ?inputTransparent = find Keys.InputTransparent,
         ?horizontalOptions = find Keys.HorizontalLayout,
         ?verticalTextAlignment = find Keys.VerticalTextAlignment,
-        ?unfocused = find Keys.Unfocused
+        ?unfocused = find Keys.Unfocused,
+        ?tag = find Keys.Tag
     )
     |> fun element -> Util.applyGridSettings element attributes
     |> fun element -> Util.applyFlexLayoutSettings element attributes

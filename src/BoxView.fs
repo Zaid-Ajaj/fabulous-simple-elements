@@ -72,6 +72,7 @@ let Ref(ref: ViewRef<BoxView> -> unit) = createProp Keys.Ref ref
 
 let HorizontalLayout (options: LayoutOptions) = createProp Keys.HorizontalLayout options
 let VerticalLayout (options: LayoutOptions) = createProp Keys.VerticalLayout options 
+let Tag (value: obj) = createProp Keys.Tag value
 
 let inline boxView (props: IBoxViewProp list) = 
     let attributes = 
@@ -113,4 +114,5 @@ let inline boxView (props: IBoxViewProp list) =
         ?minimumWidth = find Keys.MinimumWidth,
         ?backgroundColor = find Keys.BackgroundColor,
         ?inputTransparent = find Keys.InputTransparent,
-        ?tabIndex = find Keys.TabIndex)
+        ?tabIndex = find Keys.TabIndex,
+        ?tag = find Keys.Tag)

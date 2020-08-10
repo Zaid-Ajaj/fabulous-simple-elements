@@ -74,6 +74,7 @@ let Shrink (value: single) = createProp Keys.Shrink value
 let AlignSelf (value: FlexAlignSelf) = createProp Keys.AlignSelf value
 let FlexLayoutDirection (value: FlexDirection) = createProp Keys.FlexLayoutDirection value
 let Basis (value: FlexBasis) = createProp Keys.Basis value
+let Tag (value: obj) = createProp Keys.Tag value
 
 let inline image (props: IImageProp list) =
     let attributes = 
@@ -119,7 +120,8 @@ let inline image (props: IImageProp list) =
         ?tabIndex=find Keys.TabIndex,
         ?focused=find Keys.Focused,
         ?unfocused=find Keys.Unfocused,
-        ?created=find Keys.Created) 
+        ?created=find Keys.Created,
+        ?tag = find Keys.Tag) 
     |> fun element -> Util.applyGridSettings element attributes 
     |> fun element -> Util.applyFlexLayoutSettings element attributes
     |> fun element -> Util.applyAbsoluteLayoutSettings element attributes

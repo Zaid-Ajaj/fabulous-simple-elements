@@ -62,6 +62,7 @@ let HasBackButton (condition: bool) = createProp Keys.HasBackButton condition
 let HasNavigationBar (condition: bool) = createProp Keys.HasNavigationBar condition 
 let OnCreated (f: ContentPage -> unit) = createProp Keys.Created f
 let ShellSearchHandler (value: ViewElement) = createProp Keys.ShellSearchHandler value
+let Tag (value: obj) = createProp Keys.Tag value
 
 let inline contentPage (props: IContentPageProp list) : ViewElement =
     let attributes = 
@@ -108,7 +109,8 @@ let inline contentPage (props: IContentPageProp list) : ViewElement =
             ?minimumWidth = find Keys.MinimumWidth,
             ?backgroundColor = find Keys.BackgroundColor,
             ?inputTransparent = find Keys.InputTransparent,
-            ?shellSearchHandler = find Keys.ShellSearchHandler)
+            ?shellSearchHandler = find Keys.ShellSearchHandler,
+            ?tag = find Keys.Tag)
 
     [ Keys.HasBackButton, Util.tryFind<bool> Keys.HasBackButton attributes
       Keys.HasNavigationBar, Util.tryFind<bool> Keys.HasNavigationBar attributes ]
