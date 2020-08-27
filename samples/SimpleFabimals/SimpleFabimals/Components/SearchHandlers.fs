@@ -30,7 +30,7 @@ module SearchHandlers =
                         Grid.Columns [Stars 0.15; Stars 0.85]
                         Grid.Children [
                             Image.image [
-                                Image.Source <| Image.ImagePath animal.ImageUrl
+                                Image.Source <| Image.fromPath animal.ImageUrl
                                 Image.Aspect Aspect.AspectFill
                                 Image.Height 40.
                                 Image.Width 40.

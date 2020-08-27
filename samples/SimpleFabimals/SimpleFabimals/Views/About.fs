@@ -64,14 +64,14 @@ module About =
                                         //StackLayout.FlexGrow 1. //throwing invalid cast exception
                                         StackLayout.Children [
                                             Label.label [
-                                                Label.FontSize <| FontSize 22.
+                                                Label.FontSize <| FontSize.fromValue 22.
                                                 Label.FormattedText <|
                                                     FormattedString.formattedString [
                                                         FormattedString.Spans [
                                                             Span.span [
                                                                 Span.Text "Fabulous Animals - Simple Elements"
                                                                 Span.FontAttributes FontAttributes.Bold
-                                                                Span.FontSize <| FontSize 22.
+                                                                Span.FontSize <| FontSize.fromValue 22.
                                                             ]
                                                             Span.span [
                                                                 Span.Text " "

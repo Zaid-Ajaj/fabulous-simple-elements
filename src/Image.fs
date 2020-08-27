@@ -15,7 +15,7 @@ let internal createProp name value =
         member x.name = name 
         member x.value = value }
 
-let Source (src: InputTypes.Image) = createProp Keys.Source src
+let Source (src: InputTypes.Image.Value) = createProp Keys.Source src
 let Aspect (aspect: Aspect) = createProp Keys.Aspect aspect
 let IsOpaque (cond: bool) = createProp Keys.IsOpaque cond
 let HorizontalLayout (options: LayoutOptions) = createProp Keys.HorizontalLayout (box options)

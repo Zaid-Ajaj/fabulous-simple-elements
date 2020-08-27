@@ -16,7 +16,7 @@ let createProp name value =
 
 let FontFamily (fontFamily: string) = createProp Keys.FontFamily fontFamily
 let FontAttributes (attributes: FontAttributes) = createProp Keys.FontAttributes attributes
-let FontSize (size: FontSize) = createProp Keys.FontSize size
+let FontSize (size: FontSize.Value) = createProp Keys.FontSize size
 let Text (text: string) = createProp Keys.Text text
 let BackgroundColor (color: Color) = createProp Keys.BackgroundColor color
 let ForegroundColor (color: Color) = createProp Keys.Foreground color

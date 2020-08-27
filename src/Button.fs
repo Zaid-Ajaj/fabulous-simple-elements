@@ -36,7 +36,7 @@ let MarginTop (value: double) = createProp Keys.MarginTop value
 let MarginBottom (value: double) = createProp Keys.MarginBottom value
 let MarginThickness (thickness: Thickness) = createProp Keys.Margin thickness
 
-let FontSize (size: FontSize) = createProp Keys.FontSize size
+let FontSize (size: FontSize.Value) = createProp Keys.FontSize size
 
 let IsEnabled (condition: bool) = createProp Keys.IsEnabled condition
 let IsVisible (condition: bool) = createProp Keys.IsVisible condition
