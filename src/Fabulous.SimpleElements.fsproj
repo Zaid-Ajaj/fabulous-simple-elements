@@ -62,7 +62,7 @@
         <Compile Include="CollectionView.fs" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Fabulous" Version="0.56.0" />
-        <PackageReference Include="Fabulous.XamarinForms" Version="0.56.0" />
+        <PackageReference Include="Fabulous" Version="0.57.0" />
+        <PackageReference Include="Fabulous.XamarinForms" Version="0.57.0" />
     </ItemGroup>
 </Project>

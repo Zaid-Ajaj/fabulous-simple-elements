@@ -20,7 +20,7 @@ let Text (text: string) = createProp Keys.Text text
 let LineBreakMode (mode: LineBreakMode) = createProp Keys.LineBreakMode mode
 
 let TextColor (color: Color) = createProp Keys.TextColor color 
-let FontSize (size: FontSize) = createProp Keys.FontSize size 
+let FontSize (size: FontSize.Value) = createProp Keys.FontSize size 
 let FontAttributes (attributes: FontAttributes) = createProp Keys.FontAttributes attributes
 let FontFamily (fontFamily: string) = createProp Keys.FontFamily fontFamily
 // === Label Specific ===

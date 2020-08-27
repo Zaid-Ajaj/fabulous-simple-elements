@@ -136,7 +136,7 @@ module App =
                             Grid.Children [
                                 Image.image [
                                     Image.Aspect Aspect.AspectFill
-                                    Image.Source <| Image.ImagePath "xamarinstore.jpg"
+                                    Image.Source <| Image.fromPath "xamarinstore.jpg"
                                     Image.Opacity 0.6
                                 ]
                                 Label.label [
@@ -153,24 +153,24 @@ module App =
                 FlyoutItem.flyoutItem [
                     FlyoutItem.Title "Animals"
                     FlyoutItem.Route "animals"
-                    FlyoutItem.Icon <| Image.ImagePath "cat.png"
+                    FlyoutItem.Icon <| Image.fromPath "cat.png"
                     FlyoutItem.FlyoutDisplayOptions FlyoutDisplayOptions.AsMultipleItems
                     FlyoutItem.Items [
                         Tab.tab [
                             Tab.Title "Domestic"
                             Tab.Route "domestic"
-                            Tab.Icon <| Image.ImagePath "paw.png"
+                            Tab.Icon <| Image.fromPath "paw.png"
                             Tab.Items [
                                 ShellContent.shellContent [
                                     ShellContent.Title "Cats"
                                     ShellContent.Route "cats"
-                                    ShellContent.Icon <| Image.ImagePath "cat.png"
+                                    ShellContent.Icon <| Image.fromPath "cat.png"
                                     ShellContent.Content (Cats.view model.CatsPageModel (CatsPageMsg >> dispatch))
                                 ]
                                 ShellContent.shellContent [
                                     ShellContent.Title "Dogs"
                                     ShellContent.Route "dogs"
-                                    ShellContent.Icon <| Image.ImagePath "dog.png"
+                                    ShellContent.Icon <| Image.fromPath "dog.png"
                                     ShellContent.Content (Dogs.view model.DogsPageModel (DogsPageMsg >> dispatch))
                                 ]
                             ]
@@ -178,19 +178,19 @@ module App =
                         ShellContent.shellContent [
                             ShellContent.Title "Monkeys"
                             ShellContent.Route "monkeys"
-                            ShellContent.Icon <| Image.ImagePath "monkey.png"
+                            ShellContent.Icon <| Image.fromPath "monkey.png"
                             ShellContent.Content (Monkeys.view model.MonkeysPageModel (MonkeysPageMsg >> dispatch))
                         ] |> AppStyles.applyMonkeysItemStyle
                         ShellContent.shellContent [
                             ShellContent.Title "Elephants"
                             ShellContent.Route "elephants"
-                            ShellContent.Icon <| Image.ImagePath "elephant.png"
+                            ShellContent.Icon <| Image.fromPath "elephant.png"
                             ShellContent.Content (Elephants.view model.ElephantsPageModel (ElephantsPageMsg >> dispatch))
                         ] |> AppStyles.applyElephantsItemStyle
                         ShellContent.shellContent [
                             ShellContent.Title "Bears"
                             ShellContent.Route "bears"
-                            ShellContent.Icon <| Image.ImagePath "bear.png"
+                            ShellContent.Icon <| Image.fromPath "bear.png"
                             ShellContent.Content (Bears.view model.BearsPageModel (BearsPageMsg >> dispatch))
                         ] |> AppStyles.applyBearsItemStyle
                     ]
@@ -198,12 +198,12 @@ module App =
                 ShellContent.shellContent [
                     ShellContent.Title "About"
                     ShellContent.Route "about"
-                    ShellContent.Icon <| Image.ImagePath "info.png"
+                    ShellContent.Icon <| Image.fromPath "info.png"
                     ShellContent.Content (About.view (AboutPageMsg >> dispatch))
                 ] |> AppStyles.applyAboutItemStyle
                 MenuItem.menuItem [
                     MenuItem.Text "Random"
-                    MenuItem.Icon <| Image.ImagePath "random.png"
+                    MenuItem.Icon <| Image.fromPath "random.png"
                     MenuItem.Command <|
                         fun () ->
                             let random = Random()
@@ -214,7 +214,7 @@ module App =
                 ]
                 MenuItem.menuItem [
                     MenuItem.Text "Help"
-                    MenuItem.Icon <| Image.ImagePath "help.png"
+                    MenuItem.Icon <| Image.fromPath "help.png"
                     MenuItem.Command (fun () -> dispatch ShowHelp)
                 ]
             ]
