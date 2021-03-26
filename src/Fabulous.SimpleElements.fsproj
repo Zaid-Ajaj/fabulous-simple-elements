@@ -8,7 +8,7 @@
         <PackageIconUrl></PackageIconUrl>
         <PackageTags>fsharp;xamarin;forms;view;dsl;elmish</PackageTags>
         <Authors>Zaid Ajaj</Authors>
-        <Version>0.46.0</Version>
+        <Version>0.61.0</Version>
         <TargetFramework>netstandard2.0</TargetFramework>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>
@@ -38,7 +38,7 @@
         <Compile Include="TabbedPage.fs" />
         <Compile Include="AbsoluteLayout.fs" />
         <Compile Include="RelativeLayout.fs" />
-        <Compile Include="MasterDetailPage.fs" />
+        <Compile Include="FlyoutPage.fs" />
         <Compile Include="CarouselPage.fs" />
         <Compile Include="Span.fs" />
         <Compile Include="TapGestureRecognizer.fs" />
@@ -62,7 +62,7 @@
         <Compile Include="CollectionView.fs" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Fabulous" Version="0.57.0" />
-        <PackageReference Include="Fabulous.XamarinForms" Version="0.57.0" />
+        <PackageReference Include="Fabulous" Version="0.61.0" />
+        <PackageReference Include="Fabulous.XamarinForms" Version="0.61.0" />
     </ItemGroup>
 </Project>
