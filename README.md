@@ -1,6 +1,8 @@
 # Fabulous.SimpleElements [![Nuget](https://img.shields.io/nuget/v/Fabulous.SimpleElements.svg?colorB=green)](https://www.nuget.org/packages/Fabulous.SimpleElements)   [![Build Status](https://travis-ci.org/Zaid-Ajaj/fabulous-simple-elements.svg?branch=master)](https://travis-ci.org/Zaid-Ajaj/fabulous-simple-elements)
 
 
+# ARCHIVED: Latest API from [Fabulous v2+](https://github.com/fsprojects/Fabulous) makes this obsolete!
+
 An alternative view rendering API for [Fabulous](https://github.com/fsprojects/Fabulous) that is easy to use and simple to read, inspired by Elmish on the web. 
 
 ### Install from Nuget
